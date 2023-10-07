@@ -10,6 +10,7 @@ import UseCallback from './demo/UseCallback';
 import useTitle from './hooks/useTitle';
 import useMouse from './hooks/useMouse';
 import useGetInfo from './hooks/useGetInfo';
+import ClosureTrap from './demo/ClosureTrap';
 
 function App() {
     const count = useState();
@@ -17,7 +18,7 @@ function App() {
     // useTitle('app');
 
     // const { x, y } = useMouse();
-    const { loading, info } = useGetInfo();
+    // const { loading, info } = useGetInfo();
 
     return (
         <div className='App'>
@@ -27,7 +28,8 @@ function App() {
             {/* <UseMemo /> */}
             {/* <UseCallback /> */}
             {/* {x},{y} */}
-            {loading ? '加载中...' : info}
+            {/* {loading ? '加载中...' : info} */}
+            <ClosureTrap />
         </div>
     );
 }
