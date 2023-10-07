@@ -8,11 +8,14 @@ import UseRefFC from './demo/UseRef';
 import UseMemo from './demo/UseMemo.demo';
 import UseCallback from './demo/UseCallback';
 import useTitle from './hooks/useTitle';
+import useMouse from './hooks/useMouse';
 
 function App() {
     const count = useState();
 
-    useTitle('app');
+    // useTitle('app');
+
+    const { x, y } = useMouse();
 
     return (
         <div className='App'>
@@ -20,7 +23,8 @@ function App() {
             {/* <Count init={100} /> */}
             {/* <UseRefFC /> */}
             {/* <UseMemo /> */}
-            <UseCallback />
+            {/* <UseCallback /> */}
+            {x},{y}
         </div>
     );
 }
