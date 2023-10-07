@@ -9,13 +9,15 @@ import UseMemo from './demo/UseMemo.demo';
 import UseCallback from './demo/UseCallback';
 import useTitle from './hooks/useTitle';
 import useMouse from './hooks/useMouse';
+import useGetInfo from './hooks/useGetInfo';
 
 function App() {
     const count = useState();
 
     // useTitle('app');
 
-    const { x, y } = useMouse();
+    // const { x, y } = useMouse();
+    const { loading, info } = useGetInfo();
 
     return (
         <div className='App'>
@@ -24,7 +26,8 @@ function App() {
             {/* <UseRefFC /> */}
             {/* <UseMemo /> */}
             {/* <UseCallback /> */}
-            {x},{y}
+            {/* {x},{y} */}
+            {loading ? '加载中...' : info}
         </div>
     );
 }
