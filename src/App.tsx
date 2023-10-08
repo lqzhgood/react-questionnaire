@@ -12,6 +12,7 @@ import useMouse from './hooks/useMouse';
 import useGetInfo from './hooks/useGetInfo';
 import ClosureTrap from './demo/ClosureTrap';
 import ClassnamesFC from './demo/ClassnamesFC';
+import StyledComponents from './demo/StyledComponents';
 
 function App() {
     const count = useState();
@@ -31,7 +32,8 @@ function App() {
             {/* {x},{y} */}
             {/* {loading ? '加载中...' : info} */}
             {/* <ClosureTrap /> */}
-            <ClassnamesFC />
+            {/* <ClassnamesFC /> */}
+            <StyledComponents />
         </div>
     );
 }
