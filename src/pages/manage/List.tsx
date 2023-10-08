@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import styles from './List.module.sass';
 import QuestionCard from '../../components/QuestionCard';
 import { useSearchParams } from 'react-router-dom';
+import { useTitle } from 'ahooks';
 
 const List = () => {
+    useTitle('我的问卷 - 问卷');
+
     const [questionList, setQuestionList] = useState([
         { _id: 'q1', title: '问卷1', isPublished: false, isStar: false, answerCount: 2, createdAt: '3月10日 13:23' },
         { _id: 'q2', title: '问卷2', isPublished: false, isStar: false, answerCount: 3, createdAt: '3月11日 13:23' },
