@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './List.module.sass';
-import QuestionCard from '../components/QuestionCard';
+import QuestionCard from '../../components/QuestionCard';
 
 const List = () => {
     const [questionList, setQuestionList] = useState([
