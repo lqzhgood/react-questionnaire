@@ -13,6 +13,10 @@ import QuestionLayout from '../layouts/QuestionLayout';
 import Edit from '../pages/question/Edit';
 import Stat from '../pages/question/Stat';
 
+export const HOME_PATHNAME = '/';
+export const LOGIN_PATHNAME = '/login';
+export const REGISTER_PATHNAME = '/register';
+
 export const manageRouter = {
     path: 'manage',
     element: <ManageLayout />,
