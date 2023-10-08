@@ -1,20 +1,25 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Typography } from 'antd';
+import { MANAGER_INDEX_PATHNAME } from '../routers';
+
+const { Title, Paragraph } = Typography;
+
+import styles from './Home.module.sass';
 
 const Home = () => {
     const nav = useNavigate();
-    function clickHandler() {
-        nav('/login');
-    }
 
     return (
-        <div>
-            <p>Home</p>
-            <Button type='primary'>Button</Button>
-            <div>
-                <button onClick={clickHandler}>登录</button>
-                <Link to='/register'>注册</Link>
+        <div className={styles.container}>
+            <div className={styles.info}>
+                <Title>问卷调查 | 在线投票</Title>
+                <Paragraph>已累计创建问卷 100 份，发布问卷 90 份，收到答卷 980 份</Paragraph>
+                <div>
+                    <Button type='primary' onClick={() => nav(MANAGER_INDEX_PATHNAME)}>
+                        开始使用
+                    </Button>
+                </div>
             </div>
         </div>
     );

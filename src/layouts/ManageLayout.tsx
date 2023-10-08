@@ -23,12 +23,13 @@ const ManageLayout = () => {
                         创建问卷
                     </Button>
                     <Divider style={{ borderTop: 'transparent' }} />
-
-                    {manageRouter.children.map(r => (
-                        <Button size='large' type={`/${manageRouter.path}/${r.path}` === pathname ? 'default' : 'text'} icon={(iconMap as any)[r.path]} onClick={() => nav(r.path)} key={r.path}>
-                            {r.name}
-                        </Button>
-                    ))}
+                    {manageRouter.children
+                        .filter(r => r.path)
+                        .map((r, i) => (
+                            <Button size='large' type={`/${manageRouter.path}/${r.path}` === pathname ? 'default' : 'text'} icon={(iconMap as any)[r.path]} onClick={() => nav(r.path)} key={r.path}>
+                                {r.name}
+                            </Button>
+                        ))}
                 </Space>
             </div>
             <div className={styles.right}>

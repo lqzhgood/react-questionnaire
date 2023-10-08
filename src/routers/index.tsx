@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import { RouteObject, createBrowserRouter } from 'react-router-dom';
+import { Navigate, RouteObject, createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -16,11 +16,16 @@ import Stat from '../pages/question/Stat';
 export const HOME_PATHNAME = '/';
 export const LOGIN_PATHNAME = '/login';
 export const REGISTER_PATHNAME = '/register';
+export const MANAGER_INDEX_PATHNAME = '/manage';
 
 export const manageRouter = {
     path: 'manage',
     element: <ManageLayout />,
     children: [
+        {
+            path: '',
+            element: <Navigate to='list' replace />,
+        },
         {
             name: '我的问卷',
             path: 'list',
