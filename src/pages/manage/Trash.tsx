@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-    a: string;
+    //;
 };
 
 const Trash = (props: Props) => {
