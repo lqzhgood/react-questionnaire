@@ -1,19 +1,22 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { Layout } from 'antd';
+const { Header, Content, Footer } = Layout;
 
-type Props = {
-    //;
-};
+import styles from './MainLayout.module.sass';
 
-const MainLayout = (props: Props) => {
+const MainLayout = () => {
     return (
-        <>
-            <div>Main layout header</div>
-            <div>
+        <Layout>
+            <Header className={styles.header}>
+                <div className={styles.left}>Logo</div>
+                <div className={styles.right}>登录</div>
+            </Header>
+            <Content className={styles.main}>
                 <Outlet />
-            </div>
-            <div>Main layout footer</div>
-        </>
+            </Content>
+            <Footer className={styles.footer}>问卷 &copy; {new Date().getFullYear()}</Footer>
+        </Layout>
     );
 };
 

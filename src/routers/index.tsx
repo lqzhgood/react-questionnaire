@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -13,7 +13,29 @@ import QuestionLayout from '../layouts/QuestionLayout';
 import Edit from '../pages/question/Edit';
 import Stat from '../pages/question/Stat';
 
-const router = createBrowserRouter([
+export const manageRouter = {
+    path: 'manage',
+    element: <ManageLayout />,
+    children: [
+        {
+            name: '我的问卷',
+            path: 'list',
+            element: <List />,
+        },
+        {
+            name: '星标问卷',
+            path: 'star',
+            element: <Star />,
+        },
+        {
+            name: '回收站',
+            path: 'trash',
+            element: <Trash />,
+        },
+    ],
+};
+
+export const routers = [
     {
         path: '/',
         element: <MainLayout />,
@@ -30,25 +52,7 @@ const router = createBrowserRouter([
                 path: 'register',
                 element: <Register />,
             },
-            {
-                path: 'manage',
-                element: <ManageLayout />,
-                children: [
-                    {
-                        path: 'list',
-                        element: <List />,
-                    },
-                    {
-                        path: 'star',
-                        element: <Star />,
-                    },
-                    {
-                        path: 'trash',
-                        element: <Trash />,
-                    },
-                ],
-            },
-
+            ...[manageRouter],
             {
                 path: '*',
                 element: <NotFound />,
@@ -69,6 +73,8 @@ const router = createBrowserRouter([
             },
         ],
     },
-]);
+] as RouteObject[];
+
+const router = createBrowserRouter(routers);
 
 export default router;
