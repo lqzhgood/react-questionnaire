@@ -11,6 +11,7 @@ import useTitle from './hooks/useTitle';
 import useMouse from './hooks/useMouse';
 import useGetInfo from './hooks/useGetInfo';
 import ClosureTrap from './demo/ClosureTrap';
+import ClassnamesFC from './demo/ClassnamesFC';
 
 function App() {
     const count = useState();
@@ -29,7 +30,8 @@ function App() {
             {/* <UseCallback /> */}
             {/* {x},{y} */}
             {/* {loading ? '加载中...' : info} */}
-            <ClosureTrap />
+            {/* <ClosureTrap /> */}
+            <ClassnamesFC />
         </div>
     );
 }
