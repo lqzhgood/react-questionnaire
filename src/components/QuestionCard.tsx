@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './QuestionCard.module.sass';
-console.log('styles', styles);
+
 type PropsType = {
     _id: string;
     title: string;

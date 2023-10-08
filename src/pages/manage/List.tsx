@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './List.module.sass';
 import QuestionCard from '../../components/QuestionCard';
+import { useSearchParams } from 'react-router-dom';
 
 const List = () => {
     const [questionList, setQuestionList] = useState([
@@ -10,8 +11,12 @@ const List = () => {
         { _id: 'q4', title: '问卷4', isPublished: true, isStar: false, answerCount: 7, createdAt: '4月1日 13:23' },
     ]);
 
+    const [searchParams] = useSearchParams();
+
     return (
         <>
+            {searchParams.get('keyword')}
+
             <div className={styles.header}>
                 <div className={styles.left}>
                     <h3>我的问卷</h3>
