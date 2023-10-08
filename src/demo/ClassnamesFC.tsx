@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 import './ClassnamesFC.css';
-import style from './ClassnamesFC.module.css';
+import style from './ClassnamesFC.module.sass';
 
 const classnamesFC = () => {
     const [push, setPush] = useState(false);
