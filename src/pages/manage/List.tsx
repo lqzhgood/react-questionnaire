@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import styles from './List.module.sass';
 import QuestionCard from '../../components/QuestionCard';
 import { useSearchParams } from 'react-router-dom';
 import { useTitle } from 'ahooks';
+import styles from './common.module.sass';
+import Title from 'antd/es/typography/Title';
+import { WEB_NAME } from '../../const/web';
 
 const List = () => {
-    useTitle('我的问卷 - 问卷');
+    useTitle(`我的问卷 - ${WEB_NAME}`);
 
     const [questionList, setQuestionList] = useState([
         { _id: 'q1', title: '问卷1', isPublished: false, isStar: false, answerCount: 2, createdAt: '3月10日 13:23' },
@@ -22,18 +24,19 @@ const List = () => {
 
             <div className={styles.header}>
                 <div className={styles.left}>
-                    <h3>我的问卷</h3>
+                    <Title level={3}>我的问卷</Title>
                 </div>
                 <div className={styles.right}>(搜索)</div>
             </div>
             <div className={styles.content}>
-                {questionList.map(q => {
-                    const { _id } = q;
+                {questionList.length > 0 &&
+                    questionList.map(q => {
+                        const { _id } = q;
 
-                    return <QuestionCard key={_id} {...q} />;
-                })}
+                        return <QuestionCard key={_id} {...q} />;
+                    })}
             </div>
-            <div className={styles.footer}>footer</div>
+            <div className={styles.footer}>加载更多...</div>
         </>
     );
 };

@@ -6,6 +6,7 @@ const { Header, Content, Footer } = Layout;
 import styles from './MainLayout.module.sass';
 import Logo from '../components/Logo';
 import UserInfo from '../components/UserInfo';
+import { WEB_NAME } from '../const/web';
 
 const MainLayout = () => {
     return (
@@ -21,7 +22,9 @@ const MainLayout = () => {
             <Content className={styles.main}>
                 <Outlet />
             </Content>
-            <Footer className={styles.footer}>问卷 &copy; {new Date().getFullYear()}</Footer>
+            <Footer className={styles.footer}>
+                {WEB_NAME} &copy; {new Date().getFullYear()}
+            </Footer>
         </Layout>
     );
 };

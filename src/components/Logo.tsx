@@ -4,6 +4,7 @@ import { Space, Typography } from 'antd';
 import styles from './Logo.module.sass';
 import { Link } from 'react-router-dom';
 import { HOME_PATHNAME } from '../routers';
+import { WEB_NAME } from '../const/web';
 
 const { Title } = Typography;
 
@@ -18,7 +19,7 @@ const Logo = (props: Props) => {
                 <Title>
                     <FormOutlined></FormOutlined>
                 </Title>
-                <Title className={styles.title}>问卷</Title>
+                <Title className={styles.title}>{WEB_NAME}</Title>
             </Space>
         </Link>
     );
