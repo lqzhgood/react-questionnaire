@@ -28,7 +28,16 @@ const ListSearch = (props: Props) => {
         setValue(currV);
     }, [searchParams]);
 
-    return <Search placeholder='输入关键词' allowClear value={value} onChange={e => setValue(e.target.value)} onSearch={handleSearch} style={{ width: '260px' }} />;
+    return (
+        <Search
+            placeholder='输入关键词'
+            allowClear
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            onSearch={handleSearch}
+            style={{ width: '260px' }}
+        />
+    );
 };
 
 export default ListSearch;

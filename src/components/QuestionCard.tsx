@@ -2,7 +2,15 @@ import React from 'react';
 
 import styles from './QuestionCard.module.sass';
 import { Button, Divider, Modal, Popconfirm, Space, Tag, message } from 'antd';
-import { CopyOutlined, DeleteOutlined, EditOutlined, ExclamationCircleOutlined, ExclamationOutlined, LineChartOutlined, StarOutlined } from '@ant-design/icons';
+import {
+    CopyOutlined,
+    DeleteOutlined,
+    EditOutlined,
+    ExclamationCircleOutlined,
+    ExclamationOutlined,
+    LineChartOutlined,
+    StarOutlined,
+} from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 
 type PropsType = {
@@ -56,10 +64,21 @@ const QuestionCard = (props: PropsType) => {
             <div className={styles['button-container']}>
                 <div className={styles.left}>
                     <Space>
-                        <Button type='text' size='small' icon={<EditOutlined />} onClick={() => nav(`/question/edit/${_id}`)}>
+                        <Button
+                            type='text'
+                            size='small'
+                            icon={<EditOutlined />}
+                            onClick={() => nav(`/question/edit/${_id}`)}
+                        >
                             编辑问卷
                         </Button>
-                        <Button type='text' size='small' icon={<LineChartOutlined />} onClick={() => nav(`/question/stat/${_id}`)} disabled={!isPublished}>
+                        <Button
+                            type='text'
+                            size='small'
+                            icon={<LineChartOutlined />}
+                            onClick={() => nav(`/question/stat/${_id}`)}
+                            disabled={!isPublished}
+                        >
                             数据统计
                         </Button>
                     </Space>

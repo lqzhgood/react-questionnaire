@@ -16,7 +16,11 @@ export type ResData = {
 };
 
 interface AxiosInterceptorManager<V> {
-    use<T = V>(onFulfilled?: (value: V) => T | Promise<T>, onRejected?: (error: any) => any, options?: AxiosInterceptorOptions): number;
+    use<T = V>(
+        onFulfilled?: (value: V) => T | Promise<T>,
+        onRejected?: (error: any) => any,
+        options?: AxiosInterceptorOptions,
+    ): number;
     eject(id: number): void;
     clear(): void;
 }
@@ -26,7 +30,7 @@ interface AxiosInterceptorManager<V> {
     const { code, msg, data } = resData;
     if (code != 200) {
         message.error(`错误 ${code} ${msg}`);
-        // throw new Error(msg);
+        throw new Error(msg);
     }
 
     return data;

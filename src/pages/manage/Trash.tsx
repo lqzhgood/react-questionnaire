@@ -89,7 +89,9 @@ const Trash = () => {
                     <ListSearch />
                 </div>
             </div>
-            <div className={styles.content}>{questionList.length > 0 ? TableJsx : <Empty description='暂无数据' />}</div>
+            <div className={styles.content}>
+                {questionList.length > 0 ? TableJsx : <Empty description='暂无数据' />}
+            </div>
             <div className={styles.footer}>分页</div>
         </>
     );

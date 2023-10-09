@@ -34,7 +34,13 @@ const Login = () => {
                 </Title>
             </div>
             <div>
-                <Form labelCol={{ span: 6 }} wrapperCol={{ span: 18 }} onFinish={onFinish} initialValues={{ remember: true }} form={form}>
+                <Form
+                    labelCol={{ span: 6 }}
+                    wrapperCol={{ span: 18 }}
+                    onFinish={onFinish}
+                    initialValues={{ remember: true }}
+                    form={form}
+                >
                     <Form.Item
                         label='用户名'
                         name='username'
