@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getQuestionService } from '../../../services/question';
+import useLoadQuestionData from '../../../hooks/useLoadQuestionData';
 
 const Edit = () => {
-    const { id } = useParams();
+    const { loading, questionData } = useLoadQuestionData();
 
-    useEffect(() => {
-        getQuestionService('1').then(d => {
-            console.log('d', d);
-        });
-    });
-
-    return <div>Edit {id}</div>;
+    return (
+        <div>
+            Edit
+            <br /> {loading ? 'loading' : JSON.stringify(questionData)}
+        </div>
+    );
 };
 
 export default Edit;

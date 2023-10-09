@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import QuestionCard from '../../components/QuestionCard';
-import { useSearchParams } from 'react-router-dom';
 import { useTitle } from 'ahooks';
 import styles from './common.module.sass';
 import Title from 'antd/es/typography/Title';
-import { Empty } from 'antd';
+import { Empty, Spin } from 'antd';
 import { WEB_NAME } from '../../const/web';
 import ListSearch from '../../components/ListSearch';
+import useLoadQuestList from '../../hooks/useLoadQuestList';
 
 const Star = () => {
     useTitle(`星标问卷 - ${WEB_NAME}`);
 
-    const [questionList, setQuestionList] = useState([
-        { _id: 'q1', title: '问卷1', isPublished: false, isStar: true, answerCount: 2, createdAt: '3月10日 13:23' },
-        { _id: 'q3', title: '问卷3', isPublished: false, isStar: true, answerCount: 5, createdAt: '3月16日 13:23' },
-    ]);
-
-    const [searchParams] = useSearchParams();
+    const { loading, error, data = { list: [], total: 0 } } = useLoadQuestList({ isStar: true });
+    const { list, total } = data;
 
     return (
         <>
@@ -29,15 +25,15 @@ const Star = () => {
                 </div>
             </div>
             <div className={styles.content}>
-                {questionList.length > 0 ? (
-                    questionList.map(q => {
-                        const { _id } = q;
+                <Spin spinning={loading}>
+                    {list.length > 0 &&
+                        list.map(q => {
+                            const { _id } = q;
 
-                        return <QuestionCard key={_id} {...q} />;
-                    })
-                ) : (
-                    <Empty description='暂无数据' />
-                )}
+                            return <QuestionCard key={_id} {...q} />;
+                        })}
+                    {!loading && list.length === 0 && <Empty description='暂无数据' />}
+                </Spin>
             </div>
             <div className={styles.footer}>分页</div>
         </>

@@ -6,6 +6,7 @@ import { BarsOutlined, DeleteOutlined, PlusOutlined, StarOutlined } from '@ant-d
 
 import { manageRouter } from '../routers/index';
 import { createQuestionService } from '../services/question';
+import { useRequest } from 'ahooks';
 
 const iconMap = {
     list: <BarsOutlined />,
@@ -16,12 +17,17 @@ const ManageLayout = () => {
     const nav = useNavigate();
     const { pathname } = useLocation();
 
-    async function createQuestion() {
-        const data = await createQuestionService<{ id: string }>();
-        const { id } = data;
-        nav(`/question/edit/${id}`);
-        message.success(`创建成功 ${id}`);
-    }
+    const {
+        loading,
+        run: createQuestion,
+        error,
+    } = useRequest(createQuestionService<{ id: string }>, {
+        manual: true,
+        onSuccess({ id }) {
+            nav(`/question/edit/${id}`);
+            message.success(`创建成功 ${id}`);
+        },
+    });
 
     return (
         <div className={styles.container}>

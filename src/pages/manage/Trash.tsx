@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import { useTitle } from 'ahooks';
 import styles from './common.module.sass';
 import Title from 'antd/es/typography/Title';
-import { Button, Empty, Modal, Space, Table, Tag } from 'antd';
+import { Button, Empty, Modal, Space, Spin, Table, Tag } from 'antd';
 import { WEB_NAME } from '../../const/web';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import ListSearch from '../../components/ListSearch';
+import useLoadQuestList from '../../hooks/useLoadQuestList';
 
 const Trash = () => {
     useTitle(`回收站 - ${WEB_NAME}`);
 
     const [selectIds, setSelectIds] = useState<string[]>([]);
-
-    const [questionList, setQuestionList] = useState([
-        { _id: 'q1', title: '问卷1', isPublished: false, isStar: true, answerCount: 2, createdAt: '3月10日 13:23' },
-        { _id: 'q3', title: '问卷3', isPublished: true, isStar: true, answerCount: 5, createdAt: '3月16日 13:23' },
-    ]);
+    const { loading, error, data = { list: [], total: 0 } } = useLoadQuestList({ isDeleted: true });
+    const { list, total } = data;
 
     const tableColumns = [
         {
@@ -66,7 +64,7 @@ const Trash = () => {
                 </Button>
             </Space>
             <Table
-                dataSource={questionList}
+                dataSource={list}
                 columns={tableColumns}
                 pagination={false}
                 rowKey={'_id'}
@@ -90,7 +88,10 @@ const Trash = () => {
                 </div>
             </div>
             <div className={styles.content}>
-                {questionList.length > 0 ? TableJsx : <Empty description='暂无数据' />}
+                <Spin spinning={loading}>
+                    {list.length > 0 && TableJsx}
+                    {!loading && list.length === 0 && <Empty description='暂无数据' />}
+                </Spin>
             </div>
             <div className={styles.footer}>分页</div>
         </>
