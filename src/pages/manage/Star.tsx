@@ -6,6 +6,7 @@ import styles from './common.module.sass';
 import Title from 'antd/es/typography/Title';
 import { Empty } from 'antd';
 import { WEB_NAME } from '../../const/web';
+import ListSearch from '../../components/ListSearch';
 
 const Star = () => {
     useTitle(`星标问卷 - ${WEB_NAME}`);
@@ -19,13 +20,13 @@ const Star = () => {
 
     return (
         <>
-            {searchParams.get('keyword')}
-
             <div className={styles.header}>
                 <div className={styles.left}>
                     <Title level={3}>我的问卷</Title>
                 </div>
-                <div className={styles.right}>(搜索)</div>
+                <div className={styles.right}>
+                    <ListSearch />
+                </div>
             </div>
             <div className={styles.content}>
                 {questionList.length > 0 ? (

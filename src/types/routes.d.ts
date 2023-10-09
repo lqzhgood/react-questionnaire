@@ -1,9 +1,13 @@
-export type RouteProps = RouteObject & {
-    // meta?: {
-    //     auth?: boolean;
-    //     roles?: USER_ROLE_ENUM[];
-    //     unRoles?: USER_ROLE_ENUM[];
-    // };
-    nam?: string;
-    children?: RouteProps[];
-};
+import type { IndexRouteObject, NonIndexRouteObject } from 'react-router-dom';
+
+interface CustomRouteFields {
+    name?: string;
+}
+
+type AppIndexRouteObject = IndexRouteObject & CustomRouteFields;
+type AppNonIndexRouteObject = Omit<NonIndexRouteObject, 'children'> &
+    CustomRouteFields & {
+        children?: (AppIndexRouteObject | AppNonIndexRouteObject)[];
+    };
+
+export type RouteProps = AppIndexRouteObject | AppNonIndexRouteObject;

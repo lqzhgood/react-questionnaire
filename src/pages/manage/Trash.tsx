@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import QuestionCard from '../../components/QuestionCard';
 import { useTitle } from 'ahooks';
 import styles from './common.module.sass';
 import Title from 'antd/es/typography/Title';
 import { Button, Empty, Modal, Space, Table, Tag } from 'antd';
 import { WEB_NAME } from '../../const/web';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import ListSearch from '../../components/ListSearch';
 
 const Trash = () => {
     useTitle(`回收站 - ${WEB_NAME}`);
@@ -85,7 +85,9 @@ const Trash = () => {
                 <div className={styles.left}>
                     <Title level={3}>我的问卷</Title>
                 </div>
-                <div className={styles.right}>(搜索)</div>
+                <div className={styles.right}>
+                    <ListSearch />
+                </div>
             </div>
             <div className={styles.content}>{questionList.length > 0 ? TableJsx : <Empty description='暂无数据' />}</div>
             <div className={styles.footer}>分页</div>

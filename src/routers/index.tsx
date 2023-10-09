@@ -12,14 +12,14 @@ import Trash from '../pages/manage/Trash';
 import QuestionLayout from '../layouts/QuestionLayout';
 import Edit from '../pages/question/Edit';
 import Stat from '../pages/question/Stat';
-import { RouteProps } from '../types/routes';
+import type { RouteProps } from '../types/routes';
 
 export const HOME_PATHNAME = '/';
 export const LOGIN_PATHNAME = '/login';
 export const REGISTER_PATHNAME = '/register';
 export const MANAGER_INDEX_PATHNAME = '/manage';
 
-export const manageRouter: RouteProps = {
+export const manageRouter = {
     path: 'manage',
     element: <ManageLayout />,
     children: [
