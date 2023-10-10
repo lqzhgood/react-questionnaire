@@ -7,6 +7,7 @@ import { WEB_NAME } from '../../const/web';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import ListSearch from '../../components/ListSearch';
 import useLoadQuestList from '../../hooks/useLoadQuestList';
+import ListPage from '../../components/ListPage';
 
 const Trash = () => {
     useTitle(`回收站 - ${WEB_NAME}`);
@@ -93,7 +94,9 @@ const Trash = () => {
                     {!loading && list.length === 0 && <Empty description='暂无数据' />}
                 </Spin>
             </div>
-            <div className={styles.footer}>分页</div>
+            <div className={styles.footer}>
+                <ListPage total={total} />
+            </div>
         </>
     );
 };

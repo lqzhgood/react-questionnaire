@@ -7,6 +7,7 @@ import { Empty, Spin } from 'antd';
 import { WEB_NAME } from '../../const/web';
 import ListSearch from '../../components/ListSearch';
 import useLoadQuestList from '../../hooks/useLoadQuestList';
+import ListPage from '../../components/ListPage';
 
 const Star = () => {
     useTitle(`星标问卷 - ${WEB_NAME}`);
@@ -35,7 +36,9 @@ const Star = () => {
                     {!loading && list.length === 0 && <Empty description='暂无数据' />}
                 </Spin>
             </div>
-            <div className={styles.footer}>分页</div>
+            <div className={styles.footer}>
+                <ListPage total={total} />
+            </div>
         </>
     );
 };
