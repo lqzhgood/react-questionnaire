@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from './QuestionCard.module.sass';
-import { Button, Divider, Modal, Popconfirm, Space, Tag, message } from 'antd';
+import { Button, Divider, Modal, Popconfirm, Space, Spin, Tag, message } from 'antd';
 import {
     CopyOutlined,
     DeleteOutlined,
@@ -12,6 +12,8 @@ import {
     StarOutlined,
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
+import { useRequest } from 'ahooks';
+import { updateQuestionService } from '@/services/question';
 
 type PropsType = {
     _id: string;
@@ -25,6 +27,10 @@ type PropsType = {
 const QuestionCard = (props: PropsType) => {
     const { _id, title, createdAt, answerCount, isPublished, isStar } = props;
     const nav = useNavigate();
+
+    const [loading, setLoading] = useState(false);
+
+    const [data, setData] = useState({ ...props });
 
     function copy() {
         message.success('copy');
@@ -41,65 +47,91 @@ const QuestionCard = (props: PropsType) => {
             },
         });
     }
+
+    const { run: updateOpt } = useRequest(opt => updateQuestionService(_id, opt), {
+        manual: true,
+        onBefore() {
+            setLoading(true);
+        },
+        onSuccess(res, [opt]) {
+            message.success(`更新成功 ${JSON.stringify(opt)}`);
+            setData({ ...data, ...opt });
+        },
+        onFinally() {
+            setLoading(false);
+        },
+    });
+
+    function update(opt: Partial<QuestionData>) {
+        updateOpt(opt);
+    }
+
     return (
-        <div className={styles.container}>
-            <div className={styles.title}>
-                <div className={styles.left}>
-                    <Link to={isPublished ? `/question/stat/${_id}` : `/question/edit/${_id}`}>
+        <Spin spinning={loading}>
+            <div className={styles.container}>
+                <div className={styles.title}>
+                    <div className={styles.left}>
+                        <Link to={isPublished ? `/question/stat/${_id}` : `/question/edit/${_id}`}>
+                            <Space>
+                                {data.isStar && <StarOutlined style={{ color: 'red' }} />}
+                                {title}
+                            </Space>
+                        </Link>
+                    </div>
+                    <div className={styles.right}>
                         <Space>
-                            {isStar && <StarOutlined style={{ color: 'red' }} />}
-                            {title}
+                            {isPublished ? <Tag color='processing'>已发布</Tag> : <Tag>未发布</Tag>}
+                            <Tag>答卷:{answerCount}</Tag>
+                            <Tag>{createdAt}</Tag>
                         </Space>
-                    </Link>
+                    </div>
                 </div>
-                <div className={styles.right}>
-                    <Space>
-                        {isPublished ? <Tag color='processing'>已发布</Tag> : <Tag>未发布</Tag>}
-                        <Tag>答卷:{answerCount}</Tag>
-                        <Tag>{createdAt}</Tag>
-                    </Space>
-                </div>
-            </div>
-            <Divider style={{ margin: '12px 0' }} />
-            <div className={styles['button-container']}>
-                <div className={styles.left}>
-                    <Space>
-                        <Button
-                            type='text'
-                            size='small'
-                            icon={<EditOutlined />}
-                            onClick={() => nav(`/question/edit/${_id}`)}
-                        >
-                            编辑问卷
-                        </Button>
-                        <Button
-                            type='text'
-                            size='small'
-                            icon={<LineChartOutlined />}
-                            onClick={() => nav(`/question/stat/${_id}`)}
-                            disabled={!isPublished}
-                        >
-                            数据统计
-                        </Button>
-                    </Space>
-                </div>
-                <div className={styles.right}>
-                    <Space>
-                        <Button type='text' size='small' icon={<StarOutlined />}>
-                            {isStar ? '取消标星' : '标星'}
-                        </Button>
-                        <Popconfirm title='确认复制' onConfirm={copy} okText='复制' cancelText='取消'>
-                            <Button type='text' size='small' icon={<CopyOutlined />}>
-                                复制
+                <Divider style={{ margin: '12px 0' }} />
+                <div className={styles['button-container']}>
+                    <div className={styles.left}>
+                        <Space>
+                            <Button
+                                type='text'
+                                size='small'
+                                icon={<EditOutlined />}
+                                onClick={() => nav(`/question/edit/${_id}`)}
+                            >
+                                编辑问卷
                             </Button>
-                        </Popconfirm>
-                        <Button type='text' size='small' icon={<DeleteOutlined />} onClick={del}>
-                            删除
-                        </Button>
-                    </Space>
+                            <Button
+                                type='text'
+                                size='small'
+                                icon={<LineChartOutlined />}
+                                onClick={() => nav(`/question/stat/${_id}`)}
+                                disabled={!isPublished}
+                            >
+                                数据统计
+                            </Button>
+                        </Space>
+                    </div>
+                    <div className={styles.right}>
+                        <Space>
+                            <Button
+                                type='text'
+                                size='small'
+                                icon={<StarOutlined />}
+                                onClick={() => update({ isStar: !isStar })}
+                            >
+                                {isStar ? '取消标星' : '标星'}
+                            </Button>
+                            <Popconfirm title='确认复制' onConfirm={copy} okText='复制' cancelText='取消'>
+                                <Button type='text' size='small' icon={<CopyOutlined />}>
+                                    复制
+                                </Button>
+                            </Popconfirm>
+                            <Button type='text' size='small' icon={<DeleteOutlined />} onClick={del}>
+                                删除
+                            </Button>
+                        </Space>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Spin>
     );
 };
 

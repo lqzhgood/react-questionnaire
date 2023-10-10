@@ -26,7 +26,7 @@ export default function () {
     Mock.mock('/api/question', 'get', function (options: MockCbOptions) {
         const { url } = options;
         const query = parseQueryParams(url);
-        console.log('query', query);
+        console.log('/api/question', query);
         const pageSize = parseInt(query.pageSize) | LIST_PAGE_SIZE;
         return {
             code: 200,
@@ -35,6 +35,15 @@ export default function () {
                 list: getQuestionList(pageSize, query),
                 total: 100,
             },
+        };
+    });
+
+    Mock.mock('/api/question/:id', 'patch', function (options: MockCbOptions) {
+        console.log('/api/question/:id', options);
+        return {
+            code: 200,
+            msg: 'ok',
+            data: {},
         };
     });
 }

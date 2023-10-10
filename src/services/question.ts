@@ -25,3 +25,12 @@ export function getQuestionListService<T = { list: QuestionData[]; total: number
     const url = `/api/question`;
     return axios.get<T, T>(url, { params: opt });
 }
+
+// 更新问卷
+export function updateQuestionService<T = { list: QuestionData[]; total: number }>(
+    id: string,
+    opt: Partial<QuestionData>,
+) {
+    const url = `/api/question/${id}`;
+    return axios.patch<T, T>(url, { params: opt });
+}
