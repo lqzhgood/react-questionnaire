@@ -79,7 +79,7 @@ const Trash = () => {
     );
 
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.left}>
                     <Title level={3}>我的问卷</Title>
@@ -97,7 +97,7 @@ const Trash = () => {
             <div className={styles.footer}>
                 <ListPage total={total} />
             </div>
-        </>
+        </div>
     );
 };
 

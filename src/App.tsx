@@ -10,7 +10,7 @@ import { ConfigProvider } from 'antd';
 function App() {
     return (
         <ConfigProvider locale={zhCN}>
-            <RouterProvider router={routerConfig}></RouterProvider>;
+            <RouterProvider router={routerConfig}></RouterProvider>
         </ConfigProvider>
     );
 }

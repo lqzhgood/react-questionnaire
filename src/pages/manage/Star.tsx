@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import QuestionCard from '../../components/QuestionCard';
 import { useTitle } from 'ahooks';
 import styles from './common.module.sass';
@@ -15,8 +15,23 @@ const Star = () => {
     const { loading, error, data = { list: [], total: 0 } } = useLoadQuestList({ isStar: true });
     const { list, total } = data;
 
+    const contentElm = useMemo(() => {
+        if (loading)
+            return (
+                <div style={{ textAlign: 'center' }}>
+                    <Spin />
+                </div>
+            );
+        if (list.length === 0) return <Empty description='暂无数据' />;
+        return list.map(q => {
+            const { _id } = q;
+
+            return <QuestionCard key={_id} {...q} />;
+        });
+    }, [loading, list]);
+
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.left}>
                     <Title level={3}>我的问卷</Title>
@@ -25,21 +40,11 @@ const Star = () => {
                     <ListSearch />
                 </div>
             </div>
-            <div className={styles.content}>
-                <Spin spinning={loading}>
-                    {list.length > 0 &&
-                        list.map(q => {
-                            const { _id } = q;
-
-                            return <QuestionCard key={_id} {...q} />;
-                        })}
-                    {!loading && list.length === 0 && <Empty description='暂无数据' />}
-                </Spin>
-            </div>
+            <div className={styles.content}>{contentElm}</div>
             <div className={styles.footer}>
                 <ListPage total={total} />
             </div>
-        </>
+        </div>
     );
 };
 

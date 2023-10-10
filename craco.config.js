@@ -1,12 +1,12 @@
-const path = require('path');
-const resolve = dir => path.resolve(__dirname, dir);
+const { CracoAliasPlugin } = require('react-app-alias');
 
 module.exports = {
-    webpack: {
-        alias: {
-            '@src': resolve('src'),
+    plugins: [
+        {
+            plugin: CracoAliasPlugin,
+            options: {},
         },
-    },
+    ],
     // devServer: {
     //     proxy: {
     //         '/api': 'http://127.0.0.1:3001',
