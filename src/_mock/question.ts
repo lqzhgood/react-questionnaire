@@ -1,6 +1,7 @@
 import Mock, { MockCbOptions } from 'better-mock';
 import { getQuestionList } from './data/getQuestList';
 import { parseQueryParams } from '../utils';
+import { LIST_PAGE_SIZE } from '../const';
 
 const R = Mock.Random;
 
@@ -26,11 +27,12 @@ export default function () {
         const { url } = options;
         const query = parseQueryParams(url);
         console.log('query', query);
+        const pageSize = parseInt(query.pageSize) | LIST_PAGE_SIZE;
         return {
             code: 200,
             msg: 'ok',
             data: {
-                list: getQuestionList(10, query),
+                list: getQuestionList(pageSize, query),
                 total: 100,
             },
         };

@@ -14,6 +14,8 @@ export function createQuestionService<T = any>() {
 
 export type ListSearchOption = {
     keyword: string;
+    page: number;
+    pageSize: number;
     isStar: boolean;
     isDeleted: boolean;
 };
