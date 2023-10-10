@@ -16,7 +16,7 @@ export function getQuestionList(len = 10, o: Partial<QuestionData & { [LIST_SEAR
             isStar: R.boolean(),
             answerCount: R.natural(50, 100),
             createdAt: R.datetime(),
-            isDeleted: R.boolean(),
+            isDeleted: false,
             ...o,
         });
     }

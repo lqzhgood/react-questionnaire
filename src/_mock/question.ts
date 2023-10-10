@@ -46,4 +46,15 @@ export default function () {
             data: {},
         };
     });
+
+    Mock.mock('/api/question/duplicate/:id', 'post', function (options: MockCbOptions) {
+        console.log('/api/question/duplicate/:id', options);
+        return {
+            code: 200,
+            msg: 'ok',
+            data: {
+                _id: R.id(),
+            },
+        };
+    });
 }

@@ -7,22 +7,14 @@ import {
     DeleteOutlined,
     EditOutlined,
     ExclamationCircleOutlined,
-    ExclamationOutlined,
     LineChartOutlined,
     StarOutlined,
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRequest } from 'ahooks';
-import { updateQuestionService } from '@/services/question';
+import { duplicateQuestionService, updateQuestionService } from '@/services/question';
 
-type PropsType = {
-    _id: string;
-    title: string;
-    isPublished: boolean;
-    isStar: boolean;
-    answerCount: number;
-    createdAt: string;
-};
+type PropsType = QuestionData;
 
 const QuestionCard = (props: PropsType) => {
     const { _id, title, createdAt, answerCount, isPublished, isStar } = props;
@@ -30,11 +22,27 @@ const QuestionCard = (props: PropsType) => {
 
     const [loading, setLoading] = useState(false);
 
-    const [data, setData] = useState({ ...props });
+    const [data, setData] = useState<QuestionData>({ ...props });
 
-    function copy() {
-        message.success('copy');
-    }
+    const { run: duplicate } = useRequest(
+        () => {
+            return duplicateQuestionService(_id);
+        },
+        {
+            manual: true,
+            onBefore() {
+                setLoading(true);
+            },
+            onSuccess(res) {
+                message.success(`复制成功`);
+                nav(`/question/edit/${res._id}`);
+            },
+            onFinally() {
+                setLoading(false);
+            },
+        },
+    );
+
     function del() {
         Modal.confirm({
             title: '确认删除问卷',
@@ -43,12 +51,12 @@ const QuestionCard = (props: PropsType) => {
             okType: 'danger',
             cancelText: '取消',
             onOk(...args) {
-                message.success('del');
+                update({ isDeleted: true });
             },
         });
     }
 
-    const { run: updateOpt } = useRequest(opt => updateQuestionService(_id, opt), {
+    const { run: update } = useRequest<any, [Partial<QuestionData>]>(opt => updateQuestionService(_id, opt), {
         manual: true,
         onBefore() {
             setLoading(true);
@@ -62,11 +70,7 @@ const QuestionCard = (props: PropsType) => {
         },
     });
 
-    function update(opt: Partial<QuestionData>) {
-        updateOpt(opt);
-    }
-
-    return (
+    return data.isDeleted ? null : (
         <Spin spinning={loading}>
             <div className={styles.container}>
                 <div className={styles.title}>
@@ -119,7 +123,7 @@ const QuestionCard = (props: PropsType) => {
                             >
                                 {isStar ? '取消标星' : '标星'}
                             </Button>
-                            <Popconfirm title='确认复制' onConfirm={copy} okText='复制' cancelText='取消'>
+                            <Popconfirm title='确认复制' onConfirm={duplicate} okText='复制' cancelText='取消'>
                                 <Button type='text' size='small' icon={<CopyOutlined />}>
                                     复制
                                 </Button>

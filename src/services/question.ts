@@ -27,10 +27,13 @@ export function getQuestionListService<T = { list: QuestionData[]; total: number
 }
 
 // 更新问卷
-export function updateQuestionService<T = { list: QuestionData[]; total: number }>(
-    id: string,
-    opt: Partial<QuestionData>,
-) {
+export function updateQuestionService<T = Record<string, string>>(id: string, opt: Partial<QuestionData>) {
     const url = `/api/question/${id}`;
     return axios.patch<T, T>(url, { params: opt });
+}
+
+// 复制问卷
+export function duplicateQuestionService<T = { _id: string }>(id: string) {
+    const url = `/api/question/duplicate/${id}`;
+    return axios.post<T, T>(url);
 }
