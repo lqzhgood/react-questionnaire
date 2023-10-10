@@ -27,7 +27,7 @@ export function getQuestionListService<T = { list: QuestionData[]; total: number
 }
 
 // 更新问卷
-export function updateQuestionService<T = Record<string, string>>(id: string, opt: Partial<QuestionData>) {
+export function updateQuestionService<T = Record<string, never>>(id: string, opt: Partial<QuestionData>) {
     const url = `/api/question/${id}`;
     return axios.patch<T, T>(url, { params: opt });
 }
@@ -36,4 +36,10 @@ export function updateQuestionService<T = Record<string, string>>(id: string, op
 export function duplicateQuestionService<T = { _id: string }>(id: string) {
     const url = `/api/question/duplicate/${id}`;
     return axios.post<T, T>(url);
+}
+
+// 删除问卷
+export function deleteQuestionService<T = Record<string, never>>(ids: string[]) {
+    const url = `/api/question`;
+    return axios.delete<T, T>(url, { params: { ids } });
 }

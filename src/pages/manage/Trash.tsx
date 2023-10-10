@@ -1,20 +1,46 @@
 import React, { useState } from 'react';
-import { useTitle } from 'ahooks';
+import { useRequest, useTitle } from 'ahooks';
 import styles from './common.module.sass';
 import Title from 'antd/es/typography/Title';
-import { Button, Empty, Modal, Space, Spin, Table, Tag } from 'antd';
+import { Button, Empty, Modal, Space, Spin, Table, Tag, message } from 'antd';
 import { WEB_NAME } from '../../const/web';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import ListSearch from '../../components/ListSearch';
 import useLoadQuestList from '../../hooks/useLoadQuestList';
 import ListPage from '../../components/ListPage';
+import { deleteQuestionService, updateQuestionService } from '@/services/question';
 
 const Trash = () => {
     useTitle(`回收站 - ${WEB_NAME}`);
 
     const [selectIds, setSelectIds] = useState<string[]>([]);
-    const { loading, error, data = { list: [], total: 0 } } = useLoadQuestList({ isDeleted: true });
+    const { loading, error, data = { list: [], total: 0 }, refresh } = useLoadQuestList({ isDeleted: true });
     const { list, total } = data;
+
+    const { loading: loadingRecover, run: runRecover } = useRequest(
+        async () => {
+            for await (const id of selectIds) {
+                await updateQuestionService(id, { isDeleted: false });
+            }
+        },
+        {
+            manual: true,
+            onSuccess() {
+                message.success('恢复成功');
+                setSelectIds([]);
+                refresh();
+            },
+        },
+    );
+
+    const { loading: loadingDelete, run: runDelete } = useRequest(() => deleteQuestionService(selectIds), {
+        manual: true,
+        async onSuccess() {
+            message.success('删除成功');
+            setSelectIds([]);
+            refresh();
+        },
+    });
 
     const tableColumns = [
         {
@@ -47,20 +73,18 @@ const Trash = () => {
             title: '是否彻底删除问卷',
             content: '删除后不可恢复',
             icon: <ExclamationCircleOutlined />,
-            onOk() {
-                console.log(selectIds);
-            },
+            onOk: runDelete,
         });
     }
 
     const TableJsx = (
         <>
             <Space style={{ marginBottom: '16px' }}>
-                <Button type='primary' disabled={selectIds.length === 0}>
+                <Button type='primary' disabled={selectIds.length === 0} onClick={runRecover} loading={loadingRecover}>
                     恢复
                 </Button>
 
-                <Button danger disabled={selectIds.length === 0} onClick={del}>
+                <Button danger disabled={selectIds.length === 0} onClick={del} loading={loadingDelete}>
                     彻底删除
                 </Button>
             </Space>

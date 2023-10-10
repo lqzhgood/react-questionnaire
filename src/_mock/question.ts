@@ -57,4 +57,15 @@ export default function () {
             },
         };
     });
+
+    Mock.mock('/api/question', 'delete', function (options: MockCbOptions) {
+        const { url } = options;
+        const query = parseQueryParams(url);
+        console.log('/api/question', 'delete', options, query);
+        return {
+            code: 200,
+            msg: 'ok',
+            data: {},
+        };
+    });
 }
