@@ -1,5 +1,5 @@
 import React from 'react';
-import Demos from '@/demos/pages/index';
+import Demos from '@/demos/index';
 import StyledComponents from '@/demos/pages/StyledComponents';
 import UseCallback from '@/demos/pages/UseCallback';
 import UseMemo from '@/demos/pages/UseMemo';
