@@ -1,3 +1,4 @@
+import { getToken } from '@/utils/user-token';
 import { message } from 'antd';
 import axiosBase, { AxiosInterceptorOptions, AxiosResponse } from 'axios';
 
@@ -24,6 +25,14 @@ interface AxiosInterceptorManager<V> {
     eject(id: number): void;
     clear(): void;
 }
+
+axios.interceptors.request.use(
+    config => {
+        config.headers['Authorization'] = `Bearer ${getToken()}`;
+        return config;
+    },
+    err => Promise.reject(err),
+);
 
 (axios.interceptors.response as AxiosInterceptorManager<ResType>).use(res => {
     const resData = (res.data || {}) as ResType;

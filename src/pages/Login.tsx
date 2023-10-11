@@ -1,14 +1,32 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Space, Typography, Form, Input, Button, Checkbox } from 'antd';
+import { Space, Typography, Form, Input, Button, Checkbox, message } from 'antd';
 import styles from './Register.module.sass';
 import { UserAddOutlined } from '@ant-design/icons';
-import { REGISTER_PATHNAME } from '../routers';
+import { MANAGER_INDEX_PATHNAME, REGISTER_PATHNAME } from '../routers';
+import { useRequest } from 'ahooks';
+import { loginService } from '@/services/user';
+import { setToken } from '@/utils/user-token';
 const { Title } = Typography;
 
 const Login = () => {
     const nav = useNavigate();
-    function onFinish(values: any) {
+
+    const { loading, run } = useRequest<{ token: string }, [username: string, password: string]>(
+        (username, password) => {
+            return loginService(username, password);
+        },
+        {
+            manual: true,
+            onSuccess(result) {
+                setToken(result.token);
+                message.success('登录成功');
+                nav(MANAGER_INDEX_PATHNAME);
+            },
+        },
+    );
+
+    function onFinish(values: { username: string; password: string; remember: boolean }) {
         const { username, password } = values;
         if (values.remember) {
             localStorage.setItem('username', username);
@@ -17,6 +35,7 @@ const Login = () => {
             localStorage.removeItem('username');
             localStorage.removeItem('password');
         }
+        run(username, password);
     }
 
     const [form] = Form.useForm();
@@ -60,7 +79,7 @@ const Login = () => {
                     </Form.Item>
                     <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
                         <Space>
-                            <Button type='primary' htmlType='submit'>
+                            <Button type='primary' htmlType='submit' loading={loading}>
                                 登录
                             </Button>
                             <Link to={REGISTER_PATHNAME}>注册</Link>
