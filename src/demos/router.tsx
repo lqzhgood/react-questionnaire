@@ -10,6 +10,7 @@ import ClosureTrap from './pages/ClosureTrap';
 import ClassnamesFC from './pages/ClassnamesFC';
 import Context from './pages/Context/index';
 import CountReducer from './pages/CountReducer';
+import TodoReducer from './pages/TodoReducer/index';
 
 export const demosRouter = {
     path: '/demos',
@@ -54,6 +55,10 @@ export const demosRouter = {
         {
             path: 'CountReducer',
             element: <CountReducer />,
+        },
+        {
+            path: 'TodoReducer',
+            element: <TodoReducer />,
         },
     ],
 };
