@@ -14,7 +14,7 @@ import Edit from '../pages/question/Edit';
 import Stat from '../pages/question/Stat';
 import type { RouteProps } from '../types/routes';
 
-import { demosRouter } from './demos';
+import { demosRouter } from '../demos/router';
 
 export const HOME_PATHNAME = '/';
 export const LOGIN_PATHNAME = '/login';

@@ -1,4 +1,4 @@
-import { demosRouter } from '@/routers/demos';
+import { demosRouter } from '@/demos/router';
 import { LinkOutlined } from '@ant-design/icons';
 import { Button, Divider, Space } from 'antd';
 import React from 'react';
@@ -11,7 +11,7 @@ const Demos = () => {
             <p>学些一些 Api 的临时 Demos</p>
 
             <Divider />
-            <Space>
+            <Space wrap>
                 {demosRouter.children.map(r => (
                     <Link to={r.path} key={r.path}>
                         <Button type='dashed' icon={<LinkOutlined />}>

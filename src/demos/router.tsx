@@ -1,14 +1,15 @@
 import React from 'react';
-import Demos from '@/demos/index';
-import StyledComponents from '@/demos/pages/StyledComponents';
-import UseCallback from '@/demos/pages/UseCallback';
-import UseMemo from '@/demos/pages/UseMemo';
-import UseRef from '@/demos/pages/UseRef';
-import List from '@/demos/pages/List';
-import Count from '@/demos/pages/Count';
-import ClosureTrap from '@/demos/pages/ClosureTrap';
-import ClassnamesFC from '@/demos/pages/ClassnamesFC';
-import Context from '@/demos/pages/Context/index';
+import Demos from './index';
+import StyledComponents from './pages/StyledComponents';
+import UseCallback from './pages/UseCallback';
+import UseMemo from './pages/UseMemo';
+import UseRef from './pages/UseRef';
+import List from './pages/List';
+import Count from './pages/Count';
+import ClosureTrap from './pages/ClosureTrap';
+import ClassnamesFC from './pages/ClassnamesFC';
+import Context from './pages/Context/index';
+import CountReducer from './pages/CountReducer';
 
 export const demosRouter = {
     path: '/demos',
@@ -49,6 +50,10 @@ export const demosRouter = {
         {
             path: 'Context',
             element: <Context />,
+        },
+        {
+            path: 'CountReducer',
+            element: <CountReducer />,
         },
     ],
 };
