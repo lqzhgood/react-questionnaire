@@ -1,22 +1,24 @@
 import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { HOME_PATHNAME, LOGIN_PATHNAME } from '../routers';
-import { useRequest } from 'ahooks';
-import { getUserInfoService } from '@/services/user';
+
 import { UserOutlined } from '@ant-design/icons';
 import { Button, message } from 'antd';
-import { removeToken } from '@/utils/user-token';
+import useGetUserInfo from '@/hooks/useGetUserInfo';
+import { useDispatch } from 'react-redux';
+import { logoutReducer } from '@/store/user';
 
 // TODO 未登录不显示
 const UserInfo = () => {
     const nav = useNavigate();
-    const { data } = useRequest(getUserInfoService);
-    const { username, nickname } = data || {};
+
+    const dispatch = useDispatch();
+    const { username, nickname } = useGetUserInfo();
 
     function logout() {
-        removeToken();
-        nav(HOME_PATHNAME);
+        dispatch(logoutReducer());
         message.success('退出成功');
+        nav(HOME_PATHNAME);
     }
 
     const UserInfo = useMemo(() => {

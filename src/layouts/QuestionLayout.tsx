@@ -1,11 +1,9 @@
+import useNavPage from '@/hooks/useNavPage';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-type Props = {
-    //
-};
-
-const QuestionLayout = (props: Props) => {
+const QuestionLayout = () => {
+    useNavPage();
     return (
         <>
             <p>Question layout</p>

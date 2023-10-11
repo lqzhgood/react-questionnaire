@@ -7,8 +7,10 @@ import styles from './MainLayout.module.sass';
 import Logo from '../components/Logo';
 import UserInfo from '../components/UserInfo';
 import { WEB_NAME } from '../const/web';
+import useNavPage from '@/hooks/useNavPage';
 
 const MainLayout = () => {
+    useNavPage();
     return (
         <Layout>
             <Header className={styles.header}>
