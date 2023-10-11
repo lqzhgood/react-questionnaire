@@ -11,6 +11,7 @@ import ClassnamesFC from './pages/ClassnamesFC';
 import Context from './pages/Context/index';
 import CountReducer from './pages/CountReducer';
 import TodoReducer from './pages/TodoReducer/index';
+import Redux from './pages/Redux';
 
 export const demosRouter = {
     path: '/demos',
@@ -59,6 +60,10 @@ export const demosRouter = {
         {
             path: 'TodoReducer',
             element: <TodoReducer />,
+        },
+        {
+            path: 'Redux',
+            element: <Redux />,
         },
     ],
 };
