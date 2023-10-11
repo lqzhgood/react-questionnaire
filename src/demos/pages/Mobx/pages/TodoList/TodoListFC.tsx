@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import { ObservableTodoListStore } from './store';
 import { observer } from 'mobx-react';
 import { Space } from 'antd';
@@ -23,7 +23,7 @@ const TodoListFC = observer((props: Props) => {
                             <input
                                 type='checkbox'
                                 checked={completed}
-                                onChange={e => todo.update({ completed: !completed })}
+                                onChange={() => todo.update({ completed: !completed })}
                             />
                             <span style={completed ? { textDecoration: 'line-through', opacity: 0.5 } : {}}>
                                 {title}
