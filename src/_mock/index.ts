@@ -1,6 +1,7 @@
 import Mock from 'better-mock';
 
 import Question from './question';
+import User from './user';
 
 console.warn('Mock Server Start');
 
@@ -11,3 +12,4 @@ Mock.setup({
 Mock.mock('/api/ok', 'get', () => ({ code: 200, msg: 'ok' }));
 
 Question();
+User();
