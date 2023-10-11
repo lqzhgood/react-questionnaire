@@ -22,7 +22,7 @@ export const todoListSlice = createSlice({
         del(state: TodoItemType[], action: PayloadAction<TodoItemType>) {
             return state.filter(v => v.id !== action.payload.id);
         },
-        update(state: TodoItemType[], action: PayloadAction<Partial<TodoItemType>>) {
+        update(state: TodoItemType[], action: PayloadAction<{ id: string } & Partial<Omit<TodoItemType, 'id'>>>) {
             const f = state.find(v => v.id === action.payload.id);
             if (f) Object.assign(f, action.payload);
         },

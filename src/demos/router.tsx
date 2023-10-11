@@ -12,6 +12,7 @@ import Context from './pages/Context/index';
 import CountReducer from './pages/CountReducer';
 import TodoReducer from './pages/TodoReducer/index';
 import Redux from './pages/Redux';
+import Mobx from './pages/Mobx';
 
 export const demosRouter = {
     path: '/demos',
@@ -64,6 +65,10 @@ export const demosRouter = {
         {
             path: 'Redux',
             element: <Redux />,
+        },
+        {
+            path: 'Mobx',
+            element: <Mobx />,
         },
     ],
 };
