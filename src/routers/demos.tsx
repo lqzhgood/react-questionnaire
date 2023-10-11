@@ -1,13 +1,14 @@
 import React from 'react';
-import Demos from '@/demos/index';
-import StyledComponents from '@/demos/StyledComponents';
-import UseCallback from '@/demos/UseCallback';
-import UseMemo from '@/demos/UseMemo';
-import UseRef from '@/demos/UseRef';
-import List from '@/demos/List';
-import Count from '@/demos/Count';
-import ClosureTrap from '@/demos/ClosureTrap';
-import ClassnamesFC from '@/demos/ClassnamesFC';
+import Demos from '@/demos/pages/index';
+import StyledComponents from '@/demos/pages/StyledComponents';
+import UseCallback from '@/demos/pages/UseCallback';
+import UseMemo from '@/demos/pages/UseMemo';
+import UseRef from '@/demos/pages/UseRef';
+import List from '@/demos/pages/List';
+import Count from '@/demos/pages/Count';
+import ClosureTrap from '@/demos/pages/ClosureTrap';
+import ClassnamesFC from '@/demos/pages/ClassnamesFC';
+import Context from '@/demos/pages/Context/index';
 
 export const demosRouter = {
     path: '/demos',
@@ -44,6 +45,10 @@ export const demosRouter = {
         {
             path: 'ClassnamesFC',
             element: <ClassnamesFC />,
+        },
+        {
+            path: 'Context',
+            element: <Context />,
         },
     ],
 };
