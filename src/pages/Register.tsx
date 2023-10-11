@@ -1,16 +1,34 @@
 import React from 'react';
 
 import styles from './Register.module.sass';
-import { Space, Typography, Form, Input, Button } from 'antd';
+import { Space, Typography, Form, Input, Button, message } from 'antd';
 import { UserAddOutlined } from '@ant-design/icons';
 import { LOGIN_PATHNAME } from '../routers';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRequest } from 'ahooks';
+import { registerService } from '@/services/user';
 
 const { Title } = Typography;
 
 const Register = () => {
-    function onFinish(value: any) {
-        console.log('value', value);
+    const nav = useNavigate();
+    const { loading, run } = useRequest(
+        values => {
+            const { username, password, nickname } = values;
+
+            return registerService(username, password, nickname);
+        },
+        {
+            manual: true,
+            onSuccess() {
+                message.success('注册成功');
+                nav(LOGIN_PATHNAME);
+            },
+        },
+    );
+
+    function onFinish(values: any) {
+        run(values);
     }
 
     return (
@@ -60,7 +78,7 @@ const Register = () => {
                     </Form.Item>
                     <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
                         <Space>
-                            <Button type='primary' htmlType='submit'>
+                            <Button type='primary' htmlType='submit' loading={loading}>
                                 注册
                             </Button>
                             <Link to={LOGIN_PATHNAME}>登录</Link>
