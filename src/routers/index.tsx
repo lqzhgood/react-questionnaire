@@ -14,6 +14,8 @@ import Edit from '../pages/question/Edit';
 import Stat from '../pages/question/Stat';
 import type { RouteProps } from '../types/routes';
 
+import { demosRouter } from './demos';
+
 export const HOME_PATHNAME = '/';
 export const LOGIN_PATHNAME = '/login';
 export const REGISTER_PATHNAME = '/register';
@@ -89,6 +91,7 @@ export const routers: RouteProps[] = [
             },
         ],
     },
+    ...[demosRouter],
 ];
 
 const router = createBrowserRouter(routers);
