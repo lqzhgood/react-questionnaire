@@ -5,13 +5,19 @@ import { MockCbOptions, mockType } from '@/types/net';
 
 const R = Mock.Random;
 
-export default [
+const list: mockType[] = [
     {
         path: '/api/question/:id',
         method: 'get',
         response: () => ({
             id: R.id(),
             title: R.title(),
+            componentList: [
+                {
+                    id: R.id(),
+                    type: 'Title',
+                },
+            ],
         }),
     },
 
@@ -62,4 +68,6 @@ export default [
             return {};
         },
     },
-] as mockType[];
+];
+
+export default list;

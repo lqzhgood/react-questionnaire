@@ -10,10 +10,10 @@ export type RespData = {
     [key: string]: any;
 };
 
-interface mockType {
+interface mockType<T extends RespData = RespData> {
     path: string;
     method: Methods;
-    response: (opt: MockCbOptions) => RespData;
+    response: (opt: MockCbOptions) => T;
 }
 
 interface MockCbOptions {

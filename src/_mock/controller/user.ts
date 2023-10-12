@@ -4,7 +4,7 @@ import { checkUser, getToken } from '../services/user';
 
 const R = Mock.Random;
 
-export default [
+const list: mockType[] = [
     {
         path: '/api/user/info',
         method: 'get',
@@ -43,4 +43,5 @@ export default [
             }
         },
     },
-] as mockType[];
+];
+export default list;
