@@ -5,12 +5,9 @@ import { Outlet } from 'react-router-dom';
 const QuestionLayout = () => {
     useNavPage();
     return (
-        <>
-            <p>Question layout</p>
-            <div>
-                <Outlet></Outlet>
-            </div>
-        </>
+        <div>
+            <Outlet></Outlet>
+        </div>
     );
 };
 
