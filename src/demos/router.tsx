@@ -13,6 +13,7 @@ import CountReducer from './pages/CountReducer';
 import TodoReducer from './pages/TodoReducer/index';
 import Redux from './pages/Redux';
 import Mobx from './pages/Mobx';
+import TestMockMvc from './pages/TestMockMvc';
 
 export const demosRouter = {
     path: '/demos',
@@ -69,6 +70,10 @@ export const demosRouter = {
         {
             path: 'Mobx',
             element: <Mobx />,
+        },
+        {
+            path: 'TestMockMvc',
+            element: <TestMockMvc />,
         },
     ],
 };

@@ -1,20 +1,11 @@
+import { RespType } from '@/types/net';
 import { getToken } from '@/utils/user-token';
 import { message } from 'antd';
-import axiosBase, { AxiosInterceptorOptions, AxiosResponse } from 'axios';
+import axiosBase, { AxiosInterceptorOptions } from 'axios';
 
 const axios = axiosBase.create({
     timeout: 60 * 1000,
 });
-
-export type ResType<T = ResData> = {
-    code: number;
-    msg: string;
-    data: T;
-};
-
-export type ResData = {
-    [key: string]: any;
-};
 
 interface AxiosInterceptorManager<V> {
     use<T = V>(
@@ -34,9 +25,9 @@ axios.interceptors.request.use(
     err => Promise.reject(err),
 );
 
-(axios.interceptors.response as AxiosInterceptorManager<ResType>).use(res => {
-    const resData = (res.data || {}) as ResType;
-    const { code, msg, data } = resData;
+(axios.interceptors.response as AxiosInterceptorManager<RespType>).use(res => {
+    const RespData = (res.data || {}) as RespType;
+    const { code, msg, data } = RespData;
     if (code != 200) {
         message.error(`错误 ${code} ${msg}`);
         throw new Error(msg);
