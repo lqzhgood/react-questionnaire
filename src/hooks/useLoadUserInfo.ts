@@ -8,10 +8,10 @@ import { loginReducer } from '@/store/user';
 function useLoadUserInfo() {
     const [wait, setWait] = useState(true);
     const dispatch = useDispatch();
-    const { username } = useGetUserInfo();
 
-    // TODO 自动登录需要去掉
-    const { run } = useRequest(getUserInfoService, {
+    const { run, runAsync } = useRequest(getUserInfoService, {
+        manual: true,
+        debounceWait: 100,
         onSuccess: res => {
             dispatch(loginReducer(res));
         },
@@ -20,6 +20,7 @@ function useLoadUserInfo() {
         },
     });
 
+    const { username } = useGetUserInfo();
     useEffect(() => {
         if (username) {
             setWait(false);
@@ -28,7 +29,7 @@ function useLoadUserInfo() {
         }
     }, [username]);
 
-    return { wait };
+    return { wait, runAsync };
 }
 
 export default useLoadUserInfo;

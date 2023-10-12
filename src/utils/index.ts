@@ -17,3 +17,12 @@ export function parseQueryParams(url: string): Record<string, string> {
 
     return queryParams;
 }
+
+export function hasIntersection(array1: any[], array2: any[]) {
+    for (const item of array1) {
+        if (array2.includes(item)) {
+            return true;
+        }
+    }
+    return false;
+}

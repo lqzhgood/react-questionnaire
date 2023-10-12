@@ -5,5 +5,6 @@ export function isLoginOrRegister(pathname: string) {
 }
 
 export function isNoNeedUserInfo(pathname: string) {
-    return [HOME_PATHNAME, LOGIN_PATHNAME, REGISTER_PATHNAME].includes(pathname);
+    const list = [LOGIN_PATHNAME, REGISTER_PATHNAME, '/demos'];
+    return list.some(p => pathname.startsWith(p)) || pathname === HOME_PATHNAME;
 }

@@ -1,50 +1,24 @@
-import { MockCbOptions, mockType } from '@/types/net';
-import Mock from 'better-mock';
+import CryptoJS from 'crypto-js';
 
-const R = Mock.Random;
+const SECRET = "I'm Groot";
 
-export default [
-    {
-        path: '/api/user/info',
-        method: 'get',
-        response: (opt: MockCbOptions) => {
-            console.log('/api/user/info', 'get', opt);
-            return {
-                code: 200,
-                msg: 'ok',
-                data: {
-                    username: R.title(),
-                    nickname: R.ctitle(),
-                },
-            };
-        },
-    },
+export function getToken(payload: Record<string, any>) {
+    const token = CryptoJS.AES.encrypt(JSON.stringify(payload), SECRET).toString();
+    return token;
+}
+export function decodeToken(token: string) {
+    try {
+        const str = CryptoJS.AES.decrypt(token, SECRET).toString(CryptoJS.enc.Utf8);
+        return JSON.parse(str);
+    } catch (error) {
+        return {};
+    }
+}
 
-    {
-        path: '/api/user/register',
-        method: 'post',
-        response: (opt: MockCbOptions) => {
-            console.log('/api/user/register', 'post', opt);
-            return {
-                code: 200,
-                msg: 'ok',
-                data: {},
-            };
-        },
-    },
-
-    {
-        path: '/api/user/login',
-        method: 'post',
-        response: (opt: MockCbOptions) => {
-            console.log('/api/user/login', 'post', opt);
-            return {
-                code: 200,
-                msg: 'ok',
-                data: {
-                    token: R.word(20),
-                },
-            };
-        },
-    },
-] as mockType[];
+export function checkUser(username: string, password: string) {
+    if (username === 'admin' && password === 'admin') {
+        return true;
+    } else {
+        return false;
+    }
+}

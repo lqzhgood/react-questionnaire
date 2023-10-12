@@ -1,5 +1,5 @@
 import { RespType } from '@/types/net';
-import { getToken } from '@/utils/user-token';
+import { getToken, removeToken } from '@/utils/user-token';
 import { message } from 'antd';
 import axiosBase, { AxiosInterceptorOptions } from 'axios';
 
@@ -29,7 +29,11 @@ axios.interceptors.request.use(
     const RespData = (res.data || {}) as RespType;
     const { code, msg, data } = RespData;
     if (code != 200) {
-        message.error(`错误 ${code} ${msg}`);
+        if (code === 403) {
+            removeToken();
+        } else {
+            message.error(`错误 ${code} ${msg}`);
+        }
         throw new Error(msg);
     }
 

@@ -10,12 +10,8 @@ export default [
         path: '/api/question/:id',
         method: 'get',
         response: () => ({
-            code: 200,
-            msg: 'ok',
-            data: {
-                id: R.id(),
-                title: R.title(),
-            },
+            id: R.id(),
+            title: R.title(),
         }),
     },
 
@@ -23,11 +19,7 @@ export default [
         path: '/api/question',
         method: 'post',
         response: () => ({
-            code: 200,
-            msg: 'ok',
-            data: {
-                id: R.id(),
-            },
+            id: R.id(),
         }),
     },
 
@@ -38,12 +30,8 @@ export default [
             const { query } = options;
             const pageSize = parseInt(query.pageSize) | LIST_PAGE_SIZE;
             return {
-                code: 200,
-                msg: 'ok',
-                data: {
-                    list: getQuestionList(pageSize, query),
-                    total: 100,
-                },
+                list: getQuestionList(pageSize, query),
+                total: 100,
             };
         },
     },
@@ -53,11 +41,7 @@ export default [
         method: 'patch',
         response: function (options: MockCbOptions) {
             console.log('/api/question/:id', options);
-            return {
-                code: 200,
-                msg: 'ok',
-                data: {},
-            };
+            return {};
         },
     },
 
@@ -66,11 +50,7 @@ export default [
         method: 'post',
         response: function (options: MockCbOptions) {
             return {
-                code: 200,
-                msg: 'ok',
-                data: {
-                    _id: R.id(),
-                },
+                _id: R.id(),
             };
         },
     },
@@ -79,11 +59,7 @@ export default [
         path: '/api/question',
         method: 'delete',
         response: function (options: MockCbOptions) {
-            return {
-                code: 200,
-                msg: 'ok',
-                data: {},
-            };
+            return {};
         },
     },
 ] as mockType[];

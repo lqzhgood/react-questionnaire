@@ -1,8 +1,8 @@
 import Mock from 'better-mock';
-import { MockCbOptions, RespData, RespType, mockType } from '@/types/net';
+import { mockType } from '@/types/net';
 
-import Question from './services/question';
-import User from './services/user';
+import Question from './controller/question';
+import User from './controller/user';
 import { controller } from './controller';
 
 const mockList: mockType[] = [

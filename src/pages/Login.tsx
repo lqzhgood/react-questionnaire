@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Space, Typography, Form, Input, Button, Checkbox, message } from 'antd';
 import styles from './Register.module.sass';
@@ -7,26 +7,35 @@ import { MANAGER_INDEX_PATHNAME, REGISTER_PATHNAME } from '../routers';
 import { useRequest } from 'ahooks';
 import { loginService } from '@/services/user';
 import { setToken } from '@/utils/user-token';
+import useLoadUserInfo from '@/hooks/useLoadUserInfo';
 const { Title } = Typography;
 
 const Login = () => {
     const nav = useNavigate();
+    const [loading, setLoading] = useState(false);
 
-    const { loading, run } = useRequest<{ token: string }, [username: string, password: string]>(
+    const { runAsync: loadUserInfo } = useLoadUserInfo();
+
+    const { runAsync: loadLogin } = useRequest<{ token: string }, [username: string, password: string]>(
         (username, password) => {
             return loginService(username, password);
         },
         {
             manual: true,
-            onSuccess(result) {
+            onBefore() {
+                setLoading(true);
+            },
+            async onSuccess(result) {
                 setToken(result.token);
                 message.success('登录成功');
-                nav(MANAGER_INDEX_PATHNAME);
+            },
+            onFinally() {
+                setLoading(false);
             },
         },
     );
 
-    function onFinish(values: { username: string; password: string; remember: boolean }) {
+    async function onFinish(values: { username: string; password: string; remember: boolean }) {
         const { username, password } = values;
         if (values.remember) {
             localStorage.setItem('username', username);
@@ -35,14 +44,16 @@ const Login = () => {
             localStorage.removeItem('username');
             localStorage.removeItem('password');
         }
-        run(username, password);
+        await loadLogin(username, password);
+        await loadUserInfo();
+        nav(MANAGER_INDEX_PATHNAME);
     }
 
     const [form] = Form.useForm();
 
     useEffect(() => {
-        form.setFieldValue('username', localStorage.getItem('username'));
-        form.setFieldValue('password', localStorage.getItem('password'));
+        form.setFieldValue('username', localStorage.getItem('username') || 'admin');
+        form.setFieldValue('password', localStorage.getItem('password') || 'admin');
     }, []);
 
     return (

@@ -18,6 +18,8 @@ interface mockType {
 
 interface MockCbOptions {
     url: string;
+    path?: string;
+    headers: Record<string, string>;
     type: Methods;
     body: Record<string, any>;
     query: Record<string, any>;
