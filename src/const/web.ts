@@ -1,1 +1,1 @@
-export const WEB_NAME = '问卷';
+export const WEB_NAME = '我的问卷';
