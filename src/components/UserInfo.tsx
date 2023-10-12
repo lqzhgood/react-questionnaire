@@ -8,7 +8,6 @@ import useGetUserInfo from '@/hooks/useGetUserInfo';
 import { useDispatch } from 'react-redux';
 import { logoutReducer } from '@/store/user';
 
-// TODO 未登录不显示
 const UserInfo = () => {
     const nav = useNavigate();
 

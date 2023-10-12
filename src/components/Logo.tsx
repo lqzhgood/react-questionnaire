@@ -12,7 +12,6 @@ const { Title } = Typography;
 const Logo = () => {
     const { username } = useGetUserInfo();
 
-    // TODO test login to
     return (
         <Link to={username ? MANAGER_INDEX_PATHNAME : HOME_PATHNAME}>
             <Space className={styles.container}>
