@@ -1,5 +1,6 @@
 import Mock from 'better-mock';
 import { LIST_SEARCH_PARAM_KEY } from '../../const';
+import { QuestionData } from '@/types/question';
 
 const R = Mock.Random;
 

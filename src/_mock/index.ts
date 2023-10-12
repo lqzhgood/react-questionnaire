@@ -9,9 +9,9 @@ const mockList: mockType[] = [
     {
         path: '/test',
         method: 'post',
-        response() {
-            return { a: 123 };
-        },
+        response: () => ({
+            a: 123,
+        }),
     },
     ...Question,
     ...User,

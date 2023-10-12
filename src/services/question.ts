@@ -1,3 +1,4 @@
+import { QuestionData } from '@/types/question';
 import axios from './net';
 
 // 获取单个问卷信息

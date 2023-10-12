@@ -9,6 +9,7 @@ import ListSearch from '../../components/ListSearch';
 import { Empty, Spin } from 'antd';
 import { getQuestionListService } from '../../services/question';
 import { LIST_PAGE_SIZE, LIST_SEARCH_PARAM_KEY } from '../../const';
+import { QuestionData } from '@/types/question';
 
 const List = () => {
     useTitle(`我的问卷 - ${WEB_NAME}`);

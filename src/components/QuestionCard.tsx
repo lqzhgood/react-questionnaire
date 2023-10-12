@@ -13,6 +13,7 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import { useRequest } from 'ahooks';
 import { duplicateQuestionService, updateQuestionService } from '@/services/question';
+import { QuestionData } from '@/types/question';
 
 type PropsType = QuestionData;
 
