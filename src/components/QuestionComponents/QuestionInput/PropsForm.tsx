@@ -5,7 +5,7 @@ import { Form, Input } from 'antd';
 type Props = QuestionInputPropsType;
 
 const PropsForm = (props: Props) => {
-    const { title, placeholder, onChange } = props;
+    const { title, placeholder, onChange, disabled } = props;
 
     const [form] = Form.useForm<QuestionInputPropsType>();
 
@@ -15,6 +15,7 @@ const PropsForm = (props: Props) => {
 
     return (
         <Form
+            disabled={disabled}
             layout='vertical'
             initialValues={{ title, placeholder }}
             onValuesChange={(_, allFields) => {

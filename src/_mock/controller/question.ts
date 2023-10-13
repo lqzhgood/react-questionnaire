@@ -20,6 +20,7 @@ const list: mockType[] = [
                     type: QuestionComponentType.Title,
                     title: '123',
                     isHidden: false,
+                    isLocked: false,
                     props: {
                         text: '个人信息调研',
                         level: 1,
@@ -31,6 +32,7 @@ const list: mockType[] = [
                     type: QuestionComponentType.Input,
                     title: '输入框1',
                     isHidden: false,
+                    isLocked: false,
                     props: {
                         title: '你的姓名',
                         placeholder: '请输入姓名...',
@@ -41,6 +43,7 @@ const list: mockType[] = [
                     type: QuestionComponentType.Input,
                     title: '输入框2',
                     isHidden: false,
+                    isLocked: false,
                     props: {
                         title: '你的电话',
                         placeholder: '请输入电话...',

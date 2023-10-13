@@ -18,4 +18,5 @@ export type QuestionEditData = {
 
 export interface QuestionCommonPropsType {
     onChange?: (newProps: QuestionInputPropsType) => void;
+    disabled?: boolean;
 }

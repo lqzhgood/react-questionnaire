@@ -5,7 +5,7 @@ import { Checkbox, Form, Input, Select } from 'antd';
 type Props = QuestionTitlePropsType;
 
 const PropsForm = (props: Props) => {
-    const { text, level, isCenter, onChange } = props;
+    const { text, level, isCenter, onChange, disabled } = props;
 
     const [form] = Form.useForm<QuestionTitlePropsType>();
 
@@ -15,6 +15,7 @@ const PropsForm = (props: Props) => {
 
     return (
         <Form
+            disabled={disabled}
             layout='vertical'
             initialValues={{ text, level, isCenter }}
             onValuesChange={(_, allFields) => {

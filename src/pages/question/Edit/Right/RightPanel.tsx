@@ -1,7 +1,7 @@
 import { FileTextOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React from 'react';
-import ComponentProp from './ComponentProp';
+import PropForm from './PropForm';
 
 const RightPanel = () => {
     const tableItems = [
@@ -13,7 +13,7 @@ const RightPanel = () => {
                     属性
                 </span>
             ),
-            children: <ComponentProp />,
+            children: <PropForm />,
         },
         {
             key: 'setting',

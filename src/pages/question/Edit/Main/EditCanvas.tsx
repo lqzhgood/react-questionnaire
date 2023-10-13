@@ -30,10 +30,11 @@ const EditCanvas = ({ loading }: PropsType) => {
             {componentList
                 .filter(c => !c.isHidden)
                 .map(c => {
-                    const { fe_id } = c;
+                    const { fe_id, isLocked } = c;
 
                     const wrapClass = classnames(styles['component-wrapper'], {
                         [styles.selected]: fe_id === selectedId,
+                        [styles.locked]: isLocked,
                     });
 
                     return (

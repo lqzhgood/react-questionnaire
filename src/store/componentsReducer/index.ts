@@ -8,6 +8,7 @@ export type ComponentInfoType<T extends ComponentConfList = ComponentConfList> =
     type: keyof T;
     title: string;
     isHidden?: boolean;
+    isLocked?: boolean;
     props: T[QuestionComponentType]['defaultProps'];
 };
 
@@ -82,6 +83,15 @@ export const componentsSlice = createSlice({
                 find.isHidden = isHidden;
             }
         },
+
+        toggleComponentLocked: (state, action: PayloadAction<{ fe_id: string }>) => {
+            const { componentList } = state;
+            const { fe_id } = action.payload;
+            const find = componentList.find(c => c.fe_id === fe_id);
+            if (find) {
+                find.isLocked = !find.isLocked;
+            }
+        },
     },
 });
 
@@ -92,4 +102,5 @@ export const {
     changeComponentProps,
     removeSelectedComponent,
     changeComponentHidden,
+    toggleComponentLocked,
 } = componentsSlice.actions;
