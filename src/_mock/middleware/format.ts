@@ -12,7 +12,7 @@ export default function (opt: MockCbOptions) {
 
     try {
         if (body) {
-            opt.body = JSON.parse(body as any as string);
+            opt.body = JSON.parse(body as unknown as string);
         }
     } catch (error) {
         /**/
