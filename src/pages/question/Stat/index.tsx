@@ -1,10 +1,6 @@
 import React from 'react';
 
-type Props = {
-    //;
-};
-
-const Stat = (props: Props) => {
+const Stat = () => {
     return <div>Stat</div>;
 };
 

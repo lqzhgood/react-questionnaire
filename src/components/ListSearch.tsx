@@ -5,11 +5,7 @@ import { LIST_SEARCH_PARAM_KEY } from '../const';
 
 const { Search } = Input;
 
-type Props = {
-    key?: string;
-};
-
-const ListSearch = (props: Props) => {
+const ListSearch = () => {
     const [value, setValue] = useState('');
     const nav = useNavigate();
     const { pathname } = useLocation();

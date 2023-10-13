@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import styles from './QuestionCard.module.sass';
 import { Button, Divider, Modal, Popconfirm, Space, Spin, Tag, message } from 'antd';
@@ -51,25 +51,28 @@ const QuestionCard = (props: PropsType) => {
             okText: '删除',
             okType: 'danger',
             cancelText: '取消',
-            onOk(...args) {
+            onOk() {
                 update({ isDeleted: true });
             },
         });
     }
 
-    const { run: update } = useRequest<any, [Partial<QuestionData>]>(opt => updateQuestionService(_id, opt), {
-        manual: true,
-        onBefore() {
-            setLoading(true);
+    const { run: update } = useRequest<Record<string, never>, [Partial<QuestionData>]>(
+        opt => updateQuestionService(_id, opt),
+        {
+            manual: true,
+            onBefore() {
+                setLoading(true);
+            },
+            onSuccess(res, [opt]) {
+                message.success(`更新成功 ${JSON.stringify(opt)}`);
+                setData({ ...data, ...opt });
+            },
+            onFinally() {
+                setLoading(false);
+            },
         },
-        onSuccess(res, [opt]) {
-            message.success(`更新成功 ${JSON.stringify(opt)}`);
-            setData({ ...data, ...opt });
-        },
-        onFinally() {
-            setLoading(false);
-        },
-    });
+    );
 
     return data.isDeleted ? null : (
         <Spin spinning={loading}>

@@ -17,11 +17,7 @@ const ManageLayout = () => {
     const nav = useNavigate();
     const { pathname } = useLocation();
 
-    const {
-        loading,
-        run: createQuestion,
-        error,
-    } = useRequest(createQuestionService<{ id: string }>, {
+    const { run: createQuestion } = useRequest(createQuestionService<{ id: string }>, {
         manual: true,
         onSuccess({ id }) {
             nav(`/question/edit/${id}`);
@@ -39,11 +35,11 @@ const ManageLayout = () => {
                     <Divider style={{ borderTop: 'transparent' }} />
                     {manageRouter.children
                         .filter(r => r.path)
-                        .map((r, i) => (
+                        .map(r => (
                             <Button
                                 size='large'
                                 type={`/${manageRouter.path}/${r.path}` === pathname ? 'default' : 'text'}
-                                icon={(iconMap as any)[r.path]}
+                                icon={(iconMap as Record<string, JSX.Element>)[r.path]}
                                 onClick={() => nav(r.path)}
                                 key={r.path}
                             >

@@ -10,6 +10,7 @@ const axios = axiosBase.create({
 interface AxiosInterceptorManager<V> {
     use<T = V>(
         onFulfilled?: (value: V) => T | Promise<T>,
+        // eslint-disable-next-line
         onRejected?: (error: any) => any,
         options?: AxiosInterceptorOptions,
     ): number;

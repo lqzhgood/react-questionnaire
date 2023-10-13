@@ -2,7 +2,7 @@ import { TodoType } from './store';
 
 export type ActionType = {
     type: string;
-    payload?: any;
+    payload?: any; // eslint-disable-line
 };
 export default function reducer(state: TodoType[], action: ActionType) {
     switch (action.type) {

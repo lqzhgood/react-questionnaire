@@ -8,7 +8,7 @@ export function getQuestionService<T = QuestionEditData>(id: string) {
 }
 
 // 创建问卷
-export function createQuestionService<T = any>() {
+export function createQuestionService<T = { id: string }>() {
     const url = `/api/question`;
     return axios.post<T, T>(url);
 }

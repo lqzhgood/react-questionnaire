@@ -14,7 +14,7 @@ const Trash = () => {
     useTitle(`回收站 - ${WEB_NAME}`);
 
     const [selectIds, setSelectIds] = useState<string[]>([]);
-    const { loading, error, data = { list: [], total: 0 }, refresh } = useLoadQuestList({ isDeleted: true });
+    const { loading, data = { list: [], total: 0 }, refresh } = useLoadQuestList({ isDeleted: true });
     const { list, total } = data;
 
     const { loading: loadingRecover, run: runRecover } = useRequest(

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { QuestionInputPropsType } from './interface';
 import { Form, Input } from 'antd';
 
@@ -6,12 +6,6 @@ type Props = QuestionInputPropsType;
 
 const PropsForm = (props: Props) => {
     const { title, placeholder, onChange } = props;
-
-    // const [form] = Form.useForm();
-
-    // useEffect(() => {
-    //     form.setFieldsValue({ title, placeholder });
-    // }, [title, placeholder]);
 
     return (
         <Form<QuestionInputPropsType>

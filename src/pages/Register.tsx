@@ -27,7 +27,7 @@ const Register = () => {
         },
     );
 
-    function onFinish(values: any) {
+    function onFinish(values: UserInfo) {
         run(values);
     }
 
@@ -39,7 +39,7 @@ const Register = () => {
                 </Title>
             </div>
             <div>
-                <Form labelCol={{ span: 6 }} wrapperCol={{ span: 18 }} onFinish={onFinish}>
+                <Form<UserInfo> labelCol={{ span: 6 }} wrapperCol={{ span: 18 }} onFinish={onFinish}>
                     <Form.Item
                         label='用户名'
                         name='username'

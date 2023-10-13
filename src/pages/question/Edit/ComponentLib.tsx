@@ -24,7 +24,7 @@ const ComponentLib = () => {
 
     return (
         <>
-            {componentConfGroup.map((g, i) => {
+            {componentConfGroup.map(g => {
                 const { groupName, components } = g;
                 return (
                     <div className={styles.wrap} key={groupName}>

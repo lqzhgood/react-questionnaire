@@ -7,7 +7,7 @@ import { QuestionEditData } from '@/types/question';
 
 const R = Mock.Random;
 
-const list: mockType<any>[] = [
+const list: mockType[] = [
     {
         path: '/api/question/:id',
         method: 'get',
@@ -70,8 +70,7 @@ const list: mockType<any>[] = [
     {
         path: '/api/question/:id',
         method: 'patch',
-        response: function (options: MockCbOptions) {
-            console.log('/api/question/:id', options);
+        response: function () {
             return {};
         },
     },
@@ -79,7 +78,7 @@ const list: mockType<any>[] = [
     {
         path: '/api/question/duplicate/:id',
         method: 'post',
-        response: function (options: MockCbOptions) {
+        response: function () {
             return {
                 _id: R.id(),
             };
@@ -89,7 +88,7 @@ const list: mockType<any>[] = [
     {
         path: '/api/question',
         method: 'delete',
-        response: function (options: MockCbOptions) {
+        response: function () {
             return {};
         },
     },

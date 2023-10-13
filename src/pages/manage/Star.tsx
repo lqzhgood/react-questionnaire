@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import QuestionCard from '../../components/QuestionCard';
 import { useTitle } from 'ahooks';
 import styles from './common.module.sass';
@@ -12,7 +12,7 @@ import ListPage from '../../components/ListPage';
 const Star = () => {
     useTitle(`星标问卷 - ${WEB_NAME}`);
 
-    const { loading, error, data = { list: [], total: 0 } } = useLoadQuestList({ isStar: true });
+    const { loading, data = { list: [], total: 0 } } = useLoadQuestList({ isStar: true });
     const { list, total } = data;
 
     const contentElm = useMemo(() => {

@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import QuestionCard from '../components/QuestionCard';
 import { produce } from 'immer';
 
-type Props = Record<string, never>;
-
-const List = (props: Props) => {
+const List = () => {
     const [list, setList] = useState([
         { id: 1, title: '问卷', isPublished: false },
         { id: 2, title: '问卷', isPublished: false },

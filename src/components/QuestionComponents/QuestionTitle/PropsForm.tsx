@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { QuestionTitlePropsType } from './interface';
 import { Checkbox, Form, Input, Select } from 'antd';
 
@@ -6,11 +6,6 @@ type Props = QuestionTitlePropsType;
 
 const PropsForm = (props: Props) => {
     const { text, level, isCenter, onChange } = props;
-    // const [form] = Form.useForm();
-
-    // useEffect(() => {
-    //     form.setFieldsValue({ text, level, isCenter });
-    // }, [text, level, isCenter]);
 
     return (
         <Form

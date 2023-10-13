@@ -8,6 +8,7 @@ export const TodoContext = createContext({
     state: initialState,
     dispatch: (action: ActionType): void => {
         /**/
+        console.log('action', action);
     },
 });
 
