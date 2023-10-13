@@ -27,26 +27,28 @@ const EditCanvas = ({ loading }: PropsType) => {
         );
     return (
         <div className={styles.canvas}>
-            {componentList.map(c => {
-                const { fe_id } = c;
+            {componentList
+                .filter(c => !c.isHidden)
+                .map(c => {
+                    const { fe_id } = c;
 
-                const wrapClass = classnames(styles['component-wrapper'], {
-                    [styles.selected]: fe_id === selectedId,
-                });
+                    const wrapClass = classnames(styles['component-wrapper'], {
+                        [styles.selected]: fe_id === selectedId,
+                    });
 
-                return (
-                    <div
-                        className={wrapClass}
-                        key={fe_id}
-                        onClick={e => {
-                            e.stopPropagation();
-                            dispatch(changeSelectedId(fe_id));
-                        }}
-                    >
-                        <div className={styles.component}>{findComponent(c)}</div>
-                    </div>
-                );
-            })}
+                    return (
+                        <div
+                            className={wrapClass}
+                            key={fe_id}
+                            onClick={e => {
+                                e.stopPropagation();
+                                dispatch(changeSelectedId(fe_id));
+                            }}
+                        >
+                            <div className={styles.component}>{findComponent(c)}</div>
+                        </div>
+                    );
+                })}
         </div>
     );
 };

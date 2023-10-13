@@ -10,7 +10,7 @@ const NoProp = () => {
 };
 
 const ComponentProp = () => {
-    const { selectedComponent } = useGetComponentInfo();
+    const { selectedComponent, selectedId } = useGetComponentInfo();
     const dispatch = useDispatch();
     if (!selectedComponent) return <NoProp />;
 
@@ -22,7 +22,7 @@ const ComponentProp = () => {
     const { PropsForm } = componentConf;
 
     function changeProps(newProps: ComponentPropsType) {
-        dispatch(changeComponentProps({ newProps }));
+        dispatch(changeComponentProps({ fe_id: selectedId, newProps }));
     }
     return <PropsForm {...props} onChange={changeProps} />;
 };

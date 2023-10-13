@@ -1,11 +1,13 @@
 import { ComponentConfList, ComponentPropsType } from '@/components/QuestionComponents';
 import { QuestionComponentType } from '@/const/question';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getNextSelectedId } from './utils';
 
 export type ComponentInfoType<T extends ComponentConfList = ComponentConfList> = {
     fe_id: string;
     type: keyof T;
     title: string;
+    isHidden?: boolean;
     props: T[QuestionComponentType]['defaultProps'];
 };
 
@@ -45,7 +47,7 @@ export const componentsSlice = createSlice({
             state.selectedId = newComponent.fe_id;
         },
 
-        changeComponentProps: (state, action: PayloadAction<{ newProps: ComponentPropsType }>) => {
+        changeComponentProps: (state, action: PayloadAction<{ fe_id: string; newProps: ComponentPropsType }>) => {
             const { componentList, selectedId } = state;
             const { newProps } = action.payload;
 
@@ -55,24 +57,39 @@ export const componentsSlice = createSlice({
             }
         },
 
-        removeSelectedComponent: state => {
-            const { componentList, selectedId } = state;
+        removeSelectedComponent: (state, action: PayloadAction<{ fe_id: string }>) => {
+            const { componentList } = state;
+            const { fe_id } = action.payload;
 
-            const index = componentList.findIndex(v => v.fe_id === selectedId);
+            const index = componentList.findIndex(v => v.fe_id === fe_id);
             if (index !== -1) {
+                state.selectedId = getNextSelectedId(fe_id, componentList);
                 componentList.splice(index, 1);
+            }
+        },
 
-                if (componentList.length === 0) {
-                    state.selectedId = '';
-                } else if (index >= componentList.length - 1) {
-                    state.selectedId = componentList.slice(-1)[0].fe_id;
+        changeComponentHidden: (state, action: PayloadAction<{ fe_id: string; isHidden: boolean }>) => {
+            const { componentList, selectedId } = state;
+            const { fe_id, isHidden } = action.payload;
+            const find = componentList.find(c => c.fe_id === fe_id);
+            if (find) {
+                if (isHidden) {
+                    state.selectedId = getNextSelectedId(selectedId, componentList);
                 } else {
-                    state.selectedId = componentList[index].fe_id;
+                    state.selectedId = fe_id;
                 }
+
+                find.isHidden = isHidden;
             }
         },
     },
 });
 
-export const { resetComponents, changeSelectedId, addComponent, changeComponentProps, removeSelectedComponent } =
-    componentsSlice.actions;
+export const {
+    resetComponents,
+    changeSelectedId,
+    addComponent,
+    changeComponentProps,
+    removeSelectedComponent,
+    changeComponentHidden,
+} = componentsSlice.actions;
