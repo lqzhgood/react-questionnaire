@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import { Navigate, createBrowserRouter, createHashRouter } from 'react-router-dom';
+import { Navigate, createHashRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
