@@ -1,4 +1,4 @@
 export enum QuestionComponentType {
-    'Title',
-    'Input',
+    Title = 'Title',
+    Input = 'Input',
 }

@@ -1,8 +1,8 @@
-import { QuestionData } from '@/types/question';
+import { QuestionData, QuestionEditData } from '@/types/question';
 import axios from './net';
 
 // 获取单个问卷信息
-export function getQuestionService<T = any>(id: string) {
+export function getQuestionService<T = QuestionEditData>(id: string) {
     const url = `/api/question/${id}`;
     return axios.get<T, T>(url);
 }

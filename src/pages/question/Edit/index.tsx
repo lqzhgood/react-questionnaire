@@ -1,11 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useLoadQuestionData from '../../../hooks/useLoadQuestionData';
 
 import styles from './index.module.sass';
 import EditCanvas from './EditCanvas';
+import { useDispatch } from 'react-redux';
+import { changeSelectedId } from '@/store/componentsReducer';
 
 const Edit = () => {
-    const { loading, questionData } = useLoadQuestionData();
+    const { loading } = useLoadQuestionData();
+
+    const dispatch = useDispatch();
+
+    function clearSelectedId() {
+        dispatch(changeSelectedId(''));
+    }
 
     return (
         <div className={styles.container}>
@@ -13,9 +21,9 @@ const Edit = () => {
             <div className={styles['content-wrapper']}>
                 <div className={styles.content}>
                     <div className={styles.left}>left</div>
-                    <div className={styles.main}>
+                    <div className={styles.main} onClick={clearSelectedId}>
                         <div className={styles['canvas-wrapper']}>
-                            <EditCanvas />
+                            <EditCanvas loading={loading} />
                         </div>
                     </div>
                     <div className={styles.right}>right</div>

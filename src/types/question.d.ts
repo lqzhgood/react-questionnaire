@@ -1,3 +1,5 @@
+import { ComponentInfoType } from '@/store/componentsReducer/index';
+
 export type QuestionData = {
     _id: string;
     title: string;
@@ -11,12 +13,5 @@ export type QuestionData = {
 export type QuestionEditData = {
     id: string;
     title: string;
-    componentList: QuestionComponentData[];
-};
-
-export type QuestionComponentData = {
-    id: string;
-    type: QuestionComponentType;
-    title: string;
-    props: Record<string, any>;
+    componentList: ComponentInfoType[];
 };
