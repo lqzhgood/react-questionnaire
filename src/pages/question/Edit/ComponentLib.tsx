@@ -1,10 +1,27 @@
 import React from 'react';
-import { componentConfGroup } from '@/components/QuestionComponents';
+import { ComponentConfType, componentConfGroup } from '@/components/QuestionComponents';
 import { Typography } from 'antd';
 import styles from './ComponentLib.module.sass';
+import { useDispatch } from 'react-redux';
+import { addComponent } from '@/store/componentsReducer';
+import { nanoid } from 'nanoid';
 const { Title } = Typography;
 
 const ComponentLib = () => {
+    const dispatch = useDispatch();
+    function add(c: ComponentConfType) {
+        const { title, type, defaultProps } = c;
+
+        dispatch(
+            addComponent({
+                fe_id: nanoid(),
+                type,
+                title,
+                props: defaultProps,
+            }),
+        );
+    }
+
     return (
         <>
             {componentConfGroup.map((g, i) => {
@@ -18,7 +35,7 @@ const ComponentLib = () => {
                         {components.map(c => {
                             const { type, Component } = c;
                             return (
-                                <div className={styles.componentWrap} key={type}>
+                                <div className={styles.componentWrap} key={type} onClick={() => add(c)}>
                                     <div className={styles.component}>
                                         <Component />
                                     </div>

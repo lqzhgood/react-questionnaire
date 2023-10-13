@@ -18,7 +18,7 @@ const list: mockType<any>[] = [
             componentList: [
                 {
                     fe_id: R.id(),
-                    type: QuestionComponentType.Input,
+                    type: QuestionComponentType.Title,
                     title: '123',
                     props: {
                         text: '个人信息调研',
