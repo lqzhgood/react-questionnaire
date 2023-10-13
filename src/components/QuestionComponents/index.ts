@@ -9,6 +9,17 @@ import QuestionTitleConfType from './QuestionTitle';
 //     defaultProps: ComponentPropsType;
 // };
 
+export const componentConfGroup = [
+    {
+        groupName: '文本显示',
+        components: [QuestionTitleConfType],
+    },
+    {
+        groupName: '用户输入',
+        components: [QuestionInputConfType],
+    },
+];
+
 export const componentConfList = {
     [QuestionComponentType.Input]: QuestionInputConfType,
     [QuestionComponentType.Title]: QuestionTitleConfType,
