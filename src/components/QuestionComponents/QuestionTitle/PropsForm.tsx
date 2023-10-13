@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { QuestionTitlePropsType } from './interface';
 import { Checkbox, Form, Input, Select } from 'antd';
 
@@ -7,6 +7,12 @@ type Props = QuestionTitlePropsType;
 const PropsForm = (props: Props) => {
     const { text, level, isCenter, onChange } = props;
 
+    const [form] = Form.useForm<QuestionTitlePropsType>();
+
+    useEffect(() => {
+        form.setFieldsValue({ text, level, isCenter });
+    }, [text, level, isCenter]);
+
     return (
         <Form
             layout='vertical'
@@ -14,6 +20,7 @@ const PropsForm = (props: Props) => {
             onValuesChange={(_, allFields) => {
                 onChange && onChange(allFields);
             }}
+            form={form}
         >
             <Form.Item label='标题' name='text' rules={[{ required: true, message: '请输入标题' }]}>
                 <Input />

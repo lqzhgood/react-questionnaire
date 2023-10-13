@@ -54,7 +54,25 @@ export const componentsSlice = createSlice({
                 Object.assign(find.props, newProps);
             }
         },
+
+        removeSelectedComponent: state => {
+            const { componentList, selectedId } = state;
+
+            const index = componentList.findIndex(v => v.fe_id === selectedId);
+            if (index !== -1) {
+                componentList.splice(index, 1);
+
+                if (componentList.length === 0) {
+                    state.selectedId = '';
+                } else if (index >= componentList.length - 1) {
+                    state.selectedId = componentList.slice(-1)[0].fe_id;
+                } else {
+                    state.selectedId = componentList[index].fe_id;
+                }
+            }
+        },
     },
 });
 
-export const { resetComponents, changeSelectedId, addComponent, changeComponentProps } = componentsSlice.actions;
+export const { resetComponents, changeSelectedId, addComponent, changeComponentProps, removeSelectedComponent } =
+    componentsSlice.actions;
