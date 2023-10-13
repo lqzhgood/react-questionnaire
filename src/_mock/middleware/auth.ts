@@ -1,8 +1,9 @@
 import { MockCbOptions } from '@/types/net';
 import { checkUser, decodeToken } from '../services/user';
+import { BASE_URL } from '@/const/web';
 
 function isPublicApi(pathname: string) {
-    return ['/api/user/register', '/api/user/login'].includes(pathname);
+    return ['/api/user/register', '/api/user/login'].includes(pathname.replace(BASE_URL, ''));
 }
 
 export default function (opt: MockCbOptions) {
