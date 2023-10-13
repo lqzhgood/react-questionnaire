@@ -1,7 +1,7 @@
 export function parseQueryParams(url: string): Record<string, string> {
     const searchParams = new URLSearchParams(url.split('?')[1]);
 
-    const queryParams: Record<string, any> = {};
+    const queryParams: Record<string, any> = {}; // eslint-disable-line
 
     searchParams.forEach((value, key) => {
         if (/^.+\[\]$/.test(key)) {
