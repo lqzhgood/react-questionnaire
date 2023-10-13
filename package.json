@@ -39,7 +39,7 @@
     "scripts": {
         "dev": "craco start",
         "build": "craco build",
-        "build:gitPage": ".\\node_modules\\.bin\\dotenv -e .env.gitPage craco build",
+        "build:gitPage": "dotenv -e .env.gitPage craco build",
         "test": "craco test",
         "eject": "craco eject",
         "format": ".\\node_modules\\.bin\\prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
