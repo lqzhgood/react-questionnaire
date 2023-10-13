@@ -5,16 +5,22 @@ import { Form, Input } from 'antd';
 type Props = QuestionInputPropsType;
 
 const PropsForm = (props: Props) => {
-    const { title, placeholder } = props;
+    const { title, placeholder, onChange } = props;
 
-    const [form] = Form.useForm();
+    // const [form] = Form.useForm();
 
-    useEffect(() => {
-        form.setFieldsValue({ title, placeholder });
-    }, [title, placeholder]);
+    // useEffect(() => {
+    //     form.setFieldsValue({ title, placeholder });
+    // }, [title, placeholder]);
 
     return (
-        <Form layout='vertical' initialValues={{ title, placeholder }}>
+        <Form<QuestionInputPropsType>
+            layout='vertical'
+            initialValues={{ title, placeholder }}
+            onValuesChange={(_, allFields) => {
+                onChange && onChange(allFields);
+            }}
+        >
             <Form.Item label='标题' name='title' rules={[{ required: true, message: '请输入标题' }]}>
                 <Input />
             </Form.Item>

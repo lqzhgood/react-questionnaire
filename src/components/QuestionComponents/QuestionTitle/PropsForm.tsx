@@ -5,15 +5,21 @@ import { Checkbox, Form, Input, Select } from 'antd';
 type Props = QuestionTitlePropsType;
 
 const PropsForm = (props: Props) => {
-    const { text, level, isCenter } = props;
-    const [form] = Form.useForm();
+    const { text, level, isCenter, onChange } = props;
+    // const [form] = Form.useForm();
 
-    useEffect(() => {
-        form.setFieldsValue({ text, level, isCenter });
-    }, [text, level, isCenter]);
+    // useEffect(() => {
+    //     form.setFieldsValue({ text, level, isCenter });
+    // }, [text, level, isCenter]);
 
     return (
-        <Form layout='vertical' initialValues={{ text, level, isCenter }}>
+        <Form
+            layout='vertical'
+            initialValues={{ text, level, isCenter }}
+            onValuesChange={(_, allFields) => {
+                onChange && onChange(allFields);
+            }}
+        >
             <Form.Item label='标题' name='text' rules={[{ required: true, message: '请输入标题' }]}>
                 <Input />
             </Form.Item>

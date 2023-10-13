@@ -4,7 +4,6 @@ import { LIST_PAGE_SIZE } from '../../const';
 import { MockCbOptions, mockType } from '@/types/net';
 import { QuestionComponentType } from '@/const/question';
 import { QuestionEditData } from '@/types/question';
-import { ComponentPropsType } from '@/components/QuestionComponents';
 
 const R = Mock.Random;
 

@@ -15,3 +15,7 @@ export type QuestionEditData = {
     title: string;
     componentList: ComponentInfoType[];
 };
+
+export interface QuestionCommonPropsType {
+    onChange?: (newProps: QuestionInputPropsType) => void;
+}

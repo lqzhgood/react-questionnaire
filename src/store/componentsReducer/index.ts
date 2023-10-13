@@ -1,4 +1,4 @@
-import { ComponentConfList } from '@/components/QuestionComponents';
+import { ComponentConfList, ComponentPropsType } from '@/components/QuestionComponents';
 import { QuestionComponentType } from '@/const/question';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -44,7 +44,17 @@ export const componentsSlice = createSlice({
 
             state.selectedId = newComponent.fe_id;
         },
+
+        changeComponentProps: (state, action: PayloadAction<{ newProps: ComponentPropsType }>) => {
+            const { componentList, selectedId } = state;
+            const { newProps } = action.payload;
+
+            const find = componentList.find(c => c.fe_id === selectedId);
+            if (find) {
+                Object.assign(find.props, newProps);
+            }
+        },
     },
 });
 
-export const { resetComponents, changeSelectedId, addComponent } = componentsSlice.actions;
+export const { resetComponents, changeSelectedId, addComponent, changeComponentProps } = componentsSlice.actions;

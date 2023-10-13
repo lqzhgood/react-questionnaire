@@ -1,7 +1,9 @@
-export type QuestionInputPropsType = {
+import { QuestionCommonPropsType } from '@/types/question';
+
+export interface QuestionInputPropsType extends QuestionCommonPropsType {
     title?: string;
     placeholder?: string;
-};
+}
 
 export const QuestionInputDefaultProps: QuestionInputPropsType = {
     title: '输入框标题',
