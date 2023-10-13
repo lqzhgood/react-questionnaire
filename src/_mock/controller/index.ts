@@ -4,12 +4,13 @@ import { MockCbOptions, RespType, mockType } from '@/types/net';
 import format from '../middleware/format';
 import auth from '../middleware/auth';
 import { hasIntersection } from '@/utils';
+import { BASE_URL } from '@/const/web';
 
 const middlewaresGlobal = [format, auth];
 
 export function controller(mockList: mockType[]) {
     mockList.forEach(({ path, method, response }) => {
-        Mock.mock(path, method, (opt: MockCbOptions) => {
+        Mock.mock(BASE_URL + path, method, (opt: MockCbOptions) => {
             let resp: RespType;
 
             try {

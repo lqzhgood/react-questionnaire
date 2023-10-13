@@ -8,7 +8,7 @@ const list: mockType[] = [
     {
         path: '/api/user/info',
         method: 'get',
-        response: (opt: MockCbOptions) => {
+        response: () => {
             return {
                 username: R.word(5, 7),
                 nickname: R.ctitle(),
@@ -19,7 +19,7 @@ const list: mockType[] = [
     {
         path: '/api/user/register',
         method: 'post',
-        response: (opt: MockCbOptions) => {
+        response: () => {
             return {};
         },
     },

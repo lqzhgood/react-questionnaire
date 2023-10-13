@@ -1,9 +1,11 @@
+import { BASE_URL } from '@/const/web';
 import { RespType } from '@/types/net';
 import { getToken, removeToken } from '@/utils/user-token';
 import { message } from 'antd';
 import axiosBase, { AxiosInterceptorOptions } from 'axios';
 
 const axios = axiosBase.create({
+    baseURL: BASE_URL,
     timeout: 60 * 1000,
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import { Navigate, createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -94,6 +94,7 @@ export const routers: RouteProps[] = [
     ...[demosRouter],
 ];
 
-const router = createBrowserRouter(routers);
+// const router = createBrowserRouter(routers);
+const router = createHashRouter(routers);
 
 export default router;
