@@ -4,6 +4,7 @@ import QuestionTextareaConfType from './QuestionTextarea/';
 import QuestionTitleConfType from './QuestionTitle/';
 import QuestionParagraphConfType from './QuestionParagraph/';
 import QuestionInfoConfType from './QuestionInfo/';
+import QuestionRadioConfType from './QuestionRadio/';
 
 // export type ComponentConfType = {
 //     title: string;
@@ -21,6 +22,10 @@ export const componentConfGroup = [
         groupName: '用户输入',
         components: [QuestionInputConfType, QuestionTextareaConfType],
     },
+    {
+        groupName: '用户选择',
+        components: [QuestionRadioConfType],
+    },
 ];
 
 export const componentConfList = {
@@ -29,6 +34,7 @@ export const componentConfList = {
     [QuestionComponentType.Title]: QuestionTitleConfType,
     [QuestionComponentType.Paragraph]: QuestionParagraphConfType,
     [QuestionComponentType.Info]: QuestionInfoConfType,
+    [QuestionComponentType.Radio]: QuestionRadioConfType,
 };
 
 export type ComponentConfList = typeof componentConfList;

@@ -4,4 +4,5 @@ export enum QuestionComponentType {
     Paragraph = 'Paragraph',
     Info = 'Info',
     Textarea = 'Textarea',
+    Radio = 'Radio',
 }

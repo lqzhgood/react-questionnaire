@@ -71,6 +71,23 @@ const list: mockType[] = [
                         isCenter: false,
                     },
                 },
+                {
+                    fe_id: R.id(),
+                    type: QuestionComponentType.Radio,
+                    title: '单选',
+                    isHidden: false,
+                    isLocked: false,
+                    props: {
+                        title: '单选标题',
+                        isVertical: true,
+                        options: [
+                            { value: 'v1', label: '选项1' },
+                            { value: 'v2', label: '选项2' },
+                            { value: 'v3', label: '选项3' },
+                        ],
+                        value: '',
+                    },
+                },
             ],
         }),
     },
