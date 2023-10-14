@@ -5,13 +5,7 @@ import QuestionTitleConfType from './QuestionTitle/';
 import QuestionParagraphConfType from './QuestionParagraph/';
 import QuestionInfoConfType from './QuestionInfo/';
 import QuestionRadioConfType from './QuestionRadio/';
-
-// export type ComponentConfType = {
-//     title: string;
-//     type: QuestionComponentType;
-//     Component: FC<ComponentPropsType>;
-//     defaultProps: ComponentPropsType;
-// };
+import QuestionCheckboxConfType from './QuestionCheckbox/';
 
 export const componentConfGroup = [
     {
@@ -24,7 +18,7 @@ export const componentConfGroup = [
     },
     {
         groupName: '用户选择',
-        components: [QuestionRadioConfType],
+        components: [QuestionRadioConfType, QuestionCheckboxConfType],
     },
 ];
 
@@ -35,6 +29,7 @@ export const componentConfList = {
     [QuestionComponentType.Paragraph]: QuestionParagraphConfType,
     [QuestionComponentType.Info]: QuestionInfoConfType,
     [QuestionComponentType.Radio]: QuestionRadioConfType,
+    [QuestionComponentType.Checkbox]: QuestionCheckboxConfType,
 };
 
 export type ComponentConfList = typeof componentConfList;

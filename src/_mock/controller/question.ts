@@ -88,6 +88,22 @@ const list: mockType[] = [
                         value: '',
                     },
                 },
+                {
+                    fe_id: R.id(),
+                    type: QuestionComponentType.Checkbox,
+                    title: '多选',
+                    isHidden: false,
+                    isLocked: false,
+                    props: {
+                        title: '多选标题',
+                        isVertical: true,
+                        list: [
+                            { value: 'v1', label: '选项1', checked: false },
+                            { value: 'v2', label: '选项2', checked: false },
+                            { value: 'v3', label: '选项3', checked: false },
+                        ],
+                    },
+                },
             ],
         }),
     },

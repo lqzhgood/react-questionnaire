@@ -5,4 +5,5 @@ export enum QuestionComponentType {
     Info = 'Info',
     Textarea = 'Textarea',
     Radio = 'Radio',
+    Checkbox = 'Checkbox',
 }

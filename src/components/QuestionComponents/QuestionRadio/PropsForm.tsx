@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { QuestionRadioPropsType } from './interface';
-import { Button, Checkbox, Form, Input, Radio, Select, Space } from 'antd';
+import { Button, Checkbox, Form, Input, Select, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { nanoid } from 'nanoid';
 
@@ -22,7 +22,6 @@ const PropsForm = (props: Props) => {
             initialValues={{ title, isVertical, options, value }}
             onValuesChange={(_, allFields) => {
                 if (onChange) {
-                    if (allFields.options) allFields.options = allFields.options.filter(v => v.label);
                     onChange(allFields);
                 }
             }}
