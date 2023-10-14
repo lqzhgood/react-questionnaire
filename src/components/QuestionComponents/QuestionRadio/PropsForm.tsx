@@ -21,7 +21,10 @@ const PropsForm = (props: Props) => {
             layout='vertical'
             initialValues={{ title, isVertical, options, value }}
             onValuesChange={(_, allFields) => {
-                onChange && onChange(allFields);
+                if (onChange) {
+                    if (allFields.options) allFields.options = allFields.options.filter(v => v.label);
+                    onChange(allFields);
+                }
             }}
             form={form}
         >
