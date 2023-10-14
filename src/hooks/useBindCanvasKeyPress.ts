@@ -15,27 +15,27 @@ function useBindCanvasKeyPress() {
     const dispatch = useDispatch();
 
     useKeyPress(['backspace', 'delete'], () => {
-        if (!isActiveElementValid) return;
+        if (!isActiveElementValid()) return;
         dispatch(removeSelectedComponent());
     });
 
     useKeyPress(['ctrl.c', 'meta.c'], () => {
-        if (!isActiveElementValid) return;
+        if (!isActiveElementValid()) return;
         dispatch(copyComponent());
     });
 
     useKeyPress(['ctrl.v', 'meta.v'], () => {
-        if (!isActiveElementValid) return;
+        if (!isActiveElementValid()) return;
         dispatch(pasteCopiedComponent());
     });
 
     useKeyPress(['uparrow'], () => {
-        if (!isActiveElementValid) return;
+        if (!isActiveElementValid()) return;
         dispatch(moveSelectedComponent('up'));
     });
 
     useKeyPress(['downarrow'], () => {
-        if (!isActiveElementValid) return;
+        if (!isActiveElementValid()) return;
         dispatch(moveSelectedComponent('down'));
     });
 }
