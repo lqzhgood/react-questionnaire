@@ -17,6 +17,17 @@ const list: mockType[] = [
             componentList: [
                 {
                     fe_id: R.id(),
+                    type: QuestionComponentType.Info,
+                    title: '输入框2',
+                    isHidden: false,
+                    isLocked: false,
+                    props: {
+                        title: '问卷信息',
+                        desc: '问卷描述...',
+                    },
+                },
+                {
+                    fe_id: R.id(),
                     type: QuestionComponentType.Title,
                     title: '123',
                     isHidden: false,
@@ -47,6 +58,17 @@ const list: mockType[] = [
                     props: {
                         title: '你的电话',
                         placeholder: '请输入电话...',
+                    },
+                },
+                {
+                    fe_id: R.id(),
+                    type: QuestionComponentType.Paragraph,
+                    title: '输入框2',
+                    isHidden: false,
+                    isLocked: false,
+                    props: {
+                        text: '我是段落',
+                        isCenter: false,
                     },
                 },
             ],
