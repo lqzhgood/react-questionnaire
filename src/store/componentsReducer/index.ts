@@ -57,9 +57,9 @@ export const componentsSlice = createSlice({
             }
         },
 
-        removeSelectedComponent: (state, action: PayloadAction<{ fe_id: string }>) => {
-            const { componentList } = state;
-            const { fe_id } = action.payload;
+        removeSelectedComponent: (state, action: PayloadAction<undefined | { fe_id: string }>) => {
+            const { componentList, selectedId } = state;
+            const { fe_id = selectedId } = action.payload || {};
 
             const index = componentList.findIndex(v => v.fe_id === fe_id);
             if (index !== -1) {
@@ -83,18 +83,18 @@ export const componentsSlice = createSlice({
             }
         },
 
-        toggleComponentLocked: (state, action: PayloadAction<{ fe_id: string }>) => {
-            const { componentList } = state;
-            const { fe_id } = action.payload;
+        toggleComponentLocked: (state, action: PayloadAction<undefined | { fe_id: string }>) => {
+            const { componentList, selectedId } = state;
+            const { fe_id = selectedId } = action.payload || {};
             const find = componentList.find(c => c.fe_id === fe_id);
             if (find) {
                 find.isLocked = !find.isLocked;
             }
         },
 
-        copyComponent: (state, action: PayloadAction<{ fe_id: string }>) => {
-            const { componentList } = state;
-            const { fe_id } = action.payload;
+        copyComponent: (state, action: PayloadAction<undefined | { fe_id: string }>) => {
+            const { componentList, selectedId } = state;
+            const { fe_id = selectedId } = action.payload || {};
             const find = componentList.find(c => c.fe_id === fe_id);
             if (find) {
                 state.copiedComponent = _.cloneDeep(find);
@@ -106,6 +106,25 @@ export const componentsSlice = createSlice({
                 state.copiedComponent.fe_id = nanoid();
                 insertNewComponent(state, state.copiedComponent);
                 // state.copiedComponent = null;
+            }
+        },
+
+        moveSelectedComponent: (state, action: PayloadAction<'up' | 'down'>) => {
+            if (!action.payload) return;
+            const direction = action.payload;
+            const { selectedId, componentList } = state;
+            const selectIndex = componentList.findIndex(c => c.fe_id === selectedId);
+
+            const len = componentList.length - 1;
+            if (selectIndex === -1) return;
+
+            if (selectIndex === 0 && direction === 'up') return;
+            if (selectIndex === len && direction === 'down') return;
+
+            if (direction === 'up') {
+                state.selectedId = componentList[selectIndex - 1].fe_id;
+            } else if (direction === 'down') {
+                state.selectedId = componentList[selectIndex + 1].fe_id;
             }
         },
     },
@@ -121,4 +140,5 @@ export const {
     toggleComponentLocked,
     copyComponent,
     pasteCopiedComponent,
+    moveSelectedComponent,
 } = componentsSlice.actions;

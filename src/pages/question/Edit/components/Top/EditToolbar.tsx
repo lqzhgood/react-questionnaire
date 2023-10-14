@@ -10,6 +10,7 @@ import {
     pasteCopiedComponent,
 } from '@/store/componentsReducer';
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
+import useBindCanvasKeyPress from '@/hooks/useBindCanvasKeyPress';
 
 const EditToolbar = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const EditToolbar = () => {
     const { selectedId, selectedComponent, copiedComponent } = useGetComponentInfo();
 
     const { isLocked = false } = selectedComponent || {};
+
+    useBindCanvasKeyPress();
 
     return (
         <Space>
