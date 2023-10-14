@@ -1,5 +1,6 @@
 import { QuestionComponentType } from '@/const/question';
 import QuestionInputConfType from './QuestionInput/';
+import QuestionTextareaConfType from './QuestionTextarea/';
 import QuestionTitleConfType from './QuestionTitle/';
 import QuestionParagraphConfType from './QuestionParagraph/';
 import QuestionInfoConfType from './QuestionInfo/';
@@ -18,12 +19,13 @@ export const componentConfGroup = [
     },
     {
         groupName: '用户输入',
-        components: [QuestionInputConfType],
+        components: [QuestionInputConfType, QuestionTextareaConfType],
     },
 ];
 
 export const componentConfList = {
     [QuestionComponentType.Input]: QuestionInputConfType,
+    [QuestionComponentType.Textarea]: QuestionTextareaConfType,
     [QuestionComponentType.Title]: QuestionTitleConfType,
     [QuestionComponentType.Paragraph]: QuestionParagraphConfType,
     [QuestionComponentType.Info]: QuestionInfoConfType,

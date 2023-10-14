@@ -51,13 +51,13 @@ const list: mockType[] = [
                 },
                 {
                     fe_id: R.id(),
-                    type: QuestionComponentType.Input,
-                    title: '输入框2',
+                    type: QuestionComponentType.Textarea,
+                    title: '多行输入框',
                     isHidden: false,
                     isLocked: false,
                     props: {
-                        title: '你的电话',
-                        placeholder: '请输入电话...',
+                        title: '你的简介',
+                        placeholder: '请输入简介...\n第二行',
                     },
                 },
                 {
