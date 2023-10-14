@@ -13,7 +13,7 @@ const EditHeader = () => {
         <div className={styles['header-wrapper']}>
             <div className={styles.header}>
                 <div className={styles.left}>
-                    <Space>
+                    <Space align='baseline'>
                         <Button
                             type='link'
                             icon={<LeftOutlined />}
