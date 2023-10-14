@@ -1,13 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { changeSelectedId } from '@/store/componentsReducer';
 import useLoadQuestionData from '../../../hooks/useLoadQuestionData';
 
 import styles from './index.module.sass';
-import EditCanvas from './Main/EditCanvas';
-import { useDispatch } from 'react-redux';
-import { changeSelectedId } from '@/store/componentsReducer';
-import LeftPanel from './Left/LeftPanel';
-import RightPanel from './Right/RightPanel';
-import EditHeader from './Top/EditHeader';
+
+import EditCanvas from './components/Main/EditCanvas';
+import LeftPanel from './components/Left/LeftPanel';
+import RightPanel from './components/Right/RightPanel';
+import EditHeader from './components/Top/EditHeader';
 
 const Edit = () => {
     const { loading } = useLoadQuestionData();

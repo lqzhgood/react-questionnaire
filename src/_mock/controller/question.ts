@@ -11,7 +11,7 @@ const list: mockType[] = [
     {
         path: '/api/question/:id',
         method: 'get',
-        response: () => ({
+        response: (): QuestionEditData => ({
             id: R.id(),
             title: R.title(),
             componentList: [
@@ -51,7 +51,7 @@ const list: mockType[] = [
                 },
             ],
         }),
-    } as mockType<QuestionEditData>,
+    },
 
     {
         path: '/api/question',

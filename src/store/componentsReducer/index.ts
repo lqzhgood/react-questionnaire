@@ -3,14 +3,18 @@ import { QuestionComponentType } from '@/const/question';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getNextSelectedId } from './utils';
 
-export type ComponentInfoType<T extends ComponentConfList = ComponentConfList> = {
+interface _ComponentInfoType<T extends QuestionComponentType> {
     fe_id: string;
-    type: keyof T;
+    type: T;
     title: string;
     isHidden?: boolean;
     isLocked?: boolean;
-    props: T[QuestionComponentType]['defaultProps'];
-};
+    props: Partial<ComponentConfList[T]['defaultProps']>;
+}
+
+export type ComponentInfoType<U = QuestionComponentType> = U extends QuestionComponentType
+    ? _ComponentInfoType<U>
+    : never;
 
 export type ComponentStateType = {
     componentList: ComponentInfoType[];
