@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 function useGetComponentInfo() {
     const components = useSelector<StoreStateType, ComponentStateType>(state => state.components);
 
-    const { componentList, selectedId } = components;
+    const { componentList, selectedId, copiedComponent } = components;
 
     const selectedComponent = componentList.find(c => c.fe_id === selectedId);
 
-    return { componentList, selectedId, selectedComponent };
+    return { componentList, selectedId, selectedComponent, copiedComponent };
 }
 
 export default useGetComponentInfo;

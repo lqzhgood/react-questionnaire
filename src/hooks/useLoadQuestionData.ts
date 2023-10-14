@@ -31,7 +31,7 @@ function useLoadQuestionData() {
             selectedId = componentList[0].fe_id;
         }
 
-        dispatch(resetComponents({ selectedId, componentList }));
+        dispatch(resetComponents({ selectedId, componentList, copiedComponent: null }));
     }, [data]);
 
     return { loading, error };
