@@ -18,7 +18,7 @@ const list: mockType[] = [
                 {
                     fe_id: R.id(),
                     type: QuestionComponentType.Info,
-                    title: '输入框2',
+                    title: '信息',
                     isHidden: false,
                     isLocked: false,
                     props: {
@@ -29,7 +29,7 @@ const list: mockType[] = [
                 {
                     fe_id: R.id(),
                     type: QuestionComponentType.Title,
-                    title: '123',
+                    title: '输入框',
                     isHidden: false,
                     isLocked: false,
                     props: {

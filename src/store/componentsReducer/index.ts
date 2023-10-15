@@ -53,6 +53,7 @@ export const componentsSlice = createSlice({
 
             const find = componentList.find(c => c.fe_id === selectedId);
             if (find) {
+                console.log('{...find}', { ...find.props });
                 Object.assign(find.props, newProps);
             }
         },
@@ -68,7 +69,7 @@ export const componentsSlice = createSlice({
             }
         },
 
-        changeComponentHidden: (state, action: PayloadAction<{ fe_id: string; isHidden: boolean }>) => {
+        changeComponentHidden: (state, action: PayloadAction<{ fe_id: string; isHidden?: boolean }>) => {
             const { componentList, selectedId } = state;
             const { fe_id, isHidden } = action.payload;
             const find = componentList.find(c => c.fe_id === fe_id);
@@ -89,6 +90,18 @@ export const componentsSlice = createSlice({
             const find = componentList.find(c => c.fe_id === fe_id);
             if (find) {
                 find.isLocked = !find.isLocked;
+            }
+        },
+
+        updateComponent: (
+            state,
+            action: PayloadAction<{ fe_id: string; opt: Partial<Omit<ComponentInfoType, 'id'>> }>,
+        ) => {
+            const { componentList } = state;
+            const { fe_id, opt } = action.payload;
+            const find = componentList.find(c => c.fe_id === fe_id);
+            if (find) {
+                Object.assign(find, opt);
             }
         },
 
@@ -141,4 +154,5 @@ export const {
     copyComponent,
     pasteCopiedComponent,
     moveSelectedComponent,
+    updateComponent,
 } = componentsSlice.actions;
