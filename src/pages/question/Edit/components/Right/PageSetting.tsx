@@ -36,7 +36,6 @@ const PageSetting = () => {
             <Form.Item name='css' label='页面样式'>
                 <Input.TextArea placeholder='请输入 CSS 代码' />
             </Form.Item>
-            {JSON.stringify(pageInfo)}
         </Form>
     );
 };
