@@ -25,8 +25,8 @@ export function controller(mockList: mockType[]) {
                         data,
                     };
                 }
+                // eslint-disable-next-line
             } catch (error: any) {
-                // eslint-disable-line
                 resp = {
                     code: 500,
                     msg: error?.message,

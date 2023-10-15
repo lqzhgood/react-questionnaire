@@ -1,5 +1,5 @@
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
-import React, { ChangeEvent, useCallback, useEffect, useLayoutEffect, useReducer, useRef, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Layers.module.sass';
 import { Button, Input, InputRef, Space, message } from 'antd';
