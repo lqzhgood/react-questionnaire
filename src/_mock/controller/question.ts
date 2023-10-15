@@ -13,7 +13,10 @@ const list: mockType[] = [
         method: 'get',
         response: (): QuestionEditData => ({
             id: R.id(),
-            title: R.title(),
+            title: R.ctitle(),
+            desc: '问卷描述',
+            js: '',
+            css: '',
             componentList: [
                 {
                     fe_id: R.id(),

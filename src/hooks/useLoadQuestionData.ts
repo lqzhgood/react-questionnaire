@@ -4,6 +4,7 @@ import { getQuestionService } from '../services/question';
 import { useRequest } from 'ahooks';
 import { useDispatch } from 'react-redux';
 import { resetComponents } from '@/store/componentsReducer';
+import { resetPageInfo } from '@/store/pageInfo';
 
 function useLoadQuestionData() {
     const { id = '' } = useParams();
@@ -24,7 +25,7 @@ function useLoadQuestionData() {
 
     useEffect(() => {
         if (!data) return;
-        const { componentList = [] } = data;
+        const { componentList = [], id, title, desc, js, css } = data;
 
         let selectedId = '';
         if (componentList.length > 0) {
@@ -32,6 +33,7 @@ function useLoadQuestionData() {
         }
 
         dispatch(resetComponents({ selectedId, componentList, copiedComponent: null }));
+        dispatch(resetPageInfo({ id, title, desc, js, css }));
     }, [data]);
 
     return { loading, error };

@@ -1,4 +1,5 @@
 import { ComponentInfoType } from '@/store/componentsReducer/index';
+import { PageInfoType } from '@/store/pageInfo';
 
 export type QuestionData = {
     _id: string;
@@ -10,11 +11,10 @@ export type QuestionData = {
     isDeleted: boolean;
 };
 
-export type QuestionEditData = {
+export interface QuestionEditData extends PageInfoType {
     id: string;
-    title: string;
     componentList: ComponentInfoType[];
-};
+}
 
 export interface QuestionCommonPropsType {
     onChange?: (newProps: QuestionInputPropsType) => void;
