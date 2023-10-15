@@ -18,12 +18,12 @@ import { QuestionData } from '@/types/question';
 type PropsType = QuestionData;
 
 const QuestionCard = (props: PropsType) => {
-    const { _id, title, createdAt, answerCount, isPublished, isStar } = props;
     const nav = useNavigate();
 
     const [loading, setLoading] = useState(false);
 
     const [data, setData] = useState<QuestionData>({ ...props });
+    const { _id, title, createdAt, answerCount, isPublished, isStar } = data;
 
     const { run: duplicate } = useRequest(
         () => {
