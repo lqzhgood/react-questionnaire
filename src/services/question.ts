@@ -1,12 +1,6 @@
 import { QuestionData, QuestionEditData } from '@/types/question';
 import axios from './net';
 
-// 获取单个问卷信息
-export function getQuestionService<T = QuestionEditData>(id: string) {
-    const url = `/api/question/${id}`;
-    return axios.get<T, T>(url);
-}
-
 // 创建问卷
 export function createQuestionService<T = { id: string }>() {
     const url = `/api/question`;
@@ -43,4 +37,15 @@ export function duplicateQuestionService<T = { _id: string }>(id: string) {
 export function deleteQuestionService<T = Record<string, never>>(ids: string[]) {
     const url = `/api/question`;
     return axios.delete<T, T>(url, { params: { ids } });
+}
+
+// 获取单个问卷表单编辑信息
+export function getQuestionService<T = QuestionEditData>(id: string) {
+    const url = `/api/question/edit/${id}`;
+    return axios.get<T, T>(url);
+}
+
+export function updateQuestionEditService<T = Record<string, never>>(id: string, data: Partial<QuestionEditData>) {
+    const url = `/api/question/edit/${id}`;
+    return axios.patch<T, T>(url, data);
 }

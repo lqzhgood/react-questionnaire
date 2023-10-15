@@ -53,7 +53,6 @@ export const componentsSlice = createSlice({
 
             const find = componentList.find(c => c.fe_id === selectedId);
             if (find) {
-                console.log('{...find}', { ...find.props });
                 Object.assign(find.props, newProps);
             }
         },

@@ -9,7 +9,54 @@ const R = Mock.Random;
 
 const list: mockType[] = [
     {
+        path: '/api/question',
+        method: 'post',
+        response: () => ({
+            id: R.id(),
+        }),
+    },
+    {
+        path: '/api/question',
+        method: 'get',
+        response: function (options: MockCbOptions) {
+            const { query } = options;
+            const pageSize = parseInt(query.pageSize) | LIST_PAGE_SIZE;
+            return {
+                list: getQuestionList(pageSize, query),
+                total: 100,
+            };
+        },
+    },
+
+    // 问卷信息
+    {
         path: '/api/question/:id',
+        method: 'patch',
+        response: function () {
+            return {};
+        },
+    },
+
+    {
+        path: '/api/question/duplicate/:id',
+        method: 'post',
+        response: function () {
+            return {
+                _id: R.id(),
+            };
+        },
+    },
+
+    {
+        path: '/api/question',
+        method: 'delete',
+        response: function () {
+            return {};
+        },
+    },
+
+    {
+        path: '/api/question/edit/:id',
         method: 'get',
         response: (): QuestionEditData => ({
             id: R.id(),
@@ -111,47 +158,10 @@ const list: mockType[] = [
         }),
     },
 
+    // 问卷的编辑信息
     {
-        path: '/api/question',
-        method: 'post',
-        response: () => ({
-            id: R.id(),
-        }),
-    },
-    {
-        path: '/api/question',
-        method: 'get',
-        response: function (options: MockCbOptions) {
-            const { query } = options;
-            const pageSize = parseInt(query.pageSize) | LIST_PAGE_SIZE;
-            return {
-                list: getQuestionList(pageSize, query),
-                total: 100,
-            };
-        },
-    },
-
-    {
-        path: '/api/question/:id',
+        path: '/api/question/edit/:id',
         method: 'patch',
-        response: function () {
-            return {};
-        },
-    },
-
-    {
-        path: '/api/question/duplicate/:id',
-        method: 'post',
-        response: function () {
-            return {
-                _id: R.id(),
-            };
-        },
-    },
-
-    {
-        path: '/api/question',
-        method: 'delete',
         response: function () {
             return {};
         },
