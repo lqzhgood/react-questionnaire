@@ -3,6 +3,7 @@ import { ComponentConfList, ComponentPropsType } from '@/components/QuestionComp
 import { QuestionComponentType } from '@/const/question';
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { getNextSelectedId, insertNewComponent } from './utils';
+import { arrayMove } from '@dnd-kit/sortable';
 
 interface _ComponentInfoType<T extends QuestionComponentType> {
     fe_id: string;
@@ -139,6 +140,13 @@ export const componentsSlice = createSlice({
                 state.selectedId = componentList[selectIndex + 1].fe_id;
             }
         },
+
+        moveComponent: (state, action: PayloadAction<{ oldIndex: number; newIndex: number }>) => {
+            const { componentList } = state;
+            const { oldIndex, newIndex } = action.payload;
+
+            state.componentList = arrayMove(componentList, oldIndex, newIndex);
+        },
     },
 });
 
@@ -154,4 +162,5 @@ export const {
     pasteCopiedComponent,
     moveSelectedComponent,
     updateComponent,
+    moveComponent,
 } = componentsSlice.actions;

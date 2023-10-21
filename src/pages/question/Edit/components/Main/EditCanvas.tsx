@@ -2,10 +2,12 @@ import React from 'react';
 import { Empty, Spin } from 'antd';
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
 import { componentConfList } from '@/components/QuestionComponents';
-import { ComponentInfoType, changeSelectedId } from '@/store/componentsReducer';
+import { ComponentInfoType, changeSelectedId, moveComponent } from '@/store/componentsReducer';
 import styles from './EditCanvas.module.sass';
 import { useDispatch } from 'react-redux';
 import classnames from 'classnames';
+import SortableContainer from '@/components/DragSortable/SortableContainer';
+import SortableItem from '@/components/DragSortable/SortableItem';
 
 type PropsType = {
     loading: boolean;
@@ -25,32 +27,41 @@ const EditCanvas = ({ loading }: PropsType) => {
                 <Spin />
             </div>
         );
+
     return (
-        <div className={styles.canvas}>
-            {componentList
-                .filter(c => !c.isHidden)
-                .map(c => {
-                    const { fe_id, isLocked } = c;
+        <SortableContainer
+            items={componentList.map(c => ({ id: c.fe_id, ...c }))}
+            onDragEnd={(oldIndex, newIndex) => {
+                dispatch(moveComponent({ oldIndex, newIndex }));
+            }}
+        >
+            <div className={styles.canvas}>
+                {componentList
+                    .filter(c => !c.isHidden)
+                    .map(c => {
+                        const { fe_id, isLocked } = c;
 
-                    const wrapClass = classnames(styles['component-wrapper'], {
-                        [styles.selected]: fe_id === selectedId,
-                        [styles.locked]: isLocked,
-                    });
+                        const wrapClass = classnames(styles['component-wrapper'], {
+                            [styles.selected]: fe_id === selectedId,
+                            [styles.locked]: isLocked,
+                        });
 
-                    return (
-                        <div
-                            className={wrapClass}
-                            key={fe_id}
-                            onClick={e => {
-                                e.stopPropagation();
-                                dispatch(changeSelectedId(fe_id));
-                            }}
-                        >
-                            <div className={styles.component}>{findComponent(c)}</div>
-                        </div>
-                    );
-                })}
-        </div>
+                        return (
+                            <SortableItem id={fe_id} key={fe_id}>
+                                <div
+                                    className={wrapClass}
+                                    onClick={e => {
+                                        e.stopPropagation();
+                                        dispatch(changeSelectedId(fe_id));
+                                    }}
+                                >
+                                    <div className={styles.component}>{findComponent(c)}</div>
+                                </div>
+                            </SortableItem>
+                        );
+                    })}
+            </div>
+        </SortableContainer>
     );
 };
 
