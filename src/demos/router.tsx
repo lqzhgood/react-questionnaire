@@ -15,6 +15,7 @@ import Redux from './pages/Redux';
 import Mobx from './pages/Mobx';
 import TestMockMvc from './pages/TestMockMvc';
 import DndSortable from './pages/Dnd-sortable';
+import ReduxUndo from './pages/ReduxUndo';
 
 export const demosRouter = {
     path: '/demos',
@@ -79,6 +80,10 @@ export const demosRouter = {
         {
             path: 'Dnd-sortable',
             element: <DndSortable />,
+        },
+        {
+            path: 'ReduxUndo',
+            element: <ReduxUndo />,
         },
     ],
 };
