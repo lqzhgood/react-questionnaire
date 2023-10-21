@@ -8,6 +8,7 @@ import useGetQuestionPageInfo from '@/hooks/useGetQuestionPageInfo';
 import useLoadQuestionData from '@/hooks/useLoadQuestionData';
 
 import styles from './index.module.sass';
+import StatHeader from './components/Top/StatHeader';
 
 const Stat = () => {
     const nav = useNavigate();
@@ -45,7 +46,10 @@ const Stat = () => {
 
     return (
         <div className={styles.container}>
-            <div>Header</div>
+            <div>
+                {' '}
+                <StatHeader />
+            </div>
             <div className={styles['content-wrapper']}>
                 {loading ? (
                     LoadingElm
