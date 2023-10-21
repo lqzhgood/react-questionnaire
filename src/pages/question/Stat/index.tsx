@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTitle } from 'ahooks';
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -9,12 +9,16 @@ import useLoadQuestionData from '@/hooks/useLoadQuestionData';
 
 import styles from './index.module.sass';
 import StatHeader from './components/Top/StatHeader';
+import ComponentList from './components/Left/ComponentList';
 
 const Stat = () => {
     const nav = useNavigate();
     const { loading } = useLoadQuestionData();
     const { isPublished, title } = useGetQuestionPageInfo();
     useTitle(title + '- 问卷统计', { restoreOnUnmount: true });
+
+    const [selectedComponentId, setSelectedComponentId] = useState('');
+    const [selectedComponentType, setSelectedComponentType] = useState('');
 
     const LoadingElm = <CenterSpin style={{ marginTop: '60px' }} />;
 
@@ -37,7 +41,13 @@ const Stat = () => {
 
         return (
             <>
-                <div className={styles.left}>left</div>
+                <div className={styles.left}>
+                    <ComponentList
+                        selectedComponentId={selectedComponentId}
+                        setSelectedComponentId={setSelectedComponentId}
+                        setSelectedComponentType={setSelectedComponentType}
+                    />
+                </div>
                 <div className={styles.main}>main</div>
                 <div className={styles.right}>right</div>
             </>
@@ -47,7 +57,6 @@ const Stat = () => {
     return (
         <div className={styles.container}>
             <div>
-                {' '}
                 <StatHeader />
             </div>
             <div className={styles['content-wrapper']}>
