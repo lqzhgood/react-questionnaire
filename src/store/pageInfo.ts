@@ -9,7 +9,7 @@ export type PageInfoType = {
     css?: string;
 };
 
-const INIT_STATE: PageInfoType = { id: nanoid(), title: '', desc: '', isPublished: false, js: '', css: '' };
+const INIT_STATE: PageInfoType = { id: nanoid(), title: '', desc: '', isPublished: undefined, js: '', css: '' };
 
 export const pageInfoSlice = createSlice({
     name: 'pageInfo',
