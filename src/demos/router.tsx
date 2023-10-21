@@ -14,6 +14,7 @@ import TodoReducer from './pages/TodoReducer/index';
 import Redux from './pages/Redux';
 import Mobx from './pages/Mobx';
 import TestMockMvc from './pages/TestMockMvc';
+import DndSortable from './pages/Dnd-sortable';
 
 export const demosRouter = {
     path: '/demos',
@@ -74,6 +75,10 @@ export const demosRouter = {
         {
             path: 'TestMockMvc',
             element: <TestMockMvc />,
+        },
+        {
+            path: 'Dnd-sortable',
+            element: <DndSortable />,
         },
     ],
 };
