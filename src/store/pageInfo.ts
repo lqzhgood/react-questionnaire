@@ -4,11 +4,12 @@ export type PageInfoType = {
     id: string;
     title: string;
     desc?: string;
+    isPublished?: boolean;
     js?: string;
     css?: string;
 };
 
-const INIT_STATE: PageInfoType = { id: nanoid(), title: '', desc: '', js: '', css: '' };
+const INIT_STATE: PageInfoType = { id: nanoid(), title: '', desc: '', isPublished: false, js: '', css: '' };
 
 export const pageInfoSlice = createSlice({
     name: 'pageInfo',

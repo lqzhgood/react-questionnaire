@@ -25,7 +25,7 @@ function useLoadQuestionData() {
 
     useEffect(() => {
         if (!data) return;
-        const { componentList = [], id, title, desc, js, css } = data;
+        const { componentList = [], id, title, desc, isPublished, js, css } = data;
 
         let selectedId = '';
         if (componentList.length > 0) {
@@ -33,7 +33,7 @@ function useLoadQuestionData() {
         }
 
         dispatch(resetComponents({ selectedId, componentList, copiedComponent: null }));
-        dispatch(resetPageInfo({ id, title, desc, js, css }));
+        dispatch(resetPageInfo({ id, title, desc, isPublished, js, css }));
     }, [data]);
 
     return { loading, error };

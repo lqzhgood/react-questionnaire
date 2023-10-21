@@ -62,6 +62,7 @@ const list: mockType[] = [
             id: R.id(),
             title: R.ctitle(),
             desc: '问卷描述',
+            isPublished: true,
             js: '',
             css: '',
             componentList: [
