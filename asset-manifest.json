@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-questionnaire/static/css/main.34dccf5b.css",
-    "main.js": "/react-questionnaire/static/js/main.4286be55.js",
+    "main.js": "/react-questionnaire/static/js/main.ed0affee.js",
     "static/js/787.a5f4dcf6.chunk.js": "/react-questionnaire/static/js/787.a5f4dcf6.chunk.js",
     "index.html": "/react-questionnaire/index.html",
     "main.34dccf5b.css.map": "/react-questionnaire/static/css/main.34dccf5b.css.map",
-    "main.4286be55.js.map": "/react-questionnaire/static/js/main.4286be55.js.map",
+    "main.ed0affee.js.map": "/react-questionnaire/static/js/main.ed0affee.js.map",
     "787.a5f4dcf6.chunk.js.map": "/react-questionnaire/static/js/787.a5f4dcf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.34dccf5b.css",
-    "static/js/main.4286be55.js"
+    "static/js/main.ed0affee.js"
   ]
 }
