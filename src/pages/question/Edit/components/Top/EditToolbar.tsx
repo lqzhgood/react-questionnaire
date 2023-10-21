@@ -1,5 +1,13 @@
 import React from 'react';
-import { BlockOutlined, CopyOutlined, DeleteOutlined, EyeInvisibleOutlined, LockOutlined } from '@ant-design/icons';
+import {
+    BlockOutlined,
+    CopyOutlined,
+    DeleteOutlined,
+    DownOutlined,
+    EyeInvisibleOutlined,
+    LockOutlined,
+    UpOutlined,
+} from '@ant-design/icons';
 import { Button, Space, Tooltip } from 'antd';
 import { useDispatch } from 'react-redux';
 import {
@@ -8,6 +16,7 @@ import {
     toggleComponentLocked,
     copyComponent,
     pasteCopiedComponent,
+    moveComponent,
 } from '@/store/componentsReducer';
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
 import useBindCanvasKeyPress from '@/hooks/useBindCanvasKeyPress';
@@ -15,11 +24,17 @@ import useBindCanvasKeyPress from '@/hooks/useBindCanvasKeyPress';
 const EditToolbar = () => {
     const dispatch = useDispatch();
 
-    const { selectedId, selectedComponent, copiedComponent } = useGetComponentInfo();
+    const { selectedId, selectedComponent, copiedComponent, componentList } = useGetComponentInfo();
 
     const { isLocked = false } = selectedComponent || {};
 
     useBindCanvasKeyPress();
+
+    const length = componentList.length - 1;
+    const selectedIndex = componentList.findIndex(c => c.fe_id === selectedId);
+
+    const isFirst = selectedIndex <= 0;
+    const isLast = selectedIndex >= length;
 
     return (
         <Space>
@@ -52,13 +67,38 @@ const EditToolbar = () => {
                     onClick={() => dispatch(copyComponent({ fe_id: selectedId }))}
                 />
             </Tooltip>
-
             <Tooltip title='粘贴'>
                 <Button
                     shape='circle'
                     icon={<BlockOutlined />}
                     disabled={!copiedComponent}
                     onClick={() => dispatch(pasteCopiedComponent())}
+                />
+            </Tooltip>
+            <Tooltip title='上移'>
+                <Button
+                    shape='circle'
+                    icon={<UpOutlined />}
+                    disabled={isFirst}
+                    onClick={() => {
+                        if (isFirst) {
+                            return;
+                        }
+                        dispatch(moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex - 1 }));
+                    }}
+                />
+            </Tooltip>
+            <Tooltip title='下移'>
+                <Button
+                    shape='circle'
+                    icon={<DownOutlined />}
+                    disabled={isLast}
+                    onClick={() => {
+                        if (isLast) {
+                            return;
+                        }
+                        dispatch(moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex + 1 }));
+                    }}
                 />
             </Tooltip>
         </Space>
