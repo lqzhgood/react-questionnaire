@@ -6,6 +6,7 @@ import {
     removeSelectedComponent,
     moveSelectedComponent,
 } from '@/store/componentsReducer';
+import { ActionCreators as UndoActionCreators } from 'redux-undo';
 
 function isActiveElementValid() {
     const activeElm = document.activeElement;
@@ -43,6 +44,28 @@ function useBindCanvasKeyPress() {
         if (!isActiveElementValid()) return;
         dispatch(moveSelectedComponent('down'));
     });
+
+    useKeyPress(
+        ['ctrl.z', 'meta.z'],
+        () => {
+            if (!isActiveElementValid()) return;
+            dispatch(UndoActionCreators.undo());
+        },
+        {
+            exactMatch: true,
+        },
+    );
+
+    useKeyPress(
+        ['ctrl.y', 'meta.y'],
+        () => {
+            if (!isActiveElementValid()) return;
+            dispatch(UndoActionCreators.redo());
+        },
+        {
+            exactMatch: true,
+        },
+    );
 }
 
 export default useBindCanvasKeyPress;

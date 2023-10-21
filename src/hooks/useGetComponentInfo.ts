@@ -3,7 +3,7 @@ import { StoreStateType } from '@/store/index';
 import { useSelector } from 'react-redux';
 
 function useGetComponentInfo() {
-    const components = useSelector<StoreStateType, ComponentStateType>(state => state.components);
+    const components = useSelector<StoreStateType, ComponentStateType>(state => state.components.present);
 
     const { componentList, selectedId, copiedComponent } = components;
 
