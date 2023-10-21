@@ -1,6 +1,9 @@
 const { CracoAliasPlugin } = require('react-app-alias');
 
 module.exports = {
+    devServer: {
+        port: '3000',
+    },
     plugins: [
         {
             plugin: CracoAliasPlugin,
