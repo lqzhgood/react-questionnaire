@@ -8,7 +8,12 @@ import {
 } from '@/store/componentsReducer';
 
 function isActiveElementValid() {
-    return document.activeElement === document.body;
+    const activeElm = document.activeElement;
+    if (activeElm === document.body) return true;
+    // dnd-kit
+    if (activeElm?.matches('div[role="button"]')) return true;
+
+    return false;
 }
 
 function useBindCanvasKeyPress() {
