@@ -15,8 +15,7 @@ import { QuestionEditData } from '@/types/question';
 const { Title } = Typography;
 
 const TitleElm = () => {
-    const { pageInfo } = useGetQuestionPageInfo();
-    const { title } = pageInfo;
+    const { title } = useGetQuestionPageInfo();
     const dispatch = useDispatch();
 
     const [editState, setEditState] = useState(false);
@@ -45,7 +44,7 @@ const TitleElm = () => {
 const SaveButton = () => {
     const { id } = useParams();
     const { componentList } = useGetComponentInfo();
-    const { pageInfo } = useGetQuestionPageInfo();
+    const pageInfo = useGetQuestionPageInfo();
 
     const res = useMemo<QuestionEditData>(() => {
         return {

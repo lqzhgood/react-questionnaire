@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function useGetQuestionPageInfo() {
     const pageInfo = useSelector<StoreStateType, PageInfoType>(state => state.pageInfo);
 
-    return { pageInfo };
+    return pageInfo;
 }
 
 export default useGetQuestionPageInfo;

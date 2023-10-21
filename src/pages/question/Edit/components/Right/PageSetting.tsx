@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { updatePageInfo } from '@/store/pageInfo';
 
 const PageSetting = () => {
-    const { pageInfo } = useGetQuestionPageInfo();
+    const pageInfo = useGetQuestionPageInfo();
     const dispatch = useDispatch();
     // const { title, desc, js, css } = pageInfo;
 
