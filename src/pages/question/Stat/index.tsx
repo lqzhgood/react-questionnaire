@@ -12,6 +12,7 @@ import StatHeader from './components/Top/StatHeader';
 import ComponentList from './components/Left/ComponentList';
 import PageSata from './components/Main/PageSata';
 import ChartStat from './components/Right/ChartStat';
+import { QuestionComponentType } from '@/const/question';
 
 const Stat = () => {
     const nav = useNavigate();
@@ -20,7 +21,7 @@ const Stat = () => {
     useTitle(title + '- 问卷统计', { restoreOnUnmount: true });
 
     const [selectedComponentId, setSelectedComponentId] = useState('');
-    const [selectedComponentType, setSelectedComponentType] = useState('');
+    const [selectedComponentType, setSelectedComponentType] = useState<QuestionComponentType>();
 
     const LoadingElm = <CenterSpin style={{ marginTop: '60px' }} />;
 

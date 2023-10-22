@@ -3,11 +3,12 @@ import styles from './ComponentList.module.sass';
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
 import classnames from 'classnames';
 import { componentConfList } from '@/components/QuestionComponents';
+import { QuestionComponentType } from '@/const/question';
 
 type PropsType = {
     selectedComponentId: string;
     setSelectedComponentId: (id: string) => void;
-    setSelectedComponentType: (type: string) => void;
+    setSelectedComponentType: (type: QuestionComponentType) => void;
 };
 
 const ComponentList = ({ selectedComponentId, setSelectedComponentId, setSelectedComponentType }: PropsType) => {

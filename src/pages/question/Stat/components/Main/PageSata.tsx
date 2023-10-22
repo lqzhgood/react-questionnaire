@@ -4,18 +4,22 @@ import { useRequest } from 'ahooks';
 import { Table, Typography } from 'antd';
 
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
-import { StatDetail, StatListType, getStatListService } from '@/services/stat';
 import CenterSpin from '@/components/CenterSpin';
-const { Title } = Typography;
+import { GroupType, componentConfGroup } from '@/components/QuestionComponents';
+
+import { StatDetail, StatListType, getStatListService } from '@/services/stat';
+
+import { STAT_PAGE_SIZE } from '@/const';
+import { QuestionComponentType } from '@/const/question';
 
 import styles from './PageSata.module.sass';
-import { STAT_PAGE_SIZE } from '@/const';
-import { GroupType, componentConfGroup } from '@/components/QuestionComponents';
+
+const { Title } = Typography;
 
 type Props = {
     selectedComponentId: string;
     setSelectedComponentId: (id: string) => void;
-    setSelectedComponentType: (type: string) => void;
+    setSelectedComponentType: (type: QuestionComponentType) => void;
 };
 
 const ComponentGroupText = componentConfGroup.find(g => g.groupName === GroupType.Text);

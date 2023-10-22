@@ -10,5 +10,6 @@ export default {
     type: QuestionComponentType.Textarea,
     Component,
     PropsForm,
+    StatChart: null,
     defaultProps: QuestionTextareaDefaultProps,
 };

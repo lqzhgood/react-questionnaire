@@ -10,5 +10,6 @@ export default {
     type: QuestionComponentType.Info,
     Component,
     PropsForm,
+    StatChart: null,
     defaultProps: QuestionInfoDefaultProps,
 };

@@ -10,5 +10,6 @@ export default {
     type: QuestionComponentType.Paragraph,
     Component,
     PropsForm,
+    StatChart: null,
     defaultProps: QuestionParagraphDefaultProps,
 };

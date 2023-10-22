@@ -10,5 +10,6 @@ export default {
     type: QuestionComponentType.Title,
     Component,
     PropsForm,
+    StatChart: null,
     defaultProps: QuestionTitleDefaultProps,
 };

@@ -2,6 +2,7 @@ import { QuestionComponentType } from '@/const/question';
 import Component from './Component';
 import { QuestionCheckboxDefaultProps } from './interface';
 import PropsForm from './PropsForm';
+import StatChart from './StatChart';
 
 export * from './interface';
 
@@ -10,5 +11,6 @@ export default {
     type: QuestionComponentType.Checkbox,
     Component,
     PropsForm,
+    StatChart,
     defaultProps: QuestionCheckboxDefaultProps,
 };

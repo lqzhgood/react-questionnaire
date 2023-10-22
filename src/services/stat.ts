@@ -14,3 +14,14 @@ export function getStatListService<T = StatListType>(questionId: string, opt: { 
     const url = `/api/stat/${questionId}`;
     return axios.get<T, T>(url, { params: opt });
 }
+
+export type StatComponentDetail = { name: string; count: number };
+
+export type StatComponentType = {
+    stat: StatComponentDetail[];
+};
+
+export function getStatComponentService<T = StatComponentType>(questionId: string, componentId: string) {
+    const url = `/api/stat/${questionId}/${componentId}`;
+    return axios.get<T, T>(url);
+}

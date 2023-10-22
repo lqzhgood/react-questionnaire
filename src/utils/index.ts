@@ -26,3 +26,7 @@ export function hasIntersection(array1: string[], array2: string[]) {
     }
     return false;
 }
+
+export function formatPercent(n: number) {
+    return (n * 100).toFixed(2) + '%';
+}
