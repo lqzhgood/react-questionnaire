@@ -10,6 +10,7 @@ import useLoadQuestionData from '@/hooks/useLoadQuestionData';
 import styles from './index.module.sass';
 import StatHeader from './components/Top/StatHeader';
 import ComponentList from './components/Left/ComponentList';
+import PageSata from './components/Main/PageSata';
 
 const Stat = () => {
     const nav = useNavigate();
@@ -48,25 +49,26 @@ const Stat = () => {
                         setSelectedComponentType={setSelectedComponentType}
                     />
                 </div>
-                <div className={styles.main}>main</div>
+                <div className={styles.main}>
+                    <PageSata
+                        selectedComponentId={selectedComponentId}
+                        setSelectedComponentId={setSelectedComponentId}
+                        setSelectedComponentType={setSelectedComponentType}
+                    />
+                </div>
                 <div className={styles.right}>right</div>
             </>
         );
     }
 
+    // TODO 函数和组件的区别
     return (
         <div className={styles.container}>
             <div>
                 <StatHeader />
             </div>
             <div className={styles['content-wrapper']}>
-                {loading ? (
-                    LoadingElm
-                ) : (
-                    <div className={styles.content}>
-                        <ContentElm />
-                    </div>
-                )}
+                {loading ? LoadingElm : <div className={styles.content}>{ContentElm()}</div>}
             </div>
         </div>
     );
