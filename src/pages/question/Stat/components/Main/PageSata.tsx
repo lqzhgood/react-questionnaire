@@ -10,12 +10,15 @@ const { Title } = Typography;
 
 import styles from './PageSata.module.sass';
 import { STAT_PAGE_SIZE } from '@/const';
+import { GroupType, componentConfGroup } from '@/components/QuestionComponents';
 
 type Props = {
     selectedComponentId: string;
     setSelectedComponentId: (id: string) => void;
     setSelectedComponentType: (type: string) => void;
 };
+
+const ComponentGroupText = componentConfGroup.find(g => g.groupName === GroupType.Text);
 
 const PageSata = (props: Props) => {
     const { selectedComponentId, setSelectedComponentId, setSelectedComponentType } = props;
@@ -43,26 +46,30 @@ const PageSata = (props: Props) => {
         },
     );
 
-    const columns = componentList.map(c => {
-        const { fe_id, type } = c;
-        const title = (
-            <div
-                style={{ cursor: 'pointer' }}
-                className={selectedComponentId === fe_id ? styles.selected : ''}
-                onClick={() => {
-                    setSelectedComponentId(fe_id);
-                    setSelectedComponentType(type);
-                }}
-            >
-                {c.title}
-            </div>
-        );
+    const columns = componentList
+        .filter(({ type }) => {
+            return ComponentGroupText ? !ComponentGroupText.components.some(cc => cc.type === type) : true;
+        })
+        .map(c => {
+            const { fe_id, type } = c;
+            const title = (
+                <div
+                    style={{ cursor: 'pointer' }}
+                    className={selectedComponentId === fe_id ? styles.selected : ''}
+                    onClick={() => {
+                        setSelectedComponentId(fe_id);
+                        setSelectedComponentType(type);
+                    }}
+                >
+                    {c.title}
+                </div>
+            );
 
-        return {
-            title,
-            dataIndex: fe_id,
-        };
-    });
+            return {
+                title,
+                dataIndex: fe_id,
+            };
+        });
 
     return (
         <div>

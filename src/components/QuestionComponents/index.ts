@@ -7,17 +7,23 @@ import QuestionInfoConfType from './QuestionInfo/';
 import QuestionRadioConfType from './QuestionRadio/';
 import QuestionCheckboxConfType from './QuestionCheckbox/';
 
-export const componentConfGroup = [
+export enum GroupType {
+    Text = '文本显示',
+    Input = '用户输入',
+    Select = '用户选择',
+}
+
+export const componentConfGroup: { groupName: GroupType; components: ComponentConfType[] }[] = [
     {
-        groupName: '文本显示',
+        groupName: GroupType.Text,
         components: [QuestionTitleConfType, QuestionParagraphConfType, QuestionInfoConfType],
     },
     {
-        groupName: '用户输入',
+        groupName: GroupType.Input,
         components: [QuestionInputConfType, QuestionTextareaConfType],
     },
     {
-        groupName: '用户选择',
+        groupName: GroupType.Select,
         components: [QuestionRadioConfType, QuestionCheckboxConfType],
     },
 ];
