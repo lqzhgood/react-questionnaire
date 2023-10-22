@@ -8,7 +8,7 @@ const Demos = () => {
     return (
         <div style={{ padding: '20px' }}>
             <h1>Demos</h1>
-            <p>学些一些 Api 的临时 Demos</p>
+            <p>一些 Api 的临时 Demos</p>
 
             <Divider />
             <Space wrap>
