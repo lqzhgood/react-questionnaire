@@ -11,6 +11,7 @@ import styles from './index.module.sass';
 import StatHeader from './components/Top/StatHeader';
 import ComponentList from './components/Left/ComponentList';
 import PageSata from './components/Main/PageSata';
+import ChartStat from './components/Right/ChartStat';
 
 const Stat = () => {
     const nav = useNavigate();
@@ -56,7 +57,12 @@ const Stat = () => {
                         setSelectedComponentType={setSelectedComponentType}
                     />
                 </div>
-                <div className={styles.right}>right</div>
+                <div className={styles.right}>
+                    <ChartStat
+                        selectedComponentId={selectedComponentId}
+                        selectedComponentType={selectedComponentType}
+                    />
+                </div>
             </>
         );
     }
