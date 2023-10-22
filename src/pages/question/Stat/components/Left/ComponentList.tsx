@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import { Typography } from 'antd';
+import React from 'react';
 import styles from './ComponentList.module.sass';
 import useGetComponentInfo from '@/hooks/useGetComponentInfo';
 import classnames from 'classnames';
 import { componentConfList } from '@/components/QuestionComponents';
-
-const { Title } = Typography;
 
 type PropsType = {
     selectedComponentId: string;

@@ -61,7 +61,7 @@ const list: mockType[] = [
         response: (): QuestionEditData => ({
             id: R.id(),
             title: R.ctitle(),
-            desc: '问卷描述',
+            desc: '个人情况调研',
             isPublished: true,
             js: '',
             css: '',

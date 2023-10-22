@@ -1,12 +1,12 @@
-import Mock from 'better-mock';
 import { mockType } from '@/types/net';
 import { getStatList } from '../data/getStatList';
+import { StatListType } from '@/services/stat';
 
 const list: mockType[] = [
     {
         path: '/api/stat/:questionId',
         method: 'get',
-        response: () => ({
+        response: (): StatListType => ({
             total: 100,
             list: getStatList(),
         }),
