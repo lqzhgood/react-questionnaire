@@ -17,6 +17,7 @@ import TestMockMvc from './pages/TestMockMvc';
 import DndSortable from './pages/Dnd-sortable';
 import ReduxUndo from './pages/ReduxUndo';
 import ChartPie from './pages/ChartPie';
+import ChartBar from './pages/ChartBar';
 
 export const demosRouter = {
     path: '/demos',
@@ -89,6 +90,10 @@ export const demosRouter = {
         {
             path: 'ChartPie',
             element: <ChartPie />,
+        },
+        {
+            path: 'ChartBar',
+            element: <ChartBar />,
         },
     ],
 };
