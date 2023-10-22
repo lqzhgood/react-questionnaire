@@ -3,6 +3,7 @@ import { mockType } from '@/types/net';
 
 import Question from './controller/question';
 import User from './controller/user';
+import Stat from './controller/stat';
 import { controller } from './controller';
 
 const mockList: mockType[] = [
@@ -15,6 +16,7 @@ const mockList: mockType[] = [
     },
     ...Question,
     ...User,
+    ...Stat,
 ];
 
 Mock.setup({
