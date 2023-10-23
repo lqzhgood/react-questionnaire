@@ -11,7 +11,7 @@ const StatChart = ({ data = [] }: Props) => {
     const sum = useMemo(() => data.reduce((pre, cV) => pre + cV.count, 0), [data]);
 
     return (
-        <div style={{ width: '300px', height: '400px', margin: 'auto' }}>
+        <div style={{ width: '400px', height: '400px', margin: 'auto' }}>
             <ResponsiveContainer width='100%' height='100%'>
                 <PieChart>
                     <Pie
