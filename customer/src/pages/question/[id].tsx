@@ -2,7 +2,7 @@ import QuestionInput from '@/components/QuestionComponents/QuestionInput';
 import QuestionRadio from '@/components/QuestionComponents/QuestionRadio';
 import React from 'react';
 import styles from './page.module.sass';
-import { GetServerSidePropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next/types';
 
 type Props = {
     id: string;
@@ -11,7 +11,7 @@ type Props = {
 const page = (props: Props) => {
     return (
         <div>
-            <form action='/question/answer' method='POST'>
+            <form action='/api/answer' method='POST'>
                 <input type='hidden' name='questionId' value={props.id} />
                 <div className={styles.componentWrapper}>
                     <QuestionInput fe_id='c1' props={{ title: '你的姓名', placeholder: '请输入姓名' }} />
@@ -37,12 +37,11 @@ const page = (props: Props) => {
     );
 };
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext<Props>) {
-    console.log('ctx.params', ctx.params);
-    // const { id = '' } = ctx.params;
-
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     return {
-        // id,
+        props: {
+            id: ctx.params?.id,
+        },
     };
 }
 
