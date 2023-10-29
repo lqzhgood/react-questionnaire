@@ -18,82 +18,100 @@ import DndSortable from './pages/Dnd-sortable';
 import ReduxUndo from './pages/ReduxUndo';
 import ChartPie from './pages/ChartPie';
 import ChartBar from './pages/ChartBar';
+import UseStateFn from './pages/Optimize/UseStateFn';
+import { Outlet } from 'react-router-dom';
 
 export const demosRouter = {
-    path: '/demos',
+    path: 'demos',
     element: <Demos />,
     children: [
         {
-            path: 'StyledComponents',
-            element: <StyledComponents />,
+            path: 'normal',
+            element: <Outlet />,
+            children: [
+                {
+                    path: 'StyledComponents',
+                    element: <StyledComponents />,
+                },
+                {
+                    path: 'UseCallback',
+                    element: <UseCallback />,
+                },
+                {
+                    path: 'UseMemo',
+                    element: <UseMemo />,
+                },
+                {
+                    path: 'UseRef',
+                    element: <UseRef />,
+                },
+                {
+                    path: 'List',
+                    element: <List />,
+                },
+                {
+                    path: 'Count',
+                    element: <Count init={5} />,
+                },
+                {
+                    path: 'ClosureTrap',
+                    element: <ClosureTrap />,
+                },
+                {
+                    path: 'ClassnamesFC',
+                    element: <ClassnamesFC />,
+                },
+                {
+                    path: 'Context',
+                    element: <Context />,
+                },
+                {
+                    path: 'CountReducer',
+                    element: <CountReducer />,
+                },
+                {
+                    path: 'TodoReducer',
+                    element: <TodoReducer />,
+                },
+                {
+                    path: 'Redux',
+                    element: <Redux />,
+                },
+                {
+                    path: 'Mobx',
+                    element: <Mobx />,
+                },
+                {
+                    path: 'TestMockMvc',
+                    element: <TestMockMvc />,
+                },
+                {
+                    path: 'Dnd-sortable',
+                    element: <DndSortable />,
+                },
+                {
+                    path: 'ReduxUndo',
+                    element: <ReduxUndo />,
+                },
+                {
+                    path: 'ChartPie',
+                    element: <ChartPie />,
+                },
+                {
+                    path: 'ChartBar',
+                    element: <ChartBar />,
+                },
+            ],
         },
         {
-            path: 'UseCallback',
-            element: <UseCallback />,
-        },
-        {
-            path: 'UseMemo',
-            element: <UseMemo />,
-        },
-        {
-            path: 'UseRef',
-            element: <UseRef />,
-        },
-        {
-            path: 'List',
-            element: <List />,
-        },
-        {
-            path: 'Count',
-            element: <Count init={5} />,
-        },
-        {
-            path: 'ClosureTrap',
-            element: <ClosureTrap />,
-        },
-        {
-            path: 'ClassnamesFC',
-            element: <ClassnamesFC />,
-        },
-        {
-            path: 'Context',
-            element: <Context />,
-        },
-        {
-            path: 'CountReducer',
-            element: <CountReducer />,
-        },
-        {
-            path: 'TodoReducer',
-            element: <TodoReducer />,
-        },
-        {
-            path: 'Redux',
-            element: <Redux />,
-        },
-        {
-            path: 'Mobx',
-            element: <Mobx />,
-        },
-        {
-            path: 'TestMockMvc',
-            element: <TestMockMvc />,
-        },
-        {
-            path: 'Dnd-sortable',
-            element: <DndSortable />,
-        },
-        {
-            path: 'ReduxUndo',
-            element: <ReduxUndo />,
-        },
-        {
-            path: 'ChartPie',
-            element: <ChartPie />,
-        },
-        {
-            path: 'ChartBar',
-            element: <ChartBar />,
+            path: 'optimize',
+            element: <Outlet />,
+            children: [
+                {
+                    path: 'UseStateFn',
+                    element: <UseStateFn />,
+                },
+            ],
         },
     ],
 };
