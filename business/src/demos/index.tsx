@@ -4,7 +4,7 @@ import { LinkOutlined } from '@ant-design/icons';
 import { Button, Divider, Space, Typography } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 const Demos = () => {
     return (
         <div style={{ padding: '20px' }}>

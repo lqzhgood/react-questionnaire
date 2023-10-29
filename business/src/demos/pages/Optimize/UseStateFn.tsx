@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const p = new Proxy([], {
-    get(target, p, receiver) {
+    get(target, p) {
         console.log('proxy get');
         if (p === 'length') {
             return target.length;
@@ -13,7 +13,7 @@ const p = new Proxy([], {
 
         return 'proxy';
     },
-    set(target: string[], p, newValue, receiver) {
+    set(target: string[], p, newValue) {
         target.push(newValue);
         console.log('proxy set');
         return true;
@@ -30,7 +30,7 @@ const UseStateFn = () => {
         setArr([...arr, 'a']);
     }
 
-    const [pry, setProxy] = useState(p);
+    const [pry] = useState(p);
 
     return (
         <div>
