@@ -55,9 +55,7 @@ const StatHeader = () => {
                         <Title>{title}</Title>
                     </Space>
                 </div>
-                <div className={styles.main}>
-                    <LinkAndQRCodeElm />
-                </div>
+                <div className={styles.main}>{LinkAndQRCodeElm}</div>
                 <div className={styles.right}>
                     <Button type='primary' onClick={() => nav(`/question/edit/${id}`)}>
                         编辑问卷
