@@ -20,6 +20,7 @@ import ChartPie from './pages/ChartPie';
 import ChartBar from './pages/ChartBar';
 import UseStateFn from './pages/Optimize/UseStateFn';
 import { Outlet } from 'react-router-dom';
+import ReactMemo from './pages/Optimize/ReactMemo';
 
 export const demosRouter = {
     path: 'demos',
@@ -110,6 +111,10 @@ export const demosRouter = {
                 {
                     path: 'UseStateFn',
                     element: <UseStateFn />,
+                },
+                {
+                    path: 'ReactMemo',
+                    element: <ReactMemo />,
                 },
             ],
         },
