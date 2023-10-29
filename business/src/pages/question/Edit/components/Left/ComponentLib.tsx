@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ComponentConfType, componentConfGroup } from '@/components/QuestionComponents';
 import { Typography } from 'antd';
 import styles from './ComponentLib.module.sass';
@@ -9,7 +9,8 @@ const { Title } = Typography;
 
 const ComponentLib = () => {
     const dispatch = useDispatch();
-    function add(c: ComponentConfType) {
+
+    const add = useCallback((c: ComponentConfType) => {
         const { title, type, defaultProps } = c;
 
         dispatch(
@@ -20,7 +21,7 @@ const ComponentLib = () => {
                 props: defaultProps,
             }),
         );
-    }
+    }, []);
 
     return (
         <>
