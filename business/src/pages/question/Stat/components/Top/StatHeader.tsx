@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Input, InputRef, Popover, Space, Tooltip, Typography, message } from 'antd';
@@ -26,7 +26,7 @@ const StatHeader = () => {
         message.success(`复制成功 ${text}`);
     }
 
-    const LinkAndQRCodeElm = () => {
+    const LinkAndQRCodeElm = useMemo(() => {
         if (!isPublished) return null;
 
         const url = window.location.origin + `/question/${id}`;
@@ -42,7 +42,7 @@ const StatHeader = () => {
                 </Popover>
             </Space>
         );
-    };
+    }, [id, isPublished]);
 
     return (
         <div className={styles['header-wrapper']}>
