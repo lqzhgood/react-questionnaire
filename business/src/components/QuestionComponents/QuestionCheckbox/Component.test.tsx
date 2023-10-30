@@ -5,7 +5,7 @@ import { QuestionCheckboxDefaultProps } from './interface';
 
 describe('QuestionCheckbox', () => {
     test('默认属性', () => {
-        const { title = '', list = [] } = QuestionCheckboxDefaultProps;
+        const { title, list } = QuestionCheckboxDefaultProps;
 
         render(<Component />);
 

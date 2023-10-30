@@ -5,7 +5,7 @@ import { QuestionInfoDefaultProps } from './interface';
 describe('QuestionInfo', () => {
     test('默认属性', () => {
         render(<Component />);
-        const t = screen.getByText(QuestionInfoDefaultProps.title || '');
+        const t = screen.getByText(QuestionInfoDefaultProps.title);
         expect(t).toBeInTheDocument();
     });
 

@@ -6,7 +6,7 @@ import { QuestionParagraphDefaultProps } from './interface';
 describe('QuestionParagraph', () => {
     test('默认属性', () => {
         render(<Component />);
-        const t = screen.getByText(QuestionParagraphDefaultProps.text || '');
+        const t = screen.getByText(QuestionParagraphDefaultProps.text);
         expect(t).toBeInTheDocument();
     });
 

@@ -6,10 +6,10 @@ import { QuestionTextareaDefaultProps } from './interface';
 describe('QuestionTextarea', () => {
     test('默认属性', () => {
         render(<Component />);
-        const t = screen.getByText(QuestionTextareaDefaultProps.title || '');
+        const t = screen.getByText(QuestionTextareaDefaultProps.title);
         expect(t).toBeInTheDocument();
 
-        const textArea = screen.getByPlaceholderText(QuestionTextareaDefaultProps.placeholder || '');
+        const textArea = screen.getByPlaceholderText(QuestionTextareaDefaultProps.placeholder);
         expect(textArea).toBeInTheDocument();
         expect(textArea.matches('textarea')).toBeTruthy();
     });

@@ -5,7 +5,7 @@ import { QuestionRadioDefaultProps } from './interface';
 
 describe('QuestionRadio', () => {
     test('默认属性', () => {
-        const { title = '', options = [] } = QuestionRadioDefaultProps;
+        const { title, options } = QuestionRadioDefaultProps;
 
         render(<Component />);
 

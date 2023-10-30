@@ -6,10 +6,10 @@ import { QuestionInputDefaultProps } from './interface';
 describe('QuestionInput', () => {
     test('默认属性', () => {
         render(<Component />);
-        const t = screen.getByText(QuestionInputDefaultProps.title || '');
+        const t = screen.getByText(QuestionInputDefaultProps.title);
         expect(t).toBeInTheDocument();
 
-        const input = screen.getByPlaceholderText(QuestionInputDefaultProps.placeholder || '');
+        const input = screen.getByPlaceholderText(QuestionInputDefaultProps.placeholder);
         expect(input).toBeInTheDocument();
         expect(input.matches('input')).toBeTruthy();
     });
