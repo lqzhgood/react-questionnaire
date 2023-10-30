@@ -11,6 +11,11 @@ module.exports = {
                 webpackConfig.optimization.splitChunks = {
                     chunks: 'all',
                     cacheGroups: {
+                        mock: {
+                            name: 'mock-chunk',
+                            test: /mock/,
+                            priority: 101,
+                        },
                         antd: {
                             name: 'antd-chunk',
                             test: /antd/,
