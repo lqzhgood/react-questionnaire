@@ -4,9 +4,8 @@ import Component from './Component';
 import { QuestionTextareaDefaultProps } from './interface';
 
 describe('QuestionTextarea', () => {
-    render(<Component />);
-
     test('默认属性', () => {
+        render(<Component />);
         const t = screen.getByText(QuestionTextareaDefaultProps.title || '');
         expect(t).toBeInTheDocument();
 

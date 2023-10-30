@@ -4,9 +4,8 @@ import Component from './Component';
 import { QuestionInputDefaultProps } from './interface';
 
 describe('QuestionInput', () => {
-    render(<Component />);
-
     test('默认属性', () => {
+        render(<Component />);
         const t = screen.getByText(QuestionInputDefaultProps.title || '');
         expect(t).toBeInTheDocument();
 
