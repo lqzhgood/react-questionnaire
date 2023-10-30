@@ -1,15 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionInputDefaultProps } from './interface';
+import { QuestionInputDefaultProps, QuestionInputPropsType } from './interface';
+import { QuestionDefaultProps } from '@/types/utils';
 
 describe('QuestionInput', () => {
     test('默认属性', () => {
+        const { title, placeholder } = QuestionInputDefaultProps as QuestionDefaultProps<QuestionInputPropsType>;
         render(<Component />);
-        const t = screen.getByText(QuestionInputDefaultProps.title);
+        const t = screen.getByText(title);
         expect(t).toBeInTheDocument();
 
-        const input = screen.getByPlaceholderText(QuestionInputDefaultProps.placeholder);
+        const input = screen.getByPlaceholderText(placeholder);
         expect(input).toBeInTheDocument();
         expect(input.matches('input')).toBeTruthy();
     });

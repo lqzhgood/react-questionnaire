@@ -1,5 +1,4 @@
 import { QuestionCommonPropsType } from '@/types/question';
-import { QuestionDefaultProps } from '@/types/utils';
 
 export interface QuestionRadioPropsType extends QuestionCommonPropsType {
     title?: string;
@@ -11,7 +10,7 @@ export interface QuestionRadioPropsType extends QuestionCommonPropsType {
     value?: string;
 }
 
-export const QuestionRadioDefaultProps: QuestionDefaultProps<QuestionRadioPropsType> = {
+export const QuestionRadioDefaultProps: QuestionRadioPropsType = {
     title: '单选标题',
     isVertical: false,
     options: [

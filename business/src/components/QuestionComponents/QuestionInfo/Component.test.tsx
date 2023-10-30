@@ -1,11 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionInfoDefaultProps } from './interface';
+import { QuestionInfoDefaultProps, QuestionInfoPropsType } from './interface';
+import { QuestionDefaultProps } from '@/types/utils';
 describe('QuestionInfo', () => {
     test('默认属性', () => {
+        const { title } = QuestionInfoDefaultProps as QuestionDefaultProps<QuestionInfoPropsType>;
         render(<Component />);
-        const t = screen.getByText(QuestionInfoDefaultProps.title);
+        const t = screen.getByText(title);
         expect(t).toBeInTheDocument();
     });
 

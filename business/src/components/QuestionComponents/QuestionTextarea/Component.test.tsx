@@ -1,15 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionTextareaDefaultProps } from './interface';
+import { QuestionTextareaDefaultProps, QuestionTextareaPropsType } from './interface';
+import { QuestionDefaultProps } from '@/types/utils';
 
 describe('QuestionTextarea', () => {
     test('默认属性', () => {
+        const { title, placeholder } = QuestionTextareaDefaultProps as QuestionDefaultProps<QuestionTextareaPropsType>;
         render(<Component />);
-        const t = screen.getByText(QuestionTextareaDefaultProps.title);
+        const t = screen.getByText(title);
         expect(t).toBeInTheDocument();
 
-        const textArea = screen.getByPlaceholderText(QuestionTextareaDefaultProps.placeholder);
+        const textArea = screen.getByPlaceholderText(placeholder);
         expect(textArea).toBeInTheDocument();
         expect(textArea.matches('textarea')).toBeTruthy();
     });

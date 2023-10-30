@@ -1,11 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionCheckboxDefaultProps } from './interface';
+import { QuestionCheckboxDefaultProps, QuestionCheckboxPropsType } from './interface';
+import { QuestionDefaultProps } from '@/types/utils';
 
 describe('QuestionCheckbox', () => {
     test('默认属性', () => {
-        const { title, list } = QuestionCheckboxDefaultProps;
+        const { title, list } = QuestionCheckboxDefaultProps as QuestionDefaultProps<QuestionCheckboxPropsType>;
 
         render(<Component />);
 

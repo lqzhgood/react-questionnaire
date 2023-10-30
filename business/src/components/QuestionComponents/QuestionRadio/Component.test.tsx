@@ -1,11 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionRadioDefaultProps } from './interface';
+import { QuestionRadioDefaultProps, QuestionRadioPropsType } from './interface';
+import { QuestionDefaultProps } from '@/types/utils';
 
 describe('QuestionRadio', () => {
     test('默认属性', () => {
-        const { title, options } = QuestionRadioDefaultProps;
+        const { title, options } = QuestionRadioDefaultProps as QuestionDefaultProps<QuestionRadioPropsType>;
 
         render(<Component />);
 

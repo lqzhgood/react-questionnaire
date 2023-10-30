@@ -1,11 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Component from './Component';
-import { QuestionTitleDefaultProps } from './interface';
+import { QuestionTitleDefaultProps, QuestionTitlePropsType } from './interface';
+import { QuestionTextareaDefaultProps } from '../QuestionTextarea';
+import { QuestionDefaultProps } from '@/types/utils';
 describe('QuestionTitle', () => {
     test('默认属性', () => {
+        const { text } = QuestionTextareaDefaultProps as QuestionDefaultProps<QuestionTitlePropsType>;
         render(<Component />);
-        const t = screen.getByText(QuestionTitleDefaultProps.text);
+        const t = screen.getByText(text);
         expect(t).toBeInTheDocument();
     });
 
