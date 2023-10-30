@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/react-questionnaire/static/css/main.757cf94c.css",
-    "main.js": "/react-questionnaire/static/js/main.d7fc94cf.js",
+    "main.js": "/react-questionnaire/static/js/main.a327ebfc.js",
     "Edit.css": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css",
     "Edit.js": "/react-questionnaire/static/js/Edit.88224159.chunk.js",
     "Stat.css": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css",
     "Stat.js": "/react-questionnaire/static/js/Stat.413d0681.chunk.js",
-    "static/js/775.94e40092.chunk.js": "/react-questionnaire/static/js/775.94e40092.chunk.js",
+    "static/css/50.04536877.chunk.css": "/react-questionnaire/static/css/50.04536877.chunk.css",
+    "static/js/50.6b9c6563.chunk.js": "/react-questionnaire/static/js/50.6b9c6563.chunk.js",
     "static/js/224.1191262b.chunk.js": "/react-questionnaire/static/js/224.1191262b.chunk.js",
     "static/js/46.d8402ab5.chunk.js": "/react-questionnaire/static/js/46.d8402ab5.chunk.js",
     "static/js/361.aebbe2c4.chunk.js": "/react-questionnaire/static/js/361.aebbe2c4.chunk.js",
@@ -35,12 +36,13 @@
     "static/js/510.6277183a.chunk.js": "/react-questionnaire/static/js/510.6277183a.chunk.js",
     "index.html": "/react-questionnaire/index.html",
     "main.757cf94c.css.map": "/react-questionnaire/static/css/main.757cf94c.css.map",
-    "main.d7fc94cf.js.map": "/react-questionnaire/static/js/main.d7fc94cf.js.map",
+    "main.a327ebfc.js.map": "/react-questionnaire/static/js/main.a327ebfc.js.map",
     "Edit.cd533c3b.chunk.css.map": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css.map",
     "Edit.88224159.chunk.js.map": "/react-questionnaire/static/js/Edit.88224159.chunk.js.map",
     "Stat.f0d305f8.chunk.css.map": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css.map",
     "Stat.413d0681.chunk.js.map": "/react-questionnaire/static/js/Stat.413d0681.chunk.js.map",
-    "775.94e40092.chunk.js.map": "/react-questionnaire/static/js/775.94e40092.chunk.js.map",
+    "50.04536877.chunk.css.map": "/react-questionnaire/static/css/50.04536877.chunk.css.map",
+    "50.6b9c6563.chunk.js.map": "/react-questionnaire/static/js/50.6b9c6563.chunk.js.map",
     "224.1191262b.chunk.js.map": "/react-questionnaire/static/js/224.1191262b.chunk.js.map",
     "46.d8402ab5.chunk.js.map": "/react-questionnaire/static/js/46.d8402ab5.chunk.js.map",
     "361.aebbe2c4.chunk.js.map": "/react-questionnaire/static/js/361.aebbe2c4.chunk.js.map",
@@ -74,6 +76,6 @@
     "static/js/reactDom-chunk.4519e0af.js",
     "static/js/vendors-chunk.3a290667.js",
     "static/css/main.757cf94c.css",
-    "static/js/main.d7fc94cf.js"
+    "static/js/main.a327ebfc.js"
   ]
 }
