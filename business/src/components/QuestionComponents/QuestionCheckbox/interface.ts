@@ -1,4 +1,5 @@
 import { QuestionCommonPropsType } from '@/types/question';
+import { QuestionDefaultProps } from '@/types/utils';
 
 export interface QuestionCheckboxPropsType extends QuestionCommonPropsType {
     title?: string;
@@ -10,7 +11,7 @@ export interface QuestionCheckboxPropsType extends QuestionCommonPropsType {
     }[];
 }
 
-export const QuestionCheckboxDefaultProps: QuestionCheckboxPropsType = {
+export const QuestionCheckboxDefaultProps: QuestionDefaultProps<QuestionCheckboxPropsType> = {
     title: '多选标题',
     isVertical: false,
     list: [

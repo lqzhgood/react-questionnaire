@@ -1,4 +1,5 @@
 import { QuestionCommonPropsType } from '@/types/question';
+import { QuestionDefaultProps } from '@/types/utils';
 
 export interface QuestionTitlePropsType extends QuestionCommonPropsType {
     text?: string;
@@ -6,7 +7,7 @@ export interface QuestionTitlePropsType extends QuestionCommonPropsType {
     isCenter?: boolean;
 }
 
-export const QuestionTitleDefaultProps: QuestionTitlePropsType = {
+export const QuestionTitleDefaultProps: QuestionDefaultProps<QuestionTitlePropsType> = {
     text: '一行标题',
     level: 1,
     isCenter: false,
