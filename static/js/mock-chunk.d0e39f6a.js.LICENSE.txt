@@ -1,0 +1,5 @@
+/*!
+  * better-mock v0.3.6 (mock.browser.js)
+  * (c) 2019-2022 lavyun@163.com
+  * Released under the MIT License.
+  */
