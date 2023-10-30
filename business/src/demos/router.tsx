@@ -1,120 +1,214 @@
-import React from 'react';
-import Demos from './index';
-import StyledComponents from './pages/StyledComponents';
-import UseCallback from './pages/UseCallback';
-import UseMemo from './pages/UseMemo';
-import UseRef from './pages/UseRef';
-import List from './pages/List';
-import Count from './pages/Count';
-import ClosureTrap from './pages/ClosureTrap';
-import ClassnamesFC from './pages/ClassnamesFC';
-import Context from './pages/Context/index';
-import CountReducer from './pages/CountReducer';
-import TodoReducer from './pages/TodoReducer/index';
-import Redux from './pages/Redux';
-import Mobx from './pages/Mobx';
-import TestMockMvc from './pages/TestMockMvc';
-import DndSortable from './pages/Dnd-sortable';
-import ReduxUndo from './pages/ReduxUndo';
-import ChartPie from './pages/ChartPie';
-import ChartBar from './pages/ChartBar';
-import UseStateFn from './pages/Optimize/UseStateFn';
+import AsyncComponent from '@/components/AsyncComponent';
+import React, { lazy } from 'react';
 import { Outlet } from 'react-router-dom';
-import ReactMemo from './pages/Optimize/ReactMemo';
+
+const Demos = lazy(() => import('./index'));
+const StyledComponents = lazy(() => import('./pages/StyledComponents'));
+const UseCallback = lazy(() => import('./pages/UseCallback'));
+const UseMemo = lazy(() => import('./pages/UseMemo'));
+const UseRef = lazy(() => import('./pages/UseRef'));
+const List = lazy(() => import('./pages/List'));
+const Count = lazy(() => import('./pages/Count'));
+const ClosureTrap = lazy(() => import('./pages/ClosureTrap'));
+const ClassnamesFC = lazy(() => import('./pages/ClassnamesFC'));
+const Context = lazy(() => import('./pages/Context/index'));
+const CountReducer = lazy(() => import('./pages/CountReducer'));
+const TodoReducer = lazy(() => import('./pages/TodoReducer/index'));
+const Redux = lazy(() => import('./pages/Redux'));
+const Mobx = lazy(() => import('./pages/Mobx'));
+const TestMockMvc = lazy(() => import('./pages/TestMockMvc'));
+const DndSortable = lazy(() => import('./pages/Dnd-sortable'));
+const ReduxUndo = lazy(() => import('./pages/ReduxUndo'));
+const ChartPie = lazy(() => import('./pages/ChartPie'));
+const ChartBar = lazy(() => import('./pages/ChartBar'));
+const UseStateFn = lazy(() => import('./pages/Optimize/UseStateFn'));
+const ReactMemo = lazy(() => import('./pages/Optimize/ReactMemo'));
 
 export const demosRouter = {
     path: 'demos',
-    element: <Demos />,
+    element: (
+        <AsyncComponent>
+            <Demos />
+        </AsyncComponent>
+    ),
     children: [
         {
             path: 'normal',
-            element: <Outlet />,
+            element: (
+                <AsyncComponent>
+                    <Outlet />
+                </AsyncComponent>
+            ),
             children: [
                 {
                     path: 'StyledComponents',
-                    element: <StyledComponents />,
+                    element: (
+                        <AsyncComponent>
+                            <StyledComponents />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'UseCallback',
-                    element: <UseCallback />,
+                    element: (
+                        <AsyncComponent>
+                            <UseCallback />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'UseMemo',
-                    element: <UseMemo />,
+                    element: (
+                        <AsyncComponent>
+                            <UseMemo />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'UseRef',
-                    element: <UseRef />,
+                    element: (
+                        <AsyncComponent>
+                            <UseRef />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'List',
-                    element: <List />,
+                    element: (
+                        <AsyncComponent>
+                            <List />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'Count',
-                    element: <Count init={5} />,
+                    element: (
+                        <AsyncComponent>
+                            <Count init={5} />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ClosureTrap',
-                    element: <ClosureTrap />,
+                    element: (
+                        <AsyncComponent>
+                            <ClosureTrap />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ClassnamesFC',
-                    element: <ClassnamesFC />,
+                    element: (
+                        <AsyncComponent>
+                            <ClassnamesFC />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'Context',
-                    element: <Context />,
+                    element: (
+                        <AsyncComponent>
+                            <Context />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'CountReducer',
-                    element: <CountReducer />,
+                    element: (
+                        <AsyncComponent>
+                            <CountReducer />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'TodoReducer',
-                    element: <TodoReducer />,
+                    element: (
+                        <AsyncComponent>
+                            <TodoReducer />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'Redux',
-                    element: <Redux />,
+                    element: (
+                        <AsyncComponent>
+                            <Redux />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'Mobx',
-                    element: <Mobx />,
+                    element: (
+                        <AsyncComponent>
+                            <Mobx />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'TestMockMvc',
-                    element: <TestMockMvc />,
+                    element: (
+                        <AsyncComponent>
+                            <TestMockMvc />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'Dnd-sortable',
-                    element: <DndSortable />,
+                    element: (
+                        <AsyncComponent>
+                            <DndSortable />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ReduxUndo',
-                    element: <ReduxUndo />,
+                    element: (
+                        <AsyncComponent>
+                            <ReduxUndo />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ChartPie',
-                    element: <ChartPie />,
+                    element: (
+                        <AsyncComponent>
+                            <ChartPie />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ChartBar',
-                    element: <ChartBar />,
+                    element: (
+                        <AsyncComponent>
+                            <ChartBar />
+                        </AsyncComponent>
+                    ),
                 },
             ],
         },
         {
             path: 'optimize',
-            element: <Outlet />,
+            element: (
+                <AsyncComponent>
+                    <Outlet />
+                </AsyncComponent>
+            ),
             children: [
                 {
                     path: 'UseStateFn',
-                    element: <UseStateFn />,
+                    element: (
+                        <AsyncComponent>
+                            <UseStateFn />
+                        </AsyncComponent>
+                    ),
                 },
                 {
                     path: 'ReactMemo',
-                    element: <ReactMemo />,
+                    element: (
+                        <AsyncComponent>
+                            <ReactMemo />
+                        </AsyncComponent>
+                    ),
                 },
             ],
         },

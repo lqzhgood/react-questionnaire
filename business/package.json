@@ -46,7 +46,7 @@
     },
     "scripts": {
         "dev": "craco start",
-        "analyze": "source-map-explorer 'build/static/js/*.js'",
+        "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
         "build": "craco build",
         "build:gitPage": "dotenv -e .env.gitPage craco build",
         "test": "craco test",

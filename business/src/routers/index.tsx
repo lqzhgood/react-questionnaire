@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import MainLayout from '../layouts/MainLayout';
 import { Navigate, createHashRouter } from 'react-router-dom';
 import Home from '../pages/Home';
@@ -10,11 +10,12 @@ import List from '../pages/manage/List';
 import Star from '../pages/manage/Star';
 import Trash from '../pages/manage/Trash';
 import QuestionLayout from '../layouts/QuestionLayout';
-import Edit from '../pages/question/Edit';
-import Stat from '../pages/question/Stat';
+const Edit = lazy(() => import(/* webpackChunkName: "Edit" */ '../pages/question/Edit'));
+const Stat = lazy(() => import(/* webpackChunkName: "Stat" */ '../pages/question/Stat'));
 import type { RouteProps } from '../types/routes';
 
 import { demosRouter } from '../demos/router';
+import AsyncComponent from '@/components/AsyncComponent';
 
 export const HOME_PATHNAME = '/';
 export const LOGIN_PATHNAME = '/login';
@@ -82,12 +83,20 @@ export const routers: RouteProps[] = [
             {
                 name: '编辑',
                 path: 'edit/:id',
-                element: <Edit />,
+                element: (
+                    <AsyncComponent>
+                        <Edit />
+                    </AsyncComponent>
+                ),
             },
             {
                 name: '统计',
                 path: 'stat/:id',
-                element: <Stat />,
+                element: (
+                    <AsyncComponent>
+                        <Stat />
+                    </AsyncComponent>
+                ),
             },
         ],
     },

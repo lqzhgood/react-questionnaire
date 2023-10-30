@@ -8,9 +8,11 @@ import { BASE_URL } from '@/const/web';
 
 const middlewaresGlobal = [format, auth];
 
+const MOCK_BASE_URL = ['.', '/'].includes(BASE_URL) ? '' : BASE_URL;
+
 export function controller(mockList: mockType[]) {
     mockList.forEach(({ path, method, response }) => {
-        Mock.mock(BASE_URL + path, method, (opt: MockCbOptions) => {
+        Mock.mock(MOCK_BASE_URL + path, method, (opt: MockCbOptions) => {
             let resp: RespType;
 
             try {
