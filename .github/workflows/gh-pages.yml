@@ -26,7 +26,7 @@ jobs:
           node-version: '18.18.0'
 
       - name: Build
-        run: cd business && npm ci && npm run build:gitPage
+        run: cd business && npm ci && storybook:build && npm run build:gitPage
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
