@@ -53,7 +53,7 @@
         "eject": "craco eject",
         "format": ".\\node_modules\\.bin\\prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
         "storybook": "storybook dev -p 6006",
-        "storybook:build": "storybook build -o build\\storybook"
+        "storybook:build": "storybook build -o build/storybook"
     },
     "browserslist": {
         "production": [
