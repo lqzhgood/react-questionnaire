@@ -96,7 +96,7 @@ const PublishButton = () => {
             manual: true,
             onSuccess() {
                 message.success('发布成功');
-                nav(`/question/stat/${id}`); // TODO check
+                nav(`/question/stat/${id}`);
             },
         },
     );

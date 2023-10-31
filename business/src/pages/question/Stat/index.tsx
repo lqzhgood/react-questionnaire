@@ -68,7 +68,6 @@ const Stat = () => {
         );
     }
 
-    // TODO 函数和组件的区别
     return (
         <div className={styles.container}>
             <div>

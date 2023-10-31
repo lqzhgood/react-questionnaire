@@ -1,6 +1,8 @@
-import AsyncComponent from '@/components/AsyncComponent';
 import React, { lazy } from 'react';
 import { Outlet } from 'react-router-dom';
+
+import AsyncComponent from '@/components/AsyncComponent';
+import TestComponent from './pages/TestComponent';
 
 const Demos = lazy(() => import('./index'));
 const StyledComponents = lazy(() => import('./pages/StyledComponents'));
@@ -181,6 +183,14 @@ export const demosRouter = {
                     element: (
                         <AsyncComponent>
                             <ChartBar />
+                        </AsyncComponent>
+                    ),
+                },
+                {
+                    path: 'TestComponent',
+                    element: (
+                        <AsyncComponent>
+                            <TestComponent />
                         </AsyncComponent>
                     ),
                 },
