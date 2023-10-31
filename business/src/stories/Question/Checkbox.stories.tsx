@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Component from '@/components/QuestionComponents/QuestionCheckbox/Component';
+import { QuestionCheckbox as Component } from '@/components/QuestionComponents/QuestionCheckbox/Component';
 import { QuestionCheckboxDefaultProps } from '@/components/QuestionComponents/QuestionCheckbox/interface';
 
 const meta = {

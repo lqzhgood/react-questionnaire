@@ -5,7 +5,7 @@ type Props = QuestionParagraphPropsType;
 
 const { Paragraph } = Typography;
 
-const QuestionParagraph = (props: Props) => {
+export const QuestionParagraph = (props: Props) => {
     const { text = '', isCenter = false } = { ...QuestionParagraphDefaultProps, ...props };
 
     const textList = text.split('\n');

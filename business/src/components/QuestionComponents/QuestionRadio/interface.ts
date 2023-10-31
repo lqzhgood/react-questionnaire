@@ -1,12 +1,26 @@
 import { QuestionCommonPropsType } from '@/types/question';
 
 export interface QuestionRadioPropsType extends QuestionCommonPropsType {
+    /**
+     * 标题
+     * @default 单选标题
+     */
     title?: string;
+    /**
+     * 垂直显示
+     * @default false
+     */
     isVertical?: boolean;
+    /**
+     * 单选选项
+     */
     options?: {
         value: string;
         label: string;
     }[];
+    /**
+     * 单选选中
+     */
     value?: string;
 }
 

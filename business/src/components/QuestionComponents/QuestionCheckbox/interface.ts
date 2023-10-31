@@ -1,8 +1,19 @@
 import { QuestionCommonPropsType } from '@/types/question';
 
 export interface QuestionCheckboxPropsType extends QuestionCommonPropsType {
+    /**
+     * 标题
+     * @default 多选标题
+     */
     title?: string;
+    /**
+     * 是否垂直显示
+     * @default false
+     */
     isVertical?: boolean;
+    /**
+     * 选项列表
+     */
     list?: {
         value: string;
         label: string;

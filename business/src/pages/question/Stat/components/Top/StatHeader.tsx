@@ -7,6 +7,7 @@ import { CopyOutlined, LeftOutlined, QrcodeOutlined } from '@ant-design/icons';
 import QRCode from 'qrcode.react';
 import useGetQuestionPageInfo from '@/hooks/useGetQuestionPageInfo';
 import styles from './StatHeader.module.sass';
+import { BASE_URL } from '@/const/web';
 
 const { Title } = Typography;
 
@@ -22,14 +23,16 @@ const StatHeader = () => {
         if (!elm) return null;
         elm.select();
         const text = elm.input?.value || '';
-        navigator.clipboard.writeText(text);
-        message.success(`复制成功 ${text}`);
+        navigator.clipboard.writeText('https://github.com/lqzhgood/react-questionnaire');
+        // navigator.clipboard.writeText(text);
+        message.success(`复制成功`);
+        message.success(`C 端在 customer 项目，并未一起打包，无法访问`);
     }
 
     const LinkAndQRCodeElm = useMemo(() => {
         if (!isPublished) return null;
 
-        const url = window.location.origin + `/question/${id}`;
+        const url = window.location.origin + BASE_URL + `/question/${id}`;
 
         return (
             <Space>

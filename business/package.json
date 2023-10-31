@@ -46,6 +46,7 @@
     },
     "scripts": {
         "dev": "craco start",
+        "dev:gitPage": "dotenv -e .env.gitPage craco start",
         "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
         "build": "craco build",
         "build:gitPage": "dotenv -e .env.gitPage craco build",
@@ -79,14 +80,15 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-        "@storybook/addon-essentials": "^7.5.1",
-        "@storybook/addon-interactions": "^7.5.1",
-        "@storybook/addon-links": "^7.5.1",
+        "@storybook/addon-essentials": "^7.5.2",
+        "@storybook/addon-interactions": "^7.5.2",
+        "@storybook/addon-links": "^7.5.2",
+        "@storybook/addon-mdx-gfm": "^7.5.2",
         "@storybook/addon-onboarding": "^1.0.8",
-        "@storybook/blocks": "^7.5.1",
-        "@storybook/preset-create-react-app": "^7.5.1",
-        "@storybook/react": "^7.5.1",
-        "@storybook/react-webpack5": "^7.5.1",
+        "@storybook/blocks": "^7.5.2",
+        "@storybook/preset-create-react-app": "^7.5.2",
+        "@storybook/react": "^7.5.2",
+        "@storybook/react-webpack5": "^7.5.2",
         "@storybook/testing-library": "^0.2.2",
         "@types/crypto-js": "^4.1.2",
         "@types/lodash": "^4.14.199",
@@ -98,7 +100,7 @@
         "prettier": "^3.0.3",
         "prop-types": "^15.8.1",
         "react-app-alias": "^2.2.2",
-        "storybook": "^7.5.1",
+        "storybook": "^7.5.2",
         "webpack": "^5.89.0"
     }
 }

@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-const QuestionInput = (props: QuestionInfoPropsType) => {
+export const QuestionInfo = (props: QuestionInfoPropsType) => {
     const { title = '', desc = '' } = { ...QuestionInfoDefaultProps, ...props };
 
     const textList = desc.split('\n');
@@ -25,4 +25,4 @@ const QuestionInput = (props: QuestionInfoPropsType) => {
     );
 };
 
-export default QuestionInput;
+export default QuestionInfo;

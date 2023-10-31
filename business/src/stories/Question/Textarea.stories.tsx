@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Component from '@/components/QuestionComponents/QuestionTextarea/Component';
+import { QuestionTextarea as Component } from '@/components/QuestionComponents/QuestionTextarea/Component';
 import { QuestionTextareaDefaultProps } from '@/components/QuestionComponents/QuestionTextarea/interface';
 
 const meta = {

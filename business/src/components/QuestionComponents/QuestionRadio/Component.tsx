@@ -4,7 +4,7 @@ import { Radio, Space, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
-const QuestionRadio = (props: QuestionRadioPropsType) => {
+export const QuestionRadio = (props: QuestionRadioPropsType) => {
     const { title = '', isVertical = false, options = [], value = '' } = { ...QuestionRadioDefaultProps, ...props };
 
     return (

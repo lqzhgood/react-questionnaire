@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Component from '@/components/QuestionComponents/QuestionRadio/Component';
+import { QuestionRadio as Component } from '@/components/QuestionComponents/QuestionRadio/Component';
 import { QuestionRadioDefaultProps } from '@/components/QuestionComponents/QuestionRadio/interface';
 
 const meta = {

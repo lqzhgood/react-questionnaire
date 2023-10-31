@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Component from '@/components/QuestionComponents/QuestionTitle/Component';
+import { QuestionTitle as Component } from '@/components/QuestionComponents/QuestionTitle/Component';
 import { QuestionTitleDefaultProps } from '@/components/QuestionComponents/QuestionTitle/interface';
 
 const meta = {

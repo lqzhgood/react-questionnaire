@@ -4,7 +4,7 @@ import { Input, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
-const QuestionTextarea = (props: QuestionTextareaPropsType) => {
+export const QuestionTextarea = (props: QuestionTextareaPropsType) => {
     const { title, placeholder } = { ...QuestionTextareaDefaultProps, ...props };
     return (
         <div>
