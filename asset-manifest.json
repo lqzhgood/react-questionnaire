@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-questionnaire/static/css/main.757cf94c.css",
-    "main.js": "/react-questionnaire/static/js/main.a327ebfc.js",
+    "main.css": "/react-questionnaire/static/css/main.32f4d475.css",
+    "main.js": "/react-questionnaire/static/js/main.c4d75204.js",
     "Edit.css": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css",
     "Edit.js": "/react-questionnaire/static/js/Edit.88224159.chunk.js",
     "Stat.css": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css",
@@ -34,9 +34,10 @@
     "reactDom-chunk.js": "/react-questionnaire/static/js/reactDom-chunk.4519e0af.js",
     "vendors-chunk.js": "/react-questionnaire/static/js/vendors-chunk.3a290667.js",
     "static/js/510.6277183a.chunk.js": "/react-questionnaire/static/js/510.6277183a.chunk.js",
+    "static/media/storybook.svg": "/react-questionnaire/static/media/storybook.88fc21d31b474e70eb586ddd688c145a.svg",
     "index.html": "/react-questionnaire/index.html",
-    "main.757cf94c.css.map": "/react-questionnaire/static/css/main.757cf94c.css.map",
-    "main.a327ebfc.js.map": "/react-questionnaire/static/js/main.a327ebfc.js.map",
+    "main.32f4d475.css.map": "/react-questionnaire/static/css/main.32f4d475.css.map",
+    "main.c4d75204.js.map": "/react-questionnaire/static/js/main.c4d75204.js.map",
     "Edit.cd533c3b.chunk.css.map": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css.map",
     "Edit.88224159.chunk.js.map": "/react-questionnaire/static/js/Edit.88224159.chunk.js.map",
     "Stat.f0d305f8.chunk.css.map": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css.map",
@@ -75,7 +76,7 @@
     "static/js/antd-chunk.988798be.js",
     "static/js/reactDom-chunk.4519e0af.js",
     "static/js/vendors-chunk.3a290667.js",
-    "static/css/main.757cf94c.css",
-    "static/js/main.a327ebfc.js"
+    "static/css/main.32f4d475.css",
+    "static/js/main.c4d75204.js"
   ]
 }
