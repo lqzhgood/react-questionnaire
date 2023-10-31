@@ -22,7 +22,7 @@ const StatHeader = () => {
         const elm = urlInputRef.current;
         if (!elm) return null;
         elm.select();
-        // @ts-ignore
+        // eslint-disable-next-line
         const text = elm.input?.value || '';
         navigator.clipboard.writeText('https://github.com/lqzhgood/react-questionnaire');
         // navigator.clipboard.writeText(text);
