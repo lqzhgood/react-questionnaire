@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_questionnaire=self.webpackChunkreact_questionnaire||[]).push([[301],{56301:function(n,e,t){t.r(e);var u=t(29439),i=t(72791),r=t(80184);e.default=function(n){var e=(0,i.useState)(n.init),t=(0,u.Z)(e,2),a=t[0],c=t[1];return(0,r.jsxs)("button",{onClick:function(){c(a+5),c(a+1)},children:["Add ",a]})}}}]);
-//# sourceMappingURL=301.eee5f40f.chunk.js.map

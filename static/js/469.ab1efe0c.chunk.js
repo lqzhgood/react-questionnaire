@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_questionnaire=self.webpackChunkreact_questionnaire||[]).push([[469],{8469:function(n,e,r){r.r(e);var t,u=r(30168),a=(r(72791),r(76502)),i=r(80184),c=a.ZP.button(t||(t=(0,u.Z)(["\n    background: red;\n    border-radius: 3px;\n    padding: 10px;\n"])));e.default=function(){return(0,i.jsx)(c,{children:"Btn"})}}}]);
+//# sourceMappingURL=469.ab1efe0c.chunk.js.map
