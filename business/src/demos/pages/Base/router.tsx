@@ -13,6 +13,7 @@ const TestComponent = lazy(() => import('./TestComponent'));
 const UseCallback = lazy(() => import('./UseCallback'));
 const UseMemo = lazy(() => import('./UseMemo'));
 const UseRef = lazy(() => import('./UseRef'));
+const TaskProvider = lazy(() => import('./TaskProvider/App'));
 
 export default {
     path: 'Base',
@@ -95,6 +96,14 @@ export default {
             element: (
                 <AsyncComponent>
                     <TestComponent />
+                </AsyncComponent>
+            ),
+        },
+        {
+            path: 'TaskProvider',
+            element: (
+                <AsyncComponent>
+                    <TaskProvider />
                 </AsyncComponent>
             ),
         },
