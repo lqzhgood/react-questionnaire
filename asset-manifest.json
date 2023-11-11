@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-questionnaire/static/css/main.32f4d475.css",
-    "main.js": "/react-questionnaire/static/js/main.11802860.js",
+    "main.js": "/react-questionnaire/static/js/main.debd6c6d.js",
     "Edit.css": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css",
     "Edit.js": "/react-questionnaire/static/js/Edit.88224159.chunk.js",
     "Stat.css": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css",
@@ -19,6 +19,7 @@
     "static/js/637.52520cb8.chunk.js": "/react-questionnaire/static/js/637.52520cb8.chunk.js",
     "static/js/178.b0745ce6.chunk.js": "/react-questionnaire/static/js/178.b0745ce6.chunk.js",
     "static/js/992.02317668.chunk.js": "/react-questionnaire/static/js/992.02317668.chunk.js",
+    "static/js/475.e24ee580.chunk.js": "/react-questionnaire/static/js/475.e24ee580.chunk.js",
     "static/js/627.4f33bf96.chunk.js": "/react-questionnaire/static/js/627.4f33bf96.chunk.js",
     "static/js/617.39ba4aa9.chunk.js": "/react-questionnaire/static/js/617.39ba4aa9.chunk.js",
     "static/js/745.9ee6acd6.chunk.js": "/react-questionnaire/static/js/745.9ee6acd6.chunk.js",
@@ -42,7 +43,7 @@
     "static/media/storybook.svg": "/react-questionnaire/static/media/storybook.88fc21d31b474e70eb586ddd688c145a.svg",
     "index.html": "/react-questionnaire/index.html",
     "main.32f4d475.css.map": "/react-questionnaire/static/css/main.32f4d475.css.map",
-    "main.11802860.js.map": "/react-questionnaire/static/js/main.11802860.js.map",
+    "main.debd6c6d.js.map": "/react-questionnaire/static/js/main.debd6c6d.js.map",
     "Edit.cd533c3b.chunk.css.map": "/react-questionnaire/static/css/Edit.cd533c3b.chunk.css.map",
     "Edit.88224159.chunk.js.map": "/react-questionnaire/static/js/Edit.88224159.chunk.js.map",
     "Stat.f0d305f8.chunk.css.map": "/react-questionnaire/static/css/Stat.f0d305f8.chunk.css.map",
@@ -60,6 +61,7 @@
     "637.52520cb8.chunk.js.map": "/react-questionnaire/static/js/637.52520cb8.chunk.js.map",
     "178.b0745ce6.chunk.js.map": "/react-questionnaire/static/js/178.b0745ce6.chunk.js.map",
     "992.02317668.chunk.js.map": "/react-questionnaire/static/js/992.02317668.chunk.js.map",
+    "475.e24ee580.chunk.js.map": "/react-questionnaire/static/js/475.e24ee580.chunk.js.map",
     "627.4f33bf96.chunk.js.map": "/react-questionnaire/static/js/627.4f33bf96.chunk.js.map",
     "617.39ba4aa9.chunk.js.map": "/react-questionnaire/static/js/617.39ba4aa9.chunk.js.map",
     "745.9ee6acd6.chunk.js.map": "/react-questionnaire/static/js/745.9ee6acd6.chunk.js.map",
@@ -87,6 +89,6 @@
     "static/js/reactDom-chunk.4519e0af.js",
     "static/js/vendors-chunk.3a290667.js",
     "static/css/main.32f4d475.css",
-    "static/js/main.11802860.js"
+    "static/js/main.debd6c6d.js"
   ]
 }
